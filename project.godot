@@ -15,10 +15,14 @@ run/main_scene="uid://ctqc3knl1wvkd"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MonitorOrgasm="uid://dqgyijbrgytas"
+
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
+window/size/viewport_width=1270
+window/size/viewport_height=480
 window/size/always_on_top=true
 
 [input]
