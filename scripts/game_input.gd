@@ -2,6 +2,8 @@ extends Node
 
 @export var sound_sphere_prefab: PackedScene
 @export var body: CharacterBody3D
+@export var sound_cooldown : float = 1.0 
+var sound_cooldown_timer : float = 0
 
 func spawn_sound_sphere():
 	var instantiated_sphere: Node3D = sound_sphere_prefab.instantiate()
@@ -14,9 +16,11 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("primary_action"):
+	if event.is_action("primary_action") and sound_cooldown_timer <= 0:
+		sound_cooldown_timer = sound_cooldown
 		spawn_sound_sphere()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if sound_cooldown_timer > 0:
+		sound_cooldown_timer -= delta
