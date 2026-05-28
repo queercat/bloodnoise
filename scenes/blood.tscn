@@ -2,20 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://ci30mrpqu5n5y" path="res://textures/blood/blood_albedo.png" id="1_kl077"]
 [ext_resource type="Script" uid="uid://cmtfimlewj572" path="res://scripts/world.gd" id="1_rlbrl"]
-[ext_resource type="Texture2D" uid="uid://cl0cuonduotx0" path="res://textures/sky/imgonline-com-ua-TextureSeamless-zE5o1fmhDbo.png" id="1_uli77"]
+[ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_bmbh8"]
 [ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_2klaf"]
 [ext_resource type="Script" uid="uid://db3fyq3fo2hoh" path="res://scripts/light.gd" id="5_bmbh8"]
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2klaf"]
-panorama = ExtResource("1_uli77")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
+panorama = ExtResource("2_bmbh8")
 
 [sub_resource type="Sky" id="Sky_rlbrl"]
-sky_material = SubResource("PanoramaSkyMaterial_2klaf")
+sky_material = SubResource("PanoramaSkyMaterial_bmbh8")
 
 [sub_resource type="Environment" id="Environment_bmbh8"]
 background_mode = 2
 sky = SubResource("Sky_rlbrl")
+ambient_light_source = 1
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.0
+reflected_light_source = 1
 tonemap_mode = 2
+volumetric_fog_density = 0.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uli77"]
 albedo_texture = ExtResource("1_kl077")

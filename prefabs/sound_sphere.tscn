@@ -4,7 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6rmw"]
 transparency = 1
-albedo_color = Color(0.7499766, 0.94765013, 0.95869774, 0.28235295)
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0, 0.5877888, 0.592624, 0.06666667)
 
 [sub_resource type="SphereMesh" id="SphereMesh_bmbh8"]
 material = SubResource("StandardMaterial3D_x6rmw")
