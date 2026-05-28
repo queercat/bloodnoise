@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="7_3b78s"]
 [ext_resource type="Script" uid="uid://yatj2le54akp" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
 [ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/game_input.gd" id="9_fud1l"]
+[ext_resource type="SpriteFrames" uid="uid://dg6igkybi50xx" path="res://sprites/bell_shake.tres" id="9_g6jj4"]
 [ext_resource type="PackedScene" uid="uid://tee1lcf5ygts" path="res://prefabs/sound_sphere.tscn" id="10_y8m56"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7pn1"]
@@ -220,9 +221,18 @@ editor_description = "
 fov = 105.0
 near = 0.001
 
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=2052474239]
+transform = Transform3D(0.28284556, 0, 0, 0, 0.28284556, 0, 0, 0, 1, 0.6718451, -1.1088802, -1.4601879)
+gi_mode = 0
+no_depth_test = true
+sprite_frames = ExtResource("9_g6jj4")
+animation = &"shake"
+frame_progress = 0.6444809
+
 [node name="-- Our Stuff --" type="Node" parent="." unique_id=518815335]
 
-[node name="Game Input" type="Node" parent="." unique_id=682892425 node_paths=PackedStringArray("body")]
+[node name="Game Input" type="Node" parent="." unique_id=682892425 node_paths=PackedStringArray("body", "animated_sprite")]
 script = ExtResource("9_fud1l")
 sound_sphere_prefab = ExtResource("10_y8m56")
 body = NodePath("../Body")
+animated_sprite = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/AnimatedSprite3D")
