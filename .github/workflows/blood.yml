@@ -67,6 +67,7 @@ jobs:
     permissions:
       pages: write
       id-token: write
+      contents: write
     container:
       image: barichello/godot-ci:4.6.3
     steps:
