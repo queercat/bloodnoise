@@ -68,8 +68,8 @@ func _gather_mouse_input(event: InputEventMouseMotion) -> void:
 
 func _gather_input() -> void:
 	# Get input strength on the horizontal axes.
-	var ix = Input.get_action_raw_strength("ui_right") - Input.get_action_raw_strength("ui_left")
-	var iy = Input.get_action_raw_strength("ui_down") - Input.get_action_raw_strength("ui_up")
+	var ix = Input.get_action_raw_strength("pm_right") - Input.get_action_raw_strength("pm_left")
+	var iy = Input.get_action_raw_strength("pm_down") - Input.get_action_raw_strength("pm_up")
 	
 	# Collect input.
 	movement_input = Vector2(ix, iy).normalized()
@@ -94,7 +94,7 @@ func _gather_input() -> void:
 		move_dir *= Parameters.MAX_SPEED / move_dir.length()
 	
 	# Gather jumping and crouching input.
-	jump_on = Input.is_action_pressed("ui_accept") if Parameters.AUTOHOP else Input.is_action_just_pressed("ui_accept")
+	jump_on = Input.is_action_pressed("pm_jump") if Parameters.AUTOHOP else Input.is_action_just_pressed("pm_jump")
 	duck_on = Input.is_action_pressed("pm_crouch")
 
 func _act_on_input() -> void:
