@@ -18,6 +18,5 @@ func _process(delta: float) -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	turn_on_light()
 
-
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	turn_on_light()
