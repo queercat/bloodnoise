@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://ctqc3knl1wvkd"]
 
 [ext_resource type="Texture2D" uid="uid://ci30mrpqu5n5y" path="res://textures/blood/blood_albedo.png" id="1_kl077"]
+[ext_resource type="Script" uid="uid://cmtfimlewj572" path="res://scripts/world.gd" id="1_rlbrl"]
 [ext_resource type="Texture2D" uid="uid://cl0cuonduotx0" path="res://textures/sky/imgonline-com-ua-TextureSeamless-zE5o1fmhDbo.png" id="1_uli77"]
 [ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_2klaf"]
+[ext_resource type="Script" uid="uid://db3fyq3fo2hoh" path="res://scripts/light.gd" id="5_bmbh8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_2klaf"]
 panorama = ExtResource("1_uli77")
@@ -23,7 +25,14 @@ albedo_texture = ExtResource("1_kl077")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2klaf"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
-[node name="Node3D" type="Node3D" unique_id=1881400266]
+[sub_resource type="SphereShape3D" id="SphereShape3D_rlbrl"]
+radius = 1.076861
+
+[sub_resource type="SphereMesh" id="SphereMesh_2klaf"]
+
+[node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("player")]
+script = ExtResource("1_rlbrl")
+player = NodePath("Pawn")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2095310147]
 environment = SubResource("Environment_bmbh8")
@@ -40,3 +49,26 @@ shape = SubResource("ConcavePolygonShape3D_2klaf")
 
 [node name="Pawn" parent="." unique_id=1211940215 instance=ExtResource("3_2klaf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 0, -0.011795163)
+
+[node name="Light" type="Node3D" parent="." unique_id=408207902 node_paths=PackedStringArray("light")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.4939585, -19.782162)
+script = ExtResource("5_bmbh8")
+light = NodePath("OmniLight3D")
+
+[node name="Area3D" type="Area3D" parent="Light" unique_id=992871253]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light/Area3D" unique_id=1973460475]
+shape = SubResource("SphereShape3D_rlbrl")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light" unique_id=518843319]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93232834, 0)
+light_energy = 0.0
+omni_range = 9.663
+omni_attenuation = -0.404
+
+[node name="Mesh" type="MeshInstance3D" parent="Light" unique_id=1156568407]
+mesh = SubResource("SphereMesh_2klaf")
+
+[connection signal="area_entered" from="Light/Area3D" to="Light" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Light/Area3D" to="Light" method="_on_area_3d_body_entered"]

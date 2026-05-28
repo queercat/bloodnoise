@@ -1,13 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bk1exu1p74wrs"]
+[gd_scene format=3 uid="uid://bk1exu1p74wrs"]
 
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_Pawn.gd" id="1_qx48f"]
+[ext_resource type="Script" uid="uid://bspcjrutnj6m6" path="res://addons/GoldGdt/src/GoldGdt_Pawn.gd" id="1_qx48f"]
 [ext_resource type="Resource" uid="uid://c770d2068in3p" path="res://addons/GoldGdt/Default.tres" id="2_m0ukv"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_Controls.gd" id="3_sa8ga"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_Move.gd" id="4_5gavo"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_View.gd" id="5_say2d"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="6_k6qi8"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="7_3b78s"]
-[ext_resource type="Script" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
+[ext_resource type="Script" uid="uid://bxlc1ij4f1764" path="res://addons/GoldGdt/src/GoldGdt_Controls.gd" id="3_sa8ga"]
+[ext_resource type="Script" uid="uid://bnroqxvn2vlhu" path="res://addons/GoldGdt/src/GoldGdt_Move.gd" id="4_5gavo"]
+[ext_resource type="Script" uid="uid://b8fmh2cm5v471" path="res://addons/GoldGdt/src/GoldGdt_View.gd" id="5_say2d"]
+[ext_resource type="Script" uid="uid://bweoo24e2h20g" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="6_k6qi8"]
+[ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="7_3b78s"]
+[ext_resource type="Script" uid="uid://yatj2le54akp" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
+[ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/game_input.gd" id="9_fud1l"]
+[ext_resource type="PackedScene" uid="uid://tee1lcf5ygts" path="res://prefabs/sound_sphere.tscn" id="10_y8m56"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7pn1"]
 size = Vector3(0.813, 1.829, 0.813)
@@ -17,12 +19,13 @@ custom_solver_bias = 1.0
 margin = 0.25
 radius = 0.15
 
-[node name="Pawn" type="Node3D" node_paths=PackedStringArray("View", "Camera")]
+[node name="Pawn" type="Node3D" unique_id=1204566797 node_paths=PackedStringArray("View", "Camera")]
 script = ExtResource("1_qx48f")
 View = NodePath("View Control")
 Camera = NodePath("Interpolated Camera")
 
-[node name="Debug UI" type="Control" parent="." node_paths=PackedStringArray("Controls", "View", "Body", "GameInfo", "ControlsInfo", "ViewInfo", "BodyInfo")]
+[node name="Debug UI" type="Control" parent="." unique_id=1349969217 node_paths=PackedStringArray("Controls", "View", "Body", "GameInfo", "ControlsInfo", "ViewInfo", "BodyInfo")]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,22 +43,22 @@ ControlsInfo = NodePath("Controls/Info")
 ViewInfo = NodePath("View Control/Info")
 BodyInfo = NodePath("Body/Info")
 
-[node name="Game" type="Control" parent="Debug UI"]
+[node name="Game" type="Control" parent="Debug UI" unique_id=1435332169]
 anchors_preset = 0
 offset_left = 8.0
 offset_right = 48.0
 offset_bottom = 40.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="Debug UI/Game"]
-layout_mode = 2
+[node name="Title" type="Label" parent="Debug UI/Game" unique_id=1725057168]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 20
 text = "Game"
 
-[node name="Info" type="Label" parent="Debug UI/Game"]
-layout_mode = 2
+[node name="Info" type="Label" parent="Debug UI/Game" unique_id=830928372]
+layout_mode = 0
 offset_top = 28.0
 offset_right = 129.0
 offset_bottom = 85.0
@@ -64,7 +67,7 @@ text = "Rendering FPS: #
 Physics Tick Rate: #
 Physics Frame Time: #"
 
-[node name="Controls" type="Control" parent="Debug UI"]
+[node name="Controls" type="Control" parent="Debug UI" unique_id=138899729]
 anchors_preset = 0
 offset_left = 8.0
 offset_top = 95.0
@@ -72,12 +75,12 @@ offset_right = 48.0
 offset_bottom = 135.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="Debug UI/Controls"]
-layout_mode = 2
+[node name="Title" type="Label" parent="Debug UI/Controls" unique_id=719866682]
+layout_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Controls"
 
-[node name="Info" type="Label" parent="Debug UI/Controls"]
+[node name="Info" type="Label" parent="Debug UI/Controls" unique_id=695028275]
 layout_mode = 0
 offset_top = 28.0
 offset_right = 135.0
@@ -89,7 +92,7 @@ Wish Speed: #
 Jump Pressed: ?
 Duck Pressed: ?"
 
-[node name="View Control" type="Control" parent="Debug UI"]
+[node name="View Control" type="Control" parent="Debug UI" unique_id=336660957]
 anchors_preset = 0
 offset_left = 8.0
 offset_top = 232.0
@@ -97,12 +100,12 @@ offset_right = 48.0
 offset_bottom = 272.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="Debug UI/View Control"]
-layout_mode = 2
+[node name="Title" type="Label" parent="Debug UI/View Control" unique_id=113935992]
+layout_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "View Control"
 
-[node name="Info" type="Label" parent="Debug UI/View Control"]
+[node name="Info" type="Label" parent="Debug UI/View Control" unique_id=1147552414]
 layout_mode = 0
 offset_top = 28.0
 offset_right = 114.0
@@ -111,7 +114,7 @@ theme_override_font_sizes/font_size = 12
 text = "View Angles: (#, #, #)
 View Offset: #"
 
-[node name="Body" type="Control" parent="Debug UI"]
+[node name="Body" type="Control" parent="Debug UI" unique_id=466937067]
 anchors_preset = 0
 offset_left = 8.0
 offset_top = 309.0
@@ -119,13 +122,13 @@ offset_right = 48.0
 offset_bottom = 349.0
 mouse_filter = 2
 
-[node name="Title" type="Label" parent="Debug UI/Body"]
-layout_mode = 2
+[node name="Title" type="Label" parent="Debug UI/Body" unique_id=898292520]
+layout_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Body
 "
 
-[node name="Info" type="Label" parent="Debug UI/Body"]
+[node name="Info" type="Label" parent="Debug UI/Body" unique_id=7937856]
 layout_mode = 0
 offset_top = 28.0
 offset_right = 59.0
@@ -136,7 +139,7 @@ Speed: # m/s (# u/s)
 Ducking: ?
 Ducked: ?"
 
-[node name="Attribution" type="RichTextLabel" parent="Debug UI"]
+[node name="Attribution" type="RichTextLabel" parent="Debug UI" unique_id=1372029577]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -153,14 +156,14 @@ Copyright (c) 2024 ratmarrow
 "
 fit_content = true
 
-[node name="User Input" type="Node" parent="." node_paths=PackedStringArray("Body", "Move", "View")]
+[node name="User Input" type="Node" parent="." unique_id=1218988230 node_paths=PackedStringArray("Body", "Move", "View")]
 script = ExtResource("3_sa8ga")
 Parameters = ExtResource("2_m0ukv")
 Body = NodePath("../Body")
 Move = NodePath("../Move Functions")
 View = NodePath("../View Control")
 
-[node name="View Control" type="Node" parent="." node_paths=PackedStringArray("Body", "horizontal_view", "vertical_view", "camera_mount")]
+[node name="View Control" type="Node" parent="." unique_id=1173269248 node_paths=PackedStringArray("Body", "horizontal_view", "vertical_view", "camera_mount")]
 script = ExtResource("5_say2d")
 Parameters = ExtResource("2_m0ukv")
 Body = NodePath("../Body")
@@ -168,12 +171,12 @@ horizontal_view = NodePath("../Body/Horizontal View")
 vertical_view = NodePath("../Body/Horizontal View/Vertical View")
 camera_mount = NodePath("../Body/Horizontal View/Vertical View/Camera Mount")
 
-[node name="Move Functions" type="Node" parent="." node_paths=PackedStringArray("Body")]
+[node name="Move Functions" type="Node" parent="." unique_id=422155820 node_paths=PackedStringArray("Body")]
 script = ExtResource("4_5gavo")
 Parameters = ExtResource("2_m0ukv")
 Body = NodePath("../Body")
 
-[node name="Body" type="CharacterBody3D" parent="." node_paths=PackedStringArray("View", "collision_hull", "duck_timer")]
+[node name="Body" type="CharacterBody3D" parent="." unique_id=38935576 node_paths=PackedStringArray("View", "collision_hull", "duck_timer")]
 collision_layer = 2
 floor_constant_speed = true
 script = ExtResource("6_k6qi8")
@@ -182,20 +185,20 @@ View = NodePath("../View Control")
 collision_hull = NodePath("Collision Hull")
 duck_timer = NodePath("Duck Timer")
 
-[node name="Collision Hull" type="CollisionShape3D" parent="Body"]
+[node name="Collision Hull" type="CollisionShape3D" parent="Body" unique_id=1607507887]
 shape = SubResource("BoxShape3D_j7pn1")
 
-[node name="Duck Timer" type="Timer" parent="Body"]
+[node name="Duck Timer" type="Timer" parent="Body" unique_id=1208572630]
 
-[node name="Horizontal View" type="Node3D" parent="Body"]
+[node name="Horizontal View" type="Node3D" parent="Body" unique_id=1604726030]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
 
-[node name="Vertical View" type="Node3D" parent="Body/Horizontal View"]
+[node name="Vertical View" type="Node3D" parent="Body/Horizontal View" unique_id=1533691874]
 
-[node name="Camera Mount" type="Marker3D" parent="Body/Horizontal View/Vertical View"]
+[node name="Camera Mount" type="Marker3D" parent="Body/Horizontal View/Vertical View" unique_id=229362965]
 gizmo_extents = 0.5
 
-[node name="Interpolated Camera" type="Node3D" parent="." node_paths=PackedStringArray("target", "camera_arm", "camera_anchor", "camera")]
+[node name="Interpolated Camera" type="Node3D" parent="." unique_id=1206542293 node_paths=PackedStringArray("target", "camera_arm", "camera_anchor", "camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.711, 0)
 script = ExtResource("7_3b78s")
 Parameters = ExtResource("2_m0ukv")
@@ -204,15 +207,22 @@ camera_arm = NodePath("Arm")
 camera_anchor = NodePath("Arm/Arm Anchor")
 camera = NodePath("Arm/Arm Anchor/Camera")
 
-[node name="Arm" type="SpringArm3D" parent="Interpolated Camera"]
+[node name="Arm" type="SpringArm3D" parent="Interpolated Camera" unique_id=40745457]
 shape = SubResource("SphereShape3D_u4rs7")
 spring_length = 0.0
 margin = 0.1
 
-[node name="Arm Anchor" type="Node3D" parent="Interpolated Camera/Arm"]
+[node name="Arm Anchor" type="Node3D" parent="Interpolated Camera/Arm" unique_id=658685396]
 editor_description = "
 "
 
-[node name="Camera" type="Camera3D" parent="Interpolated Camera/Arm/Arm Anchor"]
+[node name="Camera" type="Camera3D" parent="Interpolated Camera/Arm/Arm Anchor" unique_id=1752051055]
 fov = 105.0
 near = 0.001
+
+[node name="-- Our Stuff --" type="Node" parent="." unique_id=518815335]
+
+[node name="Game Input" type="Node" parent="." unique_id=682892425 node_paths=PackedStringArray("body")]
+script = ExtResource("9_fud1l")
+sound_sphere_prefab = ExtResource("10_y8m56")
+body = NodePath("../Body")
