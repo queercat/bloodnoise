@@ -1,4 +1,3 @@
-@icon("src/gdticon.png")
 class_name GoldGdt_Camera extends Node3D
 
 @export_group("Components")

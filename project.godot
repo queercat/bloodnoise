@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bloodnoise"
-run/main_scene="uid://ctqc3knl1wvkd"
+run/main_scene="uid://btuunyaf3uy15"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
