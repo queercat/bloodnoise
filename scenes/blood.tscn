@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_bmbh8"]
 [ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_2klaf"]
 [ext_resource type="Script" uid="uid://db3fyq3fo2hoh" path="res://scripts/light.gd" id="5_bmbh8"]
+[ext_resource type="PackedScene" uid="uid://bw4t4o5g40jen" path="res://assets/blender/tuning fork.blend" id="6_4atxx"]
 [ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="6_8qiea"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
@@ -34,8 +35,6 @@ data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0
 [sub_resource type="SphereShape3D" id="SphereShape3D_rlbrl"]
 radius = 1.076861
 
-[sub_resource type="SphereMesh" id="SphereMesh_2klaf"]
-
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rlbrl")
 player = NodePath("Pawn")
@@ -44,7 +43,7 @@ player = NodePath("Pawn")
 environment = SubResource("Environment_bmbh8")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1209216555]
-transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, -1.492, 0, 0.204)
 material_override = SubResource("StandardMaterial3D_uli77")
 mesh = SubResource("PlaneMesh_2klaf")
 
@@ -54,12 +53,14 @@ mesh = SubResource("PlaneMesh_2klaf")
 shape = SubResource("ConcavePolygonShape3D_2klaf")
 
 [node name="Pawn" parent="." unique_id=1211940215 instance=ExtResource("3_2klaf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 0, -0.011795163)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 4, -0.011795163)
 
-[node name="Light" type="Node3D" parent="." unique_id=408207902 node_paths=PackedStringArray("light")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.4939585, -19.782162)
+[node name="Light" type="Node3D" parent="." unique_id=408207902 node_paths=PackedStringArray("primary_light", "secondary_light", "awake_anim")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -19.782)
 script = ExtResource("5_bmbh8")
-light = NodePath("OmniLight3D")
+primary_light = NodePath("primary")
+secondary_light = NodePath("secondary")
+awake_anim = NodePath("tuning fork/AnimationPlayer")
 
 [node name="Area3D" type="Area3D" parent="Light" unique_id=992871253]
 collision_mask = 4
@@ -67,17 +68,27 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Light/Area3D" unique_id=1973460475]
 shape = SubResource("SphereShape3D_rlbrl")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Light" unique_id=518843319]
+[node name="primary" type="OmniLight3D" parent="Light" unique_id=518843319]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93232834, 0)
+light_color = Color(1, 0.47000003, 0.47000003, 1)
+light_energy = 0.0
+omni_range = 34.633
+omni_attenuation = -0.107
+
+[node name="secondary" type="OmniLight3D" parent="Light" unique_id=309954157]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15803584, 0)
+light_color = Color(0.09594419, 0.70817196, 0.9999998, 1)
 light_energy = 0.0
 omni_range = 9.663
 omni_attenuation = -0.404
 
-[node name="Mesh" type="MeshInstance3D" parent="Light" unique_id=1156568407]
-mesh = SubResource("SphereMesh_2klaf")
+[node name="tuning fork" parent="Light" unique_id=58604135 instance=ExtResource("6_4atxx")]
+transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
 
 [node name="Key" parent="." unique_id=1857105420 instance=ExtResource("6_8qiea")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8208475, 0.17437363, -18.873987)
 
 [connection signal="area_entered" from="Light/Area3D" to="Light" method="_on_area_3d_area_entered"]
 [connection signal="body_entered" from="Light/Area3D" to="Light" method="_on_area_3d_body_entered"]
+
+[editable path="Light/tuning fork"]

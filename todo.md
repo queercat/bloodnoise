@@ -1,12 +1,12 @@
 # TODO
-- can trigger lights and is cool
+- [x] can trigger lights and is cool
 
-- locked gate / locked trap door
-- bell
-- key
+- [] locked gate / locked trap door
+- [] bell
+- [] key
 
 
-- creature, that turns off the light, boid birds?
+- [] creature, that turns off the light, boid birds?
 
 - inventory
 - creepy / ambienty / noisy music.
