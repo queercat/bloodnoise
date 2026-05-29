@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://btuunyaf3uy15"]
+
+[ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="1_71j4m"]
+[ext_resource type="Texture2D" uid="uid://ci30mrpqu5n5y" path="res://textures/blood/blood_albedo.png" id="2_qfnet"]
+[ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_i7141"]
+[ext_resource type="Script" uid="uid://db3fyq3fo2hoh" path="res://scripts/light.gd" id="4_4mrxx"]
+[ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="5_7r4gi"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w7kh3"]
+panorama = ExtResource("1_71j4m")
+
+[sub_resource type="Sky" id="Sky_rlbrl"]
+sky_material = SubResource("PanoramaSkyMaterial_w7kh3")
+
+[sub_resource type="Environment" id="Environment_e3hyu"]
+background_mode = 2
+sky = SubResource("Sky_rlbrl")
+ambient_light_source = 1
+ambient_light_sky_contribution = 0.25
+ambient_light_energy = 0.0
+reflected_light_source = 1
+tonemap_mode = 2
+volumetric_fog_density = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q5onr"]
+albedo_texture = ExtResource("2_qfnet")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jhx03"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o8fc1"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xo05s"]
+radius = 1.076861
+
+[sub_resource type="SphereMesh" id="SphereMesh_dss4m"]
+
+[node name="World" type="Node3D" unique_id=595148890]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=200927326]
+environment = SubResource("Environment_e3hyu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=531440152]
+transform = Transform3D(100, 0, 0, 0, 1, 0, 0, 0, 100, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_q5onr")
+mesh = SubResource("PlaneMesh_jhx03")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=1642120983]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=868831867]
+shape = SubResource("ConcavePolygonShape3D_o8fc1")
+
+[node name="Pawn" parent="." unique_id=1204566797 instance=ExtResource("3_i7141")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 0, -0.011795163)
+
+[node name="Light" type="Node3D" parent="." unique_id=192616575 node_paths=PackedStringArray("light")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 1.4939585, -19.782162)
+script = ExtResource("4_4mrxx")
+light = NodePath("OmniLight3D")
+
+[node name="Area3D" type="Area3D" parent="Light" unique_id=1446344518]
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Light/Area3D" unique_id=494077058]
+shape = SubResource("SphereShape3D_xo05s")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Light" unique_id=1185922674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93232834, 0)
+light_energy = 0.0
+omni_range = 9.663
+omni_attenuation = -0.404
+
+[node name="Mesh" type="MeshInstance3D" parent="Light" unique_id=1896726258]
+mesh = SubResource("SphereMesh_dss4m")
+
+[node name="Key" parent="." unique_id=1383493655 instance=ExtResource("5_7r4gi")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8208475, 0.17437363, -18.873987)
+
+[connection signal="area_entered" from="Light/Area3D" to="Light" method="_on_area_3d_area_entered"]
+[connection signal="body_entered" from="Light/Area3D" to="Light" method="_on_area_3d_body_entered"]
