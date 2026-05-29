@@ -2,3 +2,4 @@
 .godot/
 /android/
 override.cfg
+.DS_STORE
