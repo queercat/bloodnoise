@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ddp7mo0xykdcx"
-path="res://.godot/imported/Gate.blend-29b9469ac54ded23f4b08d60a91bceb2.scn"
+uid="uid://b3g5n8kbc65v7"
+path="res://.godot/imported/Squid.blend-ca5e1b69961aabc56b7932df1cc13655.scn"
 
 [deps]
 
-source_file="res://models/Gate.blend"
-dest_files=["res://.godot/imported/Gate.blend-29b9469ac54ded23f4b08d60a91bceb2.scn"]
+source_file="res://models/Squid.blend"
+dest_files=["res://.godot/imported/Squid.blend-ca5e1b69961aabc56b7932df1cc13655.scn"]
 
 [params]
 
@@ -38,7 +38,7 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-blender/nodes/visible=1
+blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

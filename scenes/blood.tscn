@@ -4,9 +4,10 @@
 [ext_resource type="Script" uid="uid://cmtfimlewj572" path="res://scripts/world.gd" id="1_rlbrl"]
 [ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_bmbh8"]
 [ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_2klaf"]
-[ext_resource type="Script" uid="uid://db3fyq3fo2hoh" path="res://scripts/light.gd" id="5_bmbh8"]
-[ext_resource type="PackedScene" uid="uid://bw4t4o5g40jen" path="res://assets/blender/tuning fork.blend" id="6_4atxx"]
+[ext_resource type="PackedScene" uid="uid://cclxi21fdkunk" path="res://prefabs/tuning_light.tscn" id="5_4atxx"]
 [ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="6_8qiea"]
+[ext_resource type="PackedScene" uid="uid://b4wfcnco3y46p" path="res://prefabs/gate.tscn" id="8_31cwg"]
+[ext_resource type="PackedScene" uid="uid://b3g5n8kbc65v7" path="res://models/Squid.blend" id="8_ag340"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -32,9 +33,6 @@ albedo_texture = ExtResource("1_kl077")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2klaf"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_rlbrl"]
-radius = 1.076861
-
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rlbrl")
 player = NodePath("Pawn")
@@ -52,43 +50,34 @@ mesh = SubResource("PlaneMesh_2klaf")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=1273217354]
 shape = SubResource("ConcavePolygonShape3D_2klaf")
 
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D" unique_id=870325322]
+transform = Transform3D(0.01, 0, 0, 0, 1, 0, 0, 0, 0.01, -0.03916058, 5.6658716, -0.13275635)
+omni_range = 22.006
+omni_attenuation = -0.375
+
 [node name="Pawn" parent="." unique_id=1211940215 instance=ExtResource("3_2klaf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 4, -0.011795163)
 
-[node name="Light" type="Node3D" parent="." unique_id=408207902 node_paths=PackedStringArray("primary_light", "secondary_light", "awake_anim")]
+[node name="Light" parent="." unique_id=1714697528 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -19.782)
-script = ExtResource("5_bmbh8")
-primary_light = NodePath("primary")
-secondary_light = NodePath("secondary")
-awake_anim = NodePath("tuning fork/AnimationPlayer")
-
-[node name="Area3D" type="Area3D" parent="Light" unique_id=992871253]
-collision_mask = 4
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Light/Area3D" unique_id=1973460475]
-shape = SubResource("SphereShape3D_rlbrl")
-
-[node name="primary" type="OmniLight3D" parent="Light" unique_id=518843319]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.93232834, 0)
-light_color = Color(1, 0.47000003, 0.47000003, 1)
-light_energy = 0.0
-omni_range = 34.633
-omni_attenuation = -0.107
-
-[node name="secondary" type="OmniLight3D" parent="Light" unique_id=309954157]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15803584, 0)
-light_color = Color(0.09594419, 0.70817196, 0.9999998, 1)
-light_energy = 0.0
-omni_range = 9.663
-omni_attenuation = -0.404
-
-[node name="tuning fork" parent="Light" unique_id=58604135 instance=ExtResource("6_4atxx")]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, 0, 0)
 
 [node name="Key" parent="." unique_id=1857105420 instance=ExtResource("6_8qiea")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8208475, 0.17437363, -18.873987)
 
-[connection signal="area_entered" from="Light/Area3D" to="Light" method="_on_area_3d_area_entered"]
-[connection signal="body_entered" from="Light/Area3D" to="Light" method="_on_area_3d_body_entered"]
+[node name="Gate R" parent="." unique_id=1893296480 instance=ExtResource("8_31cwg")]
+transform = Transform3D(1.6863158, 0, 0, 0, 1.6863158, 0, 0, 0, 1.6863158, -9.478767, 0, -28.930023)
 
-[editable path="Light/tuning fork"]
+[node name="Gate L" parent="." unique_id=168078809 instance=ExtResource("8_31cwg")]
+transform = Transform3D(-1.6863158, 0, -1.4742241e-07, 0, 1.6863158, 0, 1.4742241e-07, 0, -1.6863158, -9.570028, 0, -0.5105715)
+
+[node name="Light2" parent="." unique_id=1912578192 instance=ExtResource("5_4atxx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 40, -0.014258862, -9)
+
+[node name="Light3" parent="." unique_id=114668218 instance=ExtResource("5_4atxx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 46.289837, -0.014258862, -35.898193)
+
+[node name="Light4" parent="." unique_id=1362541498 instance=ExtResource("5_4atxx")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 64.60637, -0.014258862, -54.736412)
+
+[node name="Squid" parent="." unique_id=2088611999 instance=ExtResource("8_ag340")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4386787, 1.9477825, -13.798248)
