@@ -20,7 +20,7 @@ func turn_on_light():
 	
 	
 func turn_off_light(in_secs):
-	tween = 	get_tree().root.create_tween()
+	tween = 	create_tween()
 	tween.tween_property(primary_light, "light_energy", 0, in_secs)
 	tween.parallel().tween_property(secondary_light, "light_energy", 0, in_secs)
 	

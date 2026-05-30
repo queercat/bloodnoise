@@ -17,7 +17,7 @@ data = PackedVector3Array(-0.0087, 0, 6.7665, 0.0087, 0, 6.7665, 0, 0, 6.7655997
 [sub_resource type="BoxShape3D" id="BoxShape3D_ot3m5"]
 size = Vector3(0.3004001, 0.07075238, 7.6526074)
 
-[node name="Gate" unique_id=1893296480 instance=ExtResource("1_ot3m5")]
+[node name="Gate" unique_id=1811824496 instance=ExtResource("1_ot3m5")]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="5" unique_id=1121897433]
 

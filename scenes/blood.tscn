@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="6_8qiea"]
 [ext_resource type="PackedScene" uid="uid://b4wfcnco3y46p" path="res://prefabs/gate.tscn" id="8_31cwg"]
 [ext_resource type="PackedScene" uid="uid://b3g5n8kbc65v7" path="res://models/Squid.blend" id="8_ag340"]
+[ext_resource type="Script" uid="uid://dx6tc1wesgse2" path="res://scripts/gate.gd" id="8_g1rar"]
+[ext_resource type="Script" uid="uid://bwm4bi67s6txb" path="res://scripts/squid.gd" id="10_g1rar"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -32,6 +34,11 @@ albedo_texture = ExtResource("1_kl077")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2klaf"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_g1rar"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g1rar"]
+noise = SubResource("FastNoiseLite_g1rar")
 
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rlbrl")
@@ -66,9 +73,11 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.82
 
 [node name="Gate R" parent="." unique_id=1893296480 instance=ExtResource("8_31cwg")]
 transform = Transform3D(1.6863158, 0, 0, 0, 1.6863158, 0, 0, 0, 1.6863158, -9.478767, 0, -28.930023)
+script = ExtResource("8_g1rar")
 
 [node name="Gate L" parent="." unique_id=168078809 instance=ExtResource("8_31cwg")]
 transform = Transform3D(-1.6863158, 0, -1.4742241e-07, 0, 1.6863158, 0, 1.4742241e-07, 0, -1.6863158, -9.570028, 0, -0.5105715)
+script = ExtResource("8_g1rar")
 
 [node name="Light2" parent="." unique_id=1912578192 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 40, -0.014258862, -9)
@@ -79,5 +88,12 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 46.289837, -0.014258862, -35.
 [node name="Light4" parent="." unique_id=1362541498 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 64.60637, -0.014258862, -54.736412)
 
-[node name="Squid" parent="." unique_id=2088611999 instance=ExtResource("8_ag340")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.4386787, 1.9477825, -13.798248)
+[node name="Squid" parent="." unique_id=1913488814 instance=ExtResource("8_ag340")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.31719, 15.369069, -13.798248)
+script = ExtResource("10_g1rar")
+noise_texture = SubResource("NoiseTexture2D_g1rar")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Squid" unique_id=1955687601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7483025, 1.566309, 0)
+omni_range = 6.3
+omni_attenuation = 0.115
