@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctb6ha05yfx1q"
-path="res://.godot/imported/Entity.blend-4bdef252c21ccdb1933ce168ea5308c1.scn"
+uid="uid://dl77favi04yj8"
+path="res://.godot/imported/Entity2.blend-a6e0a17885cab5b2bc1850c7173095c8.scn"
 
 [deps]
 
-source_file="res://models/Entity.blend"
-dest_files=["res://.godot/imported/Entity.blend-4bdef252c21ccdb1933ce168ea5308c1.scn"]
+source_file="res://models/Entity2.blend"
+dest_files=["res://.godot/imported/Entity2.blend-a6e0a17885cab5b2bc1850c7173095c8.scn"]
 
 [params]
 
@@ -38,9 +38,20 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"meshes": {
+"Entity2_Sphere_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 2,
+"lods/normal_merge_angle": 20.0,
+"save_to_file/enabled": false,
+"save_to_file/fallback_path": "",
+"save_to_file/path": ""
+}
+},
 "nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
+"PATH:Sphere": {
+"mesh_instance/cast_shadow": 2
 }
 }
 }

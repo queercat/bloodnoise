@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://vdvchvydonki"]
+
+[ext_resource type="PackedScene" uid="uid://ctb6ha05yfx1q" path="res://models/Entity.blend" id="1_bttcl"]
+[ext_resource type="Script" uid="uid://b6lxbfjl4yycy" path="res://scripts/entity.gd" id="2_c75g6"]
+
+[node name="Entity" unique_id=613874257 instance=ExtResource("1_bttcl")]
+script = ExtResource("2_c75g6")
+
+[node name="Cube" parent="." index="1" unique_id=2111253883]
+transform = Transform3D(0.82614523, 0.56345725, 5.531648e-07, -0.56345725, 0.82614523, -1.4444784e-07, -5.3838465e-07, -1.9234982e-07, 1, 0, -0.28228122, 0.9223077)
+
+[node name="AnimationPlayer" parent="." index="3" unique_id=1781188954]
+reset_on_save = false
+speed_scale = 0.2

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctb6ha05yfx1q"
-path="res://.godot/imported/Entity.blend-4bdef252c21ccdb1933ce168ea5308c1.scn"
+uid="uid://cme3luq64cnjs"
+path="res://.godot/imported/Fingers.blend-04cf2562aef73635b8eab54d2e7af65d.scn"
 
 [deps]
 
-source_file="res://models/Entity.blend"
-dest_files=["res://.godot/imported/Entity.blend-4bdef252c21ccdb1933ce168ea5308c1.scn"]
+source_file="res://models/Fingers.blend"
+dest_files=["res://.godot/imported/Fingers.blend-04cf2562aef73635b8eab54d2e7af65d.scn"]
 
 [params]
 
@@ -37,14 +37,8 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
-}
-}
-}
-blender/nodes/visible=0
+_subresources={}
+blender/nodes/visible=1
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
