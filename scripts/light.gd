@@ -14,8 +14,9 @@ var decay_counter = 0;
 func turn_on_light():
 	secondary_light.light_energy = 1
 	light_on = true
-	awake_anim.play("Animation")
+	awake_anim.play("Activate")
 	await awake_anim.animation_finished
+	awake_anim.play("Idle_activated")
 	primary_light.light_energy = 1
 	
 	
@@ -24,7 +25,7 @@ func turn_off_light(in_secs):
 	tween.tween_property(primary_light, "light_energy", 0, in_secs)
 	tween.parallel().tween_property(secondary_light, "light_energy", 0, in_secs)
 	
-	awake_anim.play("Animation", -1, -1, true)
+	awake_anim.play("Activate", -1, -1, true)
 	
 	await tween.finished
 	await awake_anim.animation_finished
