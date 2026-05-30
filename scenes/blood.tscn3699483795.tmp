@@ -12,8 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://dwf6ecwmroe3c" path="res://prefabs/key_prefab.tscn" id="11_iw38a"]
 [ext_resource type="PackedScene" uid="uid://d2urr8uwblm0n" path="res://prefabs/lock.tscn" id="11_k0bd8"]
 [ext_resource type="Script" uid="uid://df4m21h4hfq4" path="res://scripts/ui.gd" id="12_iw38a"]
-[ext_resource type="PackedScene" uid="uid://kee6oy0t2duk" path="res://prefabs/stairs.tscn" id="13_wo4ll"]
-[ext_resource type="PackedScene" uid="uid://8v8jvu2qy7p5" path="res://models/Entity.blend" id="14_2xqqp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -113,12 +111,6 @@ omni_attenuation = 0.115
 [node name="Key" parent="." unique_id=1155488183 instance=ExtResource("11_iw38a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7005656, 0, -18.756573)
 
-[node name="Key2" parent="." unique_id=1780342944 instance=ExtResource("11_iw38a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7005656, 0, -13.516336)
-
-[node name="Key3" parent="." unique_id=778626304 instance=ExtResource("11_iw38a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7005656, 0, -6.239853)
-
 [node name="Control" type="Control" parent="." unique_id=1419727198 node_paths=PackedStringArray("interact_text")]
 layout_mode = 3
 anchors_preset = 15
@@ -147,9 +139,3 @@ bbcode_enabled = true
 text = "[wave][pulse]Press E to Open Lock[/pulse][/wave]"
 fit_content = true
 horizontal_alignment = 1
-
-[node name="Stairs" parent="." unique_id=945768958 instance=ExtResource("13_wo4ll")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.887539, 0.33333707, -13.638329)
-
-[node name="Entity" parent="." unique_id=215702753 instance=ExtResource("14_2xqqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.1592636, 17.558365, -23.988905)

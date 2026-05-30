@@ -2,17 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://bm7x2xef7auit" path="res://models/Lock.blend" id="1_f22pd"]
 [ext_resource type="Script" uid="uid://kl4sltimb0rd" path="res://scripts/lock.gd" id="2_3aqel"]
-[ext_resource type="Script" uid="uid://cky306naiskjs" path="res://resources/interactables/lock/lock_interactable.gd" id="3_3aqel"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_f22pd"]
 height = 9.135742
 radius = 2.9589844
 
-[node name="Lock" unique_id=1199028554 node_paths=PackedStringArray("animation_player", "player_detection_area", "interactable") instance=ExtResource("1_f22pd")]
+[node name="Lock" unique_id=1199028554 node_paths=PackedStringArray("animation_player", "player_detection_area") instance=ExtResource("1_f22pd")]
 script = ExtResource("2_3aqel")
 animation_player = NodePath("AnimationPlayer")
 player_detection_area = NodePath("Area3D")
-interactable = NodePath("Interactable")
 
 [node name="Cylinder" parent="." index="1" unique_id=1499340176]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63573015, 0.35679197, -5.122274e-09)
@@ -24,9 +22,4 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, -0.7254585, 0.6882659, 0, -0.6882659, -0.7254585, 0, -2.3188744, -3.3902917)
 shape = SubResource("CylinderShape3D_f22pd")
 
-[node name="Interactable" type="Node" parent="." index="6" unique_id=1888489900]
-script = ExtResource("3_3aqel")
-interaction_text = "[wave]Press E to open lock![/wave]"
-
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

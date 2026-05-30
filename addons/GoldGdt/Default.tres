@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource("1_wnsr5")
 AUTOHOP = true
+STEP_HEIGHT = 0.862

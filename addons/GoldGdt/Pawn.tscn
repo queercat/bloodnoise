@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://bweoo24e2h20g" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="6_k6qi8"]
 [ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="7_3b78s"]
 [ext_resource type="Script" uid="uid://yatj2le54akp" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
-[ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/game_input.gd" id="9_fud1l"]
+[ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/player_manager.gd" id="9_fud1l"]
 [ext_resource type="SpriteFrames" uid="uid://dg6igkybi50xx" path="res://sprites/bell_shake.tres" id="9_g6jj4"]
 [ext_resource type="PackedScene" uid="uid://tee1lcf5ygts" path="res://prefabs/sound_sphere.tscn" id="10_y8m56"]
 
@@ -231,7 +231,7 @@ frame_progress = 0.6444809
 
 [node name="-- Our Stuff --" type="Node" parent="." unique_id=518815335]
 
-[node name="Game Input" type="Node" parent="." unique_id=682892425 node_paths=PackedStringArray("body", "animated_sprite")]
+[node name="Player Manager" type="Node" parent="." unique_id=682892425 node_paths=PackedStringArray("body", "animated_sprite")]
 script = ExtResource("9_fud1l")
 sound_sphere_prefab = ExtResource("10_y8m56")
 body = NodePath("../Body")
