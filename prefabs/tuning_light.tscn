@@ -27,7 +27,7 @@ omni_range = 34.633
 omni_attenuation = -0.107
 
 [node name="secondary" type="OmniLight3D" parent="." unique_id=1777581684]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15803584, 0)
+transform = Transform3D(0.33333334, 0, 0, 0, 0.33333334, 0, 0, 0, 0.33333334, 0, 0.16872293, 0)
 light_color = Color(0.09594419, 0.70817196, 0.9999998, 1)
 light_energy = 0.0
 omni_range = 9.663
