@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CollectableResource" format=3 uid="uid://ckeoo4la3vilu"]
+
+[ext_resource type="Script" uid="uid://c0x0pwii1pfa" path="res://resources/collectable.gd" id="1_scrby"]
+
+[resource]
+script = ExtResource("1_scrby")
+collectable_name = "Key"
+metadata/_custom_type_script = "uid://c0x0pwii1pfa"

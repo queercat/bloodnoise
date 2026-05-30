@@ -5,11 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_bmbh8"]
 [ext_resource type="PackedScene" uid="uid://bk1exu1p74wrs" path="res://addons/GoldGdt/Pawn.tscn" id="3_2klaf"]
 [ext_resource type="PackedScene" uid="uid://cclxi21fdkunk" path="res://prefabs/tuning_light.tscn" id="5_4atxx"]
-[ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="6_8qiea"]
 [ext_resource type="PackedScene" uid="uid://b4wfcnco3y46p" path="res://prefabs/gate.tscn" id="8_31cwg"]
 [ext_resource type="PackedScene" uid="uid://b3g5n8kbc65v7" path="res://models/Squid.blend" id="8_ag340"]
 [ext_resource type="Script" uid="uid://dx6tc1wesgse2" path="res://scripts/gate.gd" id="8_g1rar"]
 [ext_resource type="Script" uid="uid://bwm4bi67s6txb" path="res://scripts/squid.gd" id="10_g1rar"]
+[ext_resource type="PackedScene" uid="uid://dwf6ecwmroe3c" path="res://prefabs/key_prefab.tscn" id="11_iw38a"]
+[ext_resource type="PackedScene" uid="uid://d2urr8uwblm0n" path="res://prefabs/lock.tscn" id="11_k0bd8"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -36,6 +37,8 @@ albedo_texture = ExtResource("1_kl077")
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_g1rar"]
+noise_type = 3
+frequency = 0.115
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_g1rar"]
 noise = SubResource("FastNoiseLite_g1rar")
@@ -68,16 +71,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.581517, 4, -0.011795163)
 [node name="Light" parent="." unique_id=1714697528 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, -19.782)
 
-[node name="Key" parent="." unique_id=1857105420 instance=ExtResource("6_8qiea")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4.8208475, 0.17437363, -18.873987)
-
-[node name="Gate R" parent="." unique_id=1893296480 instance=ExtResource("8_31cwg")]
+[node name="Gate R" parent="." unique_id=1811824496 instance=ExtResource("8_31cwg")]
 transform = Transform3D(1.6863158, 0, 0, 0, 1.6863158, 0, 0, 0, 1.6863158, -9.478767, 0, -28.930023)
 script = ExtResource("8_g1rar")
 
-[node name="Gate L" parent="." unique_id=168078809 instance=ExtResource("8_31cwg")]
+[node name="Gate L" parent="." unique_id=797412355 instance=ExtResource("8_31cwg")]
 transform = Transform3D(-1.6863158, 0, -1.4742241e-07, 0, 1.6863158, 0, 1.4742241e-07, 0, -1.6863158, -9.570028, 0, -0.5105715)
 script = ExtResource("8_g1rar")
+
+[node name="Lock" parent="Gate L" unique_id=150199516 instance=ExtResource("11_k0bd8")]
+transform = Transform3D(-3.85414e-09, 0.41384032, 0.42473, 5.42686e-08, 0.42473, -0.41384032, -0.59300876, 3.617907e-08, -4.0632624e-08, -0.98572445, 0.9783856, 8.396209)
 
 [node name="Light2" parent="." unique_id=1912578192 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 40, -0.014258862, -9)
@@ -88,7 +91,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 46.289837, -0.014258862, -35.
 [node name="Light4" parent="." unique_id=1362541498 instance=ExtResource("5_4atxx")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 64.60637, -0.014258862, -54.736412)
 
-[node name="Squid" parent="." unique_id=1913488814 instance=ExtResource("8_ag340")]
+[node name="Squid" parent="." unique_id=397824163 instance=ExtResource("8_ag340")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.31719, 15.369069, -13.798248)
 script = ExtResource("10_g1rar")
 noise_texture = SubResource("NoiseTexture2D_g1rar")
@@ -97,3 +100,6 @@ noise_texture = SubResource("NoiseTexture2D_g1rar")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7483025, 1.566309, 0)
 omni_range = 6.3
 omni_attenuation = 0.115
+
+[node name="Key" parent="." unique_id=1155488183 instance=ExtResource("11_iw38a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.7005656, 0, -18.756573)

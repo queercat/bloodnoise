@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d2urr8uwblm0n"]
+
+[ext_resource type="PackedScene" uid="uid://bm7x2xef7auit" path="res://models/Lock.blend" id="1_f22pd"]
+[ext_resource type="Script" uid="uid://kl4sltimb0rd" path="res://scripts/lock.gd" id="2_3aqel"]
+
+[node name="Lock" unique_id=150199516 node_paths=PackedStringArray("animation_player") instance=ExtResource("1_f22pd")]
+script = ExtResource("2_3aqel")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="Cylinder" parent="." index="1" unique_id=1318614078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63573015, 0.35679197, -5.122274e-09)

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dwf6ecwmroe3c"]
+
+[ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="1_yget6"]
+[ext_resource type="Script" uid="uid://dbpx2vlr3quis" path="res://classes/collectable.gd" id="2_tw651"]
+[ext_resource type="Resource" uid="uid://ckeoo4la3vilu" path="res://resources/collectables/key_collectable.tres" id="3_tw651"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yget6"]
+
+[node name="Key" unique_id=1155488183 node_paths=PackedStringArray("collection_zone") instance=ExtResource("1_yget6")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+script = ExtResource("2_tw651")
+collectable_resource = ExtResource("3_tw651")
+collection_zone = NodePath("Area3D")
+
+[node name="Area3D" type="Area3D" parent="." index="13" unique_id=744243185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33238763, 0.17110085, 7.479056e-09)
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=373910792]
+shape = SubResource("SphereShape3D_yget6")
