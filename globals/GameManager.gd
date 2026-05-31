@@ -11,11 +11,12 @@ var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 
 signal LockUnlocked(name: String)
 
-func spawn_sound_sphere(position: Vector3, growth_speed: float = 5):
+func spawn_sound_sphere(position: Vector3, growth_speed: float = 5, color: Color = Color.WHITE):
 	var root = get_tree().root
 	var instance: Node3D = sound_sphere_prefab.instantiate()
 	instance.position = position
 	instance.growth_speed = growth_speed
+	instance.color = color
 	root.add_child(instance)
 	sound_spheres.append(instance)
 
@@ -47,5 +48,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var camera = get_viewport().get_camera_3d()
 	
-	var array = sound_spheres.map(func (v): return Vector4(v.global_position.x, v.global_position.y, v.global_position.z, v.radius))
-	sphere_material.set_shader_parameter("sphere_data", array)
+	var sphere_data = []
+	var sphere_attributes_data = []
+	
+	for v in sound_spheres:
+		sphere_data.push_back(Vector4(v.global_position.x, v.global_position.y, v.global_position.z, v.radius))
+		sphere_attributes_data.push_back(Vector4(v.color.r, v.color.g, v.color.b, v.maximum_radius))	
+	
+	sphere_material.set_shader_parameter("sphere_data_length", len(sphere_data))
+	sphere_material.set_shader_parameter("sphere_data", sphere_data)
+	sphere_material.set_shader_parameter("sphere_attributes_data", sphere_attributes_data)

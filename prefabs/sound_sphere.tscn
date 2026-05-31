@@ -6,7 +6,6 @@
 
 [node name="SoundSphere" type="Node3D" unique_id=622476888]
 script = ExtResource("1_x6rmw")
-growth_speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=15918717]
 extra_cull_margin = 16384.0

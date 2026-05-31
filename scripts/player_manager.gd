@@ -24,7 +24,7 @@ func pop_interactable():
 		interactable_queue.front().show_interaction()
 
 func spawn_sound_sphere():
-	GameManager.spawn_sound_sphere(body.global_position, 5)
+	GameManager.spawn_sound_sphere(body.global_position, 25, Color.RED)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

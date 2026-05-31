@@ -10,7 +10,7 @@
 [ext_resource type="Script" uid="uid://yatj2le54akp" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
 [ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/player_manager.gd" id="9_fud1l"]
 [ext_resource type="SpriteFrames" uid="uid://dg6igkybi50xx" path="res://sprites/bell_shake.tres" id="9_g6jj4"]
-[ext_resource type="Shader" uid="uid://2rffyrswv5sg" path="res://shaders/sphere.gdshader" id="10_pyr5l"]
+[ext_resource type="Shader" uid="uid://2rffyrswv5sg" path="res://shaders/ubershader.gdshader" id="10_pyr5l"]
 [ext_resource type="PackedScene" uid="uid://tee1lcf5ygts" path="res://prefabs/sound_sphere.tscn" id="10_y8m56"]
 [ext_resource type="Script" uid="uid://do2hilgyttw42" path="res://scripts/sound_sphere_quad.gd" id="11_d14fx"]
 
