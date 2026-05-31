@@ -11,6 +11,7 @@ uniform vec4 emission : source_color;
 uniform float emission_energy : hint_range(0.0, 1.0) = 0.5;
 uniform vec3 uv1_scale = vec3(5.0, 0.0, 0.0);
 uniform vec3 uv1_offset = vec3(0.0, 1.0, 0.0); //change y to whooooosh effect
+uniform float fall_off_minimum : hint_range(0.0, 1.0) = 0.;
 
 varying vec2 base_uv;
 
@@ -37,5 +38,5 @@ void fragment() {
 	vec3 emission_tex = texture(texture_emission, UV).rgb;
 	EMISSION = (emission.rgb + emission_tex) * emission_energy * fallof;
 	
-	ALPHA = clamp(fade, 0.0, 1.0) * EMISSION.r * alpha; 
+	ALPHA = clamp(fade, fall_off_minimum, 1.0) * EMISSION.r * alpha; 
 }
