@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://r7nxojt6sra5"]
+
+[ext_resource type="Shader" uid="uid://bcxsrg8u1u010" path="res://shaders/fade_distance.gdshader" id="1_grrn8"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_grrn8")

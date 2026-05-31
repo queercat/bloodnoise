@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://duvh6ppbdtm6n"]
+
+[ext_resource type="Shader" uid="uid://2rffyrswv5sg" path="res://shaders/sphere.gdshader" id="1_e5ssy"]
+[ext_resource type="Script" uid="uid://do2hilgyttw42" path="res://scripts/sound_sphere_quad.gd" id="2_udf80"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwilc"]
+render_priority = -1
+shader = ExtResource("1_e5ssy")
+shader_parameter/start_point = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/pulse_width = 2.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/radius = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0op2o"]
+material = SubResource("ShaderMaterial_qwilc")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="MeshInstance3D" type="MeshInstance3D" unique_id=1744833239 node_paths=PackedStringArray("origin_node")]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0op2o")
+script = ExtResource("2_udf80")
+origin_node = NodePath("")
