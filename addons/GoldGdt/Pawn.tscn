@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bk1exu1p74wrs"]
+[gd_scene format=4 uid="uid://bk1exu1p74wrs"]
 
 [ext_resource type="Script" uid="uid://bspcjrutnj6m6" path="res://addons/GoldGdt/src/GoldGdt_Pawn.gd" id="1_qx48f"]
 [ext_resource type="Resource" uid="uid://c770d2068in3p" path="res://addons/GoldGdt/Default.tres" id="2_m0ukv"]
@@ -25,10 +25,13 @@ radius = 0.15
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_d14fx"]
 render_priority = 0
 shader = ExtResource("10_pyr5l")
-shader_parameter/start_point = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
 shader_parameter/pulse_width = 2.0
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/radius = 10.0
+shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/sphere_data_length = 0
+shader_parameter/fog_height = 0.0
+shader_parameter/fog_basis = 0.0
+shader_parameter/fog_color = Color(1, 1, 1, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_0op2o"]
 flip_faces = true

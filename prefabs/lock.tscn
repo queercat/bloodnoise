@@ -14,7 +14,7 @@ animation_player = NodePath("AnimationPlayer")
 player_detection_area = NodePath("Area3D")
 interactable = NodePath("Interactable")
 
-[node name="Cylinder" parent="." index="1" unique_id=1499340176]
+[node name="Cylinder" parent="." index="1" unique_id=348472353]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63573015, 0.35679197, -5.122274e-09)
 
 [node name="Area3D" type="Area3D" parent="." index="5" unique_id=232048242]
