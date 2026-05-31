@@ -150,27 +150,26 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -250.64973, 5.952941, -20.192
 [node name="primary" parent="Light" index="1" unique_id=341547771]
 shadow_enabled = true
 
-[node name="Squid2" parent="." unique_id=638197183 instance=ExtResource("8_ag340")]
+[node name="Squid" parent="." unique_id=397824163 instance=ExtResource("8_ag340")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -215.66873, 25.00721, -21.52861)
-visible = false
 script = ExtResource("10_g1rar")
 noise_texture = SubResource("NoiseTexture2D_g1rar")
 
-[node name="Cone" type="MeshInstance3D" parent="Squid2/Body" parent_id_path=PackedInt32Array(638197183, 1089375449) index="0" unique_id=530584323]
+[node name="Cone" type="MeshInstance3D" parent="Squid/Body" parent_id_path=PackedInt32Array(397824163, 1304642584) index="0" unique_id=283140616]
 transform = Transform3D(0.94368786, -94.28227, 0, 5.38587, 16.519718, 0, 0, 0, 2.835091, -0.9691925, -0.28394127, -0.10518837)
 material_override = SubResource("ShaderMaterial_f4lf1")
 mesh = SubResource("ArrayMesh_yglid")
 
-[node name="LegsShortest" parent="Squid2" index="1" unique_id=2071920445]
+[node name="LegsShortest" parent="Squid" index="1" unique_id=441840296]
 "blend_shapes/Key 3" = 0.43023258
 
-[node name="LegsLongest" parent="Squid2" index="2" unique_id=1655256814]
+[node name="LegsLongest" parent="Squid" index="2" unique_id=1909880613]
 blend_shapes/SimpleDeform = 1.0
 
-[node name="Legs Middle" parent="Squid2" index="3" unique_id=1230190101]
+[node name="Legs Middle" parent="Squid" index="3" unique_id=226189370]
 blend_shapes/Float = 0.54
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="Squid2" unique_id=512744148]
+[node name="OmniLight3D2" type="OmniLight3D" parent="Squid" unique_id=1396502677]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.772213, 0.49643612, 0)
 light_color = Color(0.5361336, 0.23938504, 0.28319257, 1)
 light_energy = 15.099
@@ -804,13 +803,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
-[node name="Squid" parent="." unique_id=410443632 instance=ExtResource("8_ag340")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.49689, 32.936306, -21.455387)
-script = ExtResource("10_g1rar")
-
 [editable path="Light"]
 [editable path="Light/Tuning Fork"]
-[editable path="Squid2"]
+[editable path="Squid"]
 [editable path="Ground"]
 [editable path="GateStuff/GateBorderSection"]
 [editable path="GateStuff/GateBorderSection2"]
