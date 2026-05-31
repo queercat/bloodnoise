@@ -24,10 +24,7 @@ func pop_interactable():
 		interactable_queue.front().show_interaction()
 
 func spawn_sound_sphere():
-	var instantiated_sphere: Node3D = sound_sphere_prefab.instantiate()
-	var root = get_tree().root
-	instantiated_sphere.transform = body.transform
-	root.add_child(instantiated_sphere)
+	GameManager.spawn_sound_sphere(body.global_position, 5)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

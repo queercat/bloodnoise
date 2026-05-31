@@ -1,5 +1,5 @@
 shader_type spatial;
-
+render_mode depth_prepass_alpha;
 uniform vec3 character_position;
 uniform float fade_distance;
 
@@ -18,7 +18,7 @@ void fragment() {
 	float alpha = smoothstep(0.0, fade_distance, character_distance);
 	ALBEDO = vec3(color.r, color.g, color.b);
 	ALPHA = alpha;
-	NORMAL = vec3(1. - alpha, 1. - alpha, 1.  - alpha);
+	NORMAL_MAP = vec3(1. - alpha, 1. - alpha, 1.  - alpha);
 
 	//if (alpha <= 0.0) {
 		//discard;

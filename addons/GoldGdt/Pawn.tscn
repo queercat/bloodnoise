@@ -10,7 +10,9 @@
 [ext_resource type="Script" uid="uid://yatj2le54akp" path="res://addons/GoldGdt/src/GoldGdt_DebugUI.gd" id="7_vbtkw"]
 [ext_resource type="Script" uid="uid://dxy31i50yw10v" path="res://scripts/player_manager.gd" id="9_fud1l"]
 [ext_resource type="SpriteFrames" uid="uid://dg6igkybi50xx" path="res://sprites/bell_shake.tres" id="9_g6jj4"]
+[ext_resource type="Shader" uid="uid://2rffyrswv5sg" path="res://shaders/sphere.gdshader" id="10_pyr5l"]
 [ext_resource type="PackedScene" uid="uid://tee1lcf5ygts" path="res://prefabs/sound_sphere.tscn" id="10_y8m56"]
+[ext_resource type="Script" uid="uid://do2hilgyttw42" path="res://scripts/sound_sphere_quad.gd" id="11_d14fx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7pn1"]
 size = Vector3(0.813, 1.829, 0.813)
@@ -19,6 +21,18 @@ size = Vector3(0.813, 1.829, 0.813)
 custom_solver_bias = 1.0
 margin = 0.25
 radius = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_d14fx"]
+render_priority = 0
+shader = ExtResource("10_pyr5l")
+shader_parameter/start_point = Projection(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1)
+shader_parameter/pulse_width = 2.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/radius = 10.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0op2o"]
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="Pawn" type="Node3D" unique_id=1204566797 node_paths=PackedStringArray("View", "Camera")]
 script = ExtResource("1_qx48f")
@@ -228,6 +242,13 @@ no_depth_test = true
 sprite_frames = ExtResource("9_g6jj4")
 animation = &"shake"
 frame_progress = 0.6444809
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1385416911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3451722)
+material_override = SubResource("ShaderMaterial_d14fx")
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0op2o")
+script = ExtResource("11_d14fx")
 
 [node name="-- Our Stuff --" type="Node" parent="." unique_id=518815335]
 

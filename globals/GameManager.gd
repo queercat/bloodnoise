@@ -4,8 +4,23 @@ var player_items: Array[CollectableResource] = []
 var ui: GameUI
 var player_manager: PlayerManager
 var write_mutex: Mutex = Mutex.new()
+var sound_spheres: Array[Node3D] = []
+var sphere_material: Material
+
+var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 
 signal LockUnlocked(name: String)
+
+func spawn_sound_sphere(position: Vector3, growth_speed: float = 5):
+	var root = get_tree().root
+	var instance: Node3D = sound_sphere_prefab.instantiate()
+	instance.position = position
+	instance.growth_speed = growth_speed
+	root.add_child(instance)
+	sound_spheres.append(instance)
+
+func delete_sound_sphere(sphere: Node3D):
+	sound_spheres.erase(sphere)
 
 func unlocked_lock(name: String):
 	LockUnlocked.emit(name)
@@ -26,8 +41,11 @@ func give_player_item(resource: CollectableResource):
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	sphere_material = get_viewport().get_camera_3d().get_node("MeshInstance3D").get_material()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var camera = get_viewport().get_camera_3d()
+	
+	var array = sound_spheres.map(func (v): return Vector4(v.global_position.x, v.global_position.y, v.global_position.z, v.radius))
+	sphere_material.set_shader_parameter("sphere_data", array)

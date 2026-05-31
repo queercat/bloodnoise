@@ -2,26 +2,15 @@
 
 [ext_resource type="Script" uid="uid://d3ta3vemswclk" path="res://scripts/sound_sphere.gd" id="1_x6rmw"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x6rmw"]
-transparency = 1
-shading_mode = 0
-vertex_color_use_as_albedo = true
-albedo_color = Color(0, 0.5877888, 0.592624, 0.06666667)
-
-[sub_resource type="SphereMesh" id="SphereMesh_bmbh8"]
-material = SubResource("StandardMaterial3D_x6rmw")
-flip_faces = true
-
 [sub_resource type="SphereShape3D" id="SphereShape3D_8qiea"]
 
 [node name="SoundSphere" type="Node3D" unique_id=622476888]
 script = ExtResource("1_x6rmw")
-growth_speed = 25.0
-boundary = 100.0
+growth_speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=15918717]
+extra_cull_margin = 16384.0
 ignore_occlusion_culling = true
-mesh = SubResource("SphereMesh_bmbh8")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1201000400]
 collision_layer = 5

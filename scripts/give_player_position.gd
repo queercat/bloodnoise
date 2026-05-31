@@ -6,4 +6,4 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	material_overlay.set_shader_parameter("character_position", GameManager.player_manager.body.position)
+	pass # material_overlay.set_shader_parameter("character_position", GameManager.player_manager.body.position)
