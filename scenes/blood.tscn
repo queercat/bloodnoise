@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://bxlc1ij4f1764" path="res://addons/GoldGdt/src/GoldGdt_Controls.gd" id="5_iuxes"]
 [ext_resource type="Resource" uid="uid://c770d2068in3p" path="res://addons/GoldGdt/Default.tres" id="6_p614u"]
 [ext_resource type="Script" uid="uid://b8fmh2cm5v471" path="res://addons/GoldGdt/src/GoldGdt_View.gd" id="7_q2hwj"]
+[ext_resource type="Texture2D" uid="uid://dpv5wshuqgc64" path="res://sprites/tattered-atlas-1x.png" id="7_tjbww"]
+[ext_resource type="Texture2D" uid="uid://bx5irh1kr5g21" path="res://sprites/bayer8tile4.png" id="8_2ndj4"]
 [ext_resource type="PackedScene" uid="uid://b4wfcnco3y46p" path="res://prefabs/gate.tscn" id="8_31cwg"]
 [ext_resource type="PackedScene" uid="uid://b3g5n8kbc65v7" path="res://models/Squid.blend" id="8_ag340"]
 [ext_resource type="Script" uid="uid://dx6tc1wesgse2" path="res://scripts/gate.gd" id="8_g1rar"]
@@ -85,6 +87,12 @@ gradient = SubResource("Gradient_qwilc")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qwilc"]
 render_priority = 0
 shader = ExtResource("12_x6f3n")
+shader_parameter/u_dither_tex = ExtResource("8_2ndj4")
+shader_parameter/u_color_tex = ExtResource("7_tjbww")
+shader_parameter/u_bit_depth = 22
+shader_parameter/u_contrast = 0.53
+shader_parameter/u_offset = 0.62
+shader_parameter/u_dither_size = 2
 shader_parameter/pulse_width = 0.5
 shader_parameter/sphere_data_length = 0
 shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
@@ -601,7 +609,6 @@ near = 0.001
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pawn/Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=1385416911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.16491032)
-visible = false
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_0op2o")
@@ -609,6 +616,7 @@ script = ExtResource("13_myl5m")
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Pawn/Interpolated Camera/Arm/Arm Anchor/Camera" unique_id=2052474239]
 transform = Transform3D(0.28284556, 0, 0, 0, 0.28284556, 0, 0, 0, 1, 0.6718451, -1.1088802, -1.4601879)
+visible = false
 gi_mode = 0
 no_depth_test = true
 render_priority = 2
@@ -1596,7 +1604,7 @@ spot_range = 143.41638
 spot_angle = 40.098324
 
 [node name="Arena" parent="." unique_id=1987574840 instance=ExtResource("37_mcc26")]
-transform = Transform3D(-1.1920929e-07, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -1.1920929e-07, -269.83804, -9.765706, 74.15901)
+transform = Transform3D(-0.76866305, 0, 0.6396537, 0, 1, 0, -0.6396537, 0, -0.76866305, -96.56006, -26.183237, -157.10912)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Cube" parent_id_path=PackedInt32Array(1987574840, 1401952104) index="0" unique_id=1031465294]
 
