@@ -6,6 +6,8 @@ var player_manager: PlayerManager
 var write_mutex: Mutex = Mutex.new()
 var sound_spheres: Array[Node3D] = []
 var sphere_material: Material
+var sphere_data = []
+var sphere_attributes_data = []
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 
@@ -45,17 +47,19 @@ func give_player_item(resource: CollectableResource):
 func _ready() -> void:
 	sphere_material = get_viewport().get_camera_3d().get_node("MeshInstance3D").get_material()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var camera = get_viewport().get_camera_3d()
-	
-	var sphere_data = []
-	var sphere_attributes_data = []
-	
+func generate_sphere_data():
+	sphere_data.clear()
+	sphere_attributes_data.clear()
 	for v in sound_spheres:
 		sphere_data.push_back(Vector4(v.global_position.x, v.global_position.y, v.global_position.z, v.radius))
 		sphere_attributes_data.push_back(Vector4(v.color.r, v.color.g, v.color.b, v.max_radius))	
-	
-	sphere_material.set_shader_parameter("sphere_data_length", len(sphere_data))
-	sphere_material.set_shader_parameter("sphere_data", sphere_data)
-	sphere_material.set_shader_parameter("sphere_attributes_data", sphere_attributes_data)
+
+func feed_material_spheres(material):
+	material.set_shader_parameter("sphere_data_length", len(sphere_data))
+	material.set_shader_parameter("sphere_data", sphere_data)
+	material.set_shader_parameter("sphere_attributes_data", sphere_attributes_data)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	generate_sphere_data()
+	feed_material_spheres(sphere_material)

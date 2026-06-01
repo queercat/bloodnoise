@@ -13,10 +13,10 @@ shader_type spatial;
 render_mode unshaded;
 
 uniform float pulse_width = 2.;
-uniform vec4 sphere_data[16];
-uniform vec4 sphere_attributes_data[16];
 
 uniform int sphere_data_length;
+uniform vec4 sphere_data[16];
+uniform vec4 sphere_attributes_data[16];
 
 uniform float fog_height : hint_range(0.0, 1000., 100.);
 uniform float fog_basis = 0;
@@ -93,8 +93,6 @@ void fragment() {
 		vec4 sphere_attribute_datum = sphere_attributes_data[idx];
 		
 		float dist = sdSphere(sphere_datum.xyz - world_position, sphere_datum.w);
-		float ease_out = map_range(sphere_datum.w, sphere_attribute_datum.w * .8, sphere_attribute_datum.w, 0., 1.);
-		float fade_out_color = map_range(sphere_datum.w, 0., sphere_attribute_datum.w, 0., 1.);
 		dist += rand_value;
 		
 		// Extra calculations to get the correct gradient direction.
@@ -105,8 +103,8 @@ void fragment() {
 		mix_ratio = 1.0 * check - percentage;
 		mix_ratio = clamp(mix_ratio, 0.0, 1.0);
 		
-		noise_rings = mix(noise_rings, sphere_attribute_datum.rgb - fade_out_color, mix_ratio);
-		fog_intensity = length(sphere_datum.xyz - world_position) <= sphere_datum.w - pulse_width ? ease_out : fog_intensity;
+		noise_rings = mix(noise_rings, sphere_attribute_datum.rgb, mix_ratio);
+		fog_intensity = length(sphere_datum.xyz - world_position) <= sphere_datum.w - pulse_width ? 0.0 : fog_intensity;
 	}
 	// Set the albedo to the mix between the original screen and the added
 	// pulse color.
