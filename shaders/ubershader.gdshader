@@ -103,16 +103,24 @@ void fragment() {
 		float dist = sdSphere(sphere_datum.xyz - world_position, sphere_datum.w);
 		dist += rand_value;
 		
+		float inner_border = sphere_datum.w - 7.5;
+		
 		// Extra calculations to get the correct gradient direction.
 		// Using calculation functions in place of if statements.
 		float mix_ratio = 0.0;
 		float check = when_lt(dist, 0.0) * when_gt(dist, -pulse_width);
+		
 		float percentage = abs(dist) / abs(pulse_width);
 		mix_ratio = 1.0 * check - percentage;
 		mix_ratio = clamp(mix_ratio, 0.0, 1.0);
 		
+		float normalized_range = sphere_datum.w / sphere_attribute_datum.w;
+		normalized_range = map_range(normalized_range, 0.7, 1.0, 0.0, 1.0);
+		mix_ratio -= map_range(normalized_range, 0., 1., 0., mix_ratio);
 		noise_rings = mix(noise_rings, sphere_attribute_datum.rgb, mix_ratio);
-		fog_intensity = length(sphere_datum.xyz - world_position) <= sphere_datum.w - pulse_width ? 0.0 : fog_intensity;
+		float len = length(sphere_datum.xyz - world_position);
+		len += rand_value;
+		fog_intensity = len >= inner_border && len <= sphere_datum.w - pulse_width ? normalized_range : fog_intensity; 
 	}
 	// Set the albedo to the mix between the original screen and the added
 	// pulse color.

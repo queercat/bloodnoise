@@ -52,7 +52,7 @@ func generate_sphere_data():
 	sphere_attributes_data.clear()
 	for v in sound_spheres:
 		sphere_data.push_back(Vector4(v.global_position.x, v.global_position.y, v.global_position.z, v.radius))
-		sphere_attributes_data.push_back(Vector4(v.color.r, v.color.g, v.color.b, v.max_radius))	
+		sphere_attributes_data.push_back(Vector4(v.color.r, v.color.g, v.color.b, v.max_radius))
 
 func feed_material_spheres(material):
 	material.set_shader_parameter("sphere_data_length", len(sphere_data))

@@ -12,14 +12,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:	
-	if not collapsing:
-		scale += Vector3.ONE * growth_speed * delta
-	else:
-		scale -= Vector3.ONE * growth_speed * delta
-	
+	scale += Vector3.ONE * growth_speed * delta
 	radius = scale.x
+	
 	if radius >= max_radius:
 		collapsing = true
+		radius = 0
 	if radius <= 0:
 		GameManager.delete_sound_sphere(self)
 		self.queue_free()

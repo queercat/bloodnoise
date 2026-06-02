@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bpru0ww16hoa6"]
+
+[ext_resource type="PackedScene" uid="uid://dp4xqgxb6ifmc" path="res://models/Piano.blend" id="1_fjbyj"]
+[ext_resource type="AudioStream" uid="uid://le8weegq1u3a" path="res://audio/piano/potato.wav" id="2_3iepk"]
+[ext_resource type="Script" uid="uid://bgtwknyynif1e" path="res://classes/midi_sequencer.gd" id="3_5hsnw"]
+
+[node name="Piano" unique_id=145434344 instance=ExtResource("1_fjbyj")]
+
+[node name="Node" type="Node" parent="." index="0" unique_id=443744287 node_paths=PackedStringArray("stream", "animation_player")]
+script = ExtResource("3_5hsnw")
+stream = NodePath("../AudioStreamPlayer3D")
+animation_player = NodePath("../AnimationPlayer")
+data = "0.0,43
+0.2608695652173913,50
+0.5054347826086957,55
+0.7663043478260869,57
+0.9945652173913043,58
+1.266304347826087,67
+1.6684782608695652,74
+2.0869565217391304,79
+2.5054347826086953,81
+3.0380434782608696,82
+3.635869565217391,91
+4.173913043478261,86
+5.130434782608696,31"
+
+[node name="Crank" parent="." index="1" unique_id=365291186]
+transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 4.750014)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="68" unique_id=1407542487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.437561, 2.497449, -6.786923)
+stream = ExtResource("2_3iepk")
