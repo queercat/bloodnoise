@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b77u27g68akju"]
+
+[ext_resource type="PackedScene" uid="uid://bdj8t3nmi6ckh" path="res://models/Blocking.blend" id="1_otohc"]
+
+[node name="Blocking" unique_id=1530560945 instance=ExtResource("1_otohc")]
