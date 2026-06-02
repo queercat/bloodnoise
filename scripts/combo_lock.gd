@@ -18,7 +18,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not player_in_area:
-		pass
+		return
 	
 	var space_state = get_world_3d().direct_space_state
 	var cam = get_viewport().get_camera_3d()
@@ -58,7 +58,6 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("do_interaction"):
 		target.rotate_object_local(Vector3(0, 1, 0), deg_to_rad(-36))
 		values[pointer] = (values[pointer] + 1) % 10
-		print(values)
 
 func _on_lock_area_body_entered(body: Node3D) -> void:
 	if body.get_parent().name == "Pawn":

@@ -117,7 +117,7 @@ void fragment() {
 	// Set the albedo to the mix between the original screen and the added
 	// pulse color.
 
-	fog_intensity = clamp(fog_intensity, 0., 1.);
+	fog_intensity = clamp(fog_intensity, 0., .75);
 	//
 	output += noise_rings;
 	output = mix(output, fog_color.rgb, fog_intensity);
