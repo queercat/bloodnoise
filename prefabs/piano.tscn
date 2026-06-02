@@ -30,3 +30,4 @@ transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.17386
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="68" unique_id=1407542487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.437561, 2.497449, -6.786923)
 stream = ExtResource("2_3iepk")
+unit_size = 43.3

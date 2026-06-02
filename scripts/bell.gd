@@ -7,7 +7,7 @@ var tolerance = .01
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	stream.play()
 
 func get_playable_positions():
 	return time_positions.filter(func (v): return not burned_times.has(v))
@@ -22,6 +22,6 @@ func _process(delta: float) -> void:
 		var positions = get_playable_positions()
 		
 		for time_marker in positions:
-			if time_marker >= current_time - tolerance and time_marker <= current_time + tolerance:
+			if time_marker <= current_time:
 				bong()
 				burned_times.append(time_marker)
