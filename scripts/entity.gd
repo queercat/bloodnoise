@@ -9,7 +9,7 @@ func trigger():
 	t.tween_property(self, "global_position", impact_node.global_position, time_till_impact_seconds).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	await t.finished
 	
-	print("GAME OVER")
+	GameManager.ui.show_interact_text("GAME OVER")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
