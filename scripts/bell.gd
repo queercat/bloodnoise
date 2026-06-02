@@ -14,6 +14,8 @@ func get_playable_positions():
 
 func bong():
 	GameManager.spawn_sound_sphere(global_position, 100, Color.PURPLE, 500)
+	# GameManager.shake_camera()
+	print("bong")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

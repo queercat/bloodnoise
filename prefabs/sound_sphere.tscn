@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3ta3vemswclk" path="res://scripts/sound_sphere.gd" id="1_x6rmw"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_8qiea"]
+radius = 1.0
 
 [node name="SoundSphere" type="Node3D" unique_id=622476888]
 script = ExtResource("1_x6rmw")
@@ -12,7 +13,10 @@ extra_cull_margin = 16384.0
 ignore_occlusion_culling = true
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1201000400]
-collision_layer = 5
+collision_layer = 7
+collision_mask = 255
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=732982459]
 shape = SubResource("SphereShape3D_8qiea")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

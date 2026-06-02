@@ -217,6 +217,9 @@ data = PackedVector3Array(215.30829, -12.3659, 25.0122, 215.69339, -6.4975996, 2
 script = ExtResource("1_rlbrl")
 player = NodePath("Pawn")
 
+[node name="ImpactNode" type="Node3D" parent="." unique_id=555445818]
+transform = Transform3D(23.885479, 0, 0, 0, 16.498016, 0, 0, 0, 23.885479, -4.21566, 21.511429, -523.3612)
+
 [node name="Key" parent="." unique_id=1155488183 instance=ExtResource("22_myl5m")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 111.17246, -22.370342, -615.55005)
 
@@ -456,13 +459,11 @@ body = NodePath("../Body")
 animated_sprite = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/AnimatedSprite3D")
 world_mesh = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/MeshInstance3D")
 
-[node name="Eye" parent="." unique_id=1433499828 instance=ExtResource("14_fvjam")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 142.867, -505.943)
+[node name="Eye" parent="." unique_id=1548058268 node_paths=PackedStringArray("impact_node") instance=ExtResource("14_fvjam")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 324.5481, -505.943)
 script = ExtResource("15_80spn")
-
-[node name="Sphere" parent="Eye" index="0" unique_id=524832329]
-transform = Transform3D(-10, 0, 0, 0, 4.371139e-07, -10, 0, 10, 4.371139e-07, 0, 0, 0)
-layers = 2
+time_till_impact_seconds = 5.0
+impact_node = NodePath("../ImpactNode")
 
 [node name="Graveyard area" type="Node3D" parent="." unique_id=72370230]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -112.31353, 8.980307, -654.0038)
@@ -1292,7 +1293,6 @@ spot_angle = 40.098324
 [connection signal="body_entered" from="GateStuff/Gate R/LockArea" to="GateStuff/Gate R/ComboLockManager" method="_on_lock_area_body_entered"]
 [connection signal="body_exited" from="GateStuff/Gate R/LockArea" to="GateStuff/Gate R/ComboLockManager" method="_on_lock_area_body_exited"]
 
-[editable path="Eye"]
 [editable path="ground/ground_prefab"]
 [editable path="GateStuff/GateBorderSection"]
 [editable path="GateStuff/GateBorderSection2"]

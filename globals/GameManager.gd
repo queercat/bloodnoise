@@ -8,6 +8,9 @@ var sound_spheres: Array[Node3D] = []
 var sphere_material: Material
 var sphere_data = []
 var sphere_attributes_data = []
+var camera: Camera3D
+var camera_shake_value: Vector2 = Vector2.ZERO
+var shake_timer = 0
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 
@@ -43,9 +46,23 @@ func give_player_item(resource: CollectableResource):
 	player_items.push_back(resource)
 	print("got %s" % resource.collectable_name)
 
+func shake_camera():
+	shake_timer = Time.get_ticks_msec() + 1000
+
+func apply_camera_shake():
+	var range = .2
+	camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)
+	camera_shake_value = Vector2(randf_range(-range, range), randf_range(-range, range))
+	camera.position +=  Vector3(camera_shake_value.x, 0, camera_shake_value.y)
+	
+	if Time.get_ticks_msec() >= shake_timer:
+		shake_timer = 0
+		camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	sphere_material = get_viewport().get_camera_3d().get_node("MeshInstance3D").get_material()
+	camera = get_viewport().get_camera_3d()
 
 func generate_sphere_data():
 	sphere_data.clear()
@@ -63,3 +80,6 @@ func feed_material_spheres(material):
 func _process(delta: float) -> void:
 	generate_sphere_data()
 	feed_material_spheres(sphere_material)
+	
+	if shake_timer > 0:
+		apply_camera_shake()
