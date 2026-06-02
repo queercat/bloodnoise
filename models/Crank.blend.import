@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dp4xqgxb6ifmc"
-path="res://.godot/imported/Piano.blend-c52815998f63a437c500b5736ab9ef94.scn"
+uid="uid://ciy8u82ln5pn1"
+path="res://.godot/imported/Crank.blend-5a8b6b904828cd2e9956e7d07af8acda.scn"
 
 [deps]
 
-source_file="res://models/Piano.blend"
-dest_files=["res://.godot/imported/Piano.blend-c52815998f63a437c500b5736ab9ef94.scn"]
+source_file="res://models/Crank.blend"
+dest_files=["res://.godot/imported/Crank.blend-5a8b6b904828cd2e9956e7d07af8acda.scn"]
 
 [params]
 
@@ -37,13 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

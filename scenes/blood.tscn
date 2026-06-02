@@ -28,6 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://gsobrd76resy" path="res://models/GateBorderSection.blend" id="19_mlt1q"]
 [ext_resource type="Shader" uid="uid://dsgmgxidukuc1" path="res://shaders/god_rays.gdshader" id="20_mlt1q"]
 [ext_resource type="Texture2D" uid="uid://bjkkbjiupfnus" path="res://textures/squid/squid_legs_albedo.png" id="21_f4lf1"]
+[ext_resource type="PackedScene" uid="uid://dwf6ecwmroe3c" path="res://prefabs/key_prefab.tscn" id="22_myl5m"]
 [ext_resource type="Texture2D" uid="uid://b07ga6h7ufeiv" path="res://textures/eye entity/entity_eye_albedo.png" id="23_km6ap"]
 [ext_resource type="Texture2D" uid="uid://ckgaryp8xx0hc" path="res://textures/ground/Ground_Normal.png" id="24_x6f3n"]
 [ext_resource type="Shader" uid="uid://cnsuss466v4ih" path="res://shaders/invisible.gdshader" id="27_2ndj4"]
@@ -282,6 +283,12 @@ data = PackedVector3Array(215.30829, -12.3659, 25.0122, 215.69339, -6.4975996, 2
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("player")]
 script = ExtResource("1_rlbrl")
 player = NodePath("Pawn")
+
+[node name="Key" parent="." unique_id=1155488183 instance=ExtResource("22_myl5m")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 111.17246, -22.370342, -615.55005)
+
+[node name="Key2" parent="." unique_id=358746100 instance=ExtResource("22_myl5m")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -126.36241, -6.7685776, -376.00766)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2095310147]
 environment = SubResource("Environment_bmbh8")
@@ -974,6 +981,9 @@ sky_mode = 1
 
 [node name="Piano" parent="Lights" unique_id=1774194491 instance=ExtResource("36_x6f3n")]
 transform = Transform3D(0.48328975, 0.043804213, 0, -0.043804213, 0.48328975, 0, 0, 0, 0.4852709, -112.81059, -8.253651, -366.2361)
+
+[node name="Crank" parent="Lights/Piano" index="0" unique_id=998613212]
+transform = Transform3D(2.440154, 4.2665008e-07, 0, -4.2665008e-07, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 0.5438242)
 
 [node name="God Rays" type="Node" parent="." unique_id=994052631]
 
