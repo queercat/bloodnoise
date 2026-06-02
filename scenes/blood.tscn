@@ -514,11 +514,11 @@ animated_sprite = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/Animate
 world_mesh = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/MeshInstance3D")
 
 [node name="Eye" parent="." unique_id=1433499828 instance=ExtResource("14_fvjam")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1060028, 151.2765, 9.082615)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1060028, 151.2765, -496.92343)
 script = ExtResource("15_80spn")
 
 [node name="Sphere" parent="Eye" index="0" unique_id=1885516134]
-transform = Transform3D(-6.8975224, 0, 0, 0, -0.30989283, -6.8905582, 0, 6.8905582, -0.30989283, 0, -0.2822876, -518.1316)
+transform = Transform3D(-42.15149, 0, 0, 0, -1.893788, -42.108932, 0, 42.108932, -1.893788, 0, -0.2822876, -7.6003723)
 mesh = SubResource("ArrayMesh_iuxes")
 
 [node name="Blocking" type="Node3D" parent="." unique_id=2064482699]
@@ -1225,33 +1225,55 @@ shape = SubResource("ConcavePolygonShape3D_re4r8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Cube_008/StaticBody3D" unique_id=109384217]
 shape = SubResource("ConcavePolygonShape3D_fjl1l")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Arena" unique_id=510265678]
-transform = Transform3D(-0.63965374, -0.7627858, 0.094874725, 3.7252894e-09, 0.12342821, 0.9923535, -0.7686634, 0.6347627, -0.07895131, 25.831161, 92.69723, -14.698547)
-light_energy = 16.0
+[node name="SpotLight3D4" type="SpotLight3D" parent="Arena" unique_id=276391544]
+transform = Transform3D(-0.6777838, -0.6590502, 0.3259787, 0.21664345, 0.24466081, 0.9450962, -0.7026201, 0.71119195, -0.023048222, 47.845055, 68.79025, -1.838934)
+light_energy = 1.67
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.35
 spot_range = 143.41638
 spot_angle = 40.098324
 
-[node name="SpotLight3D2" type="SpotLight3D" parent="Arena" unique_id=1579766962]
-transform = Transform3D(-0.63965374, -0.7627858, 0.094874725, 3.7252894e-09, 0.12342821, 0.9923535, -0.7686634, 0.6347627, -0.07895131, -9.774727, 106.2078, 16.4581)
-light_energy = 16.0
+[node name="SpotLight3D7" type="SpotLight3D" parent="Arena" unique_id=1757886428]
+transform = Transform3D(-0.6777838, -0.6590502, 0.3259787, 0.21664345, 0.24466081, 0.9450962, -0.7026201, 0.71119195, -0.023048222, 54.017563, 43.072792, -6.286749)
+light_color = Color(0.8222813, 0.38400024, 0.11734008, 1)
+light_energy = 10.54
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.35
+spot_range = 50.889652
+spot_angle = 40.098324
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="Arena" unique_id=877206738]
+transform = Transform3D(-0.6777838, -0.6590502, 0.3259787, 0.21664345, 0.24466081, 0.9450962, -0.7026201, 0.71119195, -0.023048222, 54.017563, 43.072792, -6.286749)
+light_color = Color(0.8222813, 0.38400024, 0.11734008, 1)
+light_energy = 10.54
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.35
+spot_range = 50.889652
+spot_angle = 40.098324
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Arena" unique_id=2073722115]
+transform = Transform3D(-0.6777838, -0.73449737, -0.033509187, 0.21664345, -0.24305162, 0.94551134, -0.7026201, 0.63359267, 0.32386044, 13.052483, 80.79337, 23.504662)
+light_energy = 1.67
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.35
 spot_range = 143.41638
 spot_angle = 40.098324
 
-[node name="SpotLight3D5" type="SpotLight3D" parent="Arena" unique_id=570544264]
-transform = Transform3D(-0.63965374, -0.74914014, -0.17214026, 1.4901158e-08, -0.22394755, 0.9746012, -0.7686634, 0.62340724, 0.1432489, -44.752663, 111.86766, 45.56546)
-light_energy = 16.0
-spot_range = 143.41638
-spot_angle = 40.098324
-
-[node name="SpotLight3D3" type="SpotLight3D" parent="Arena" unique_id=25574192]
-transform = Transform3D(-0.63965374, -0.7430862, 0.19663712, 1.117587e-08, 0.25581697, 0.96672523, -0.7686634, 0.61836946, -0.16363427, 2.186737, 96.6995, 5.1866455)
-light_energy = 16.0
-spot_range = 143.41638
-spot_angle = 40.098324
-
-[node name="SpotLight3D4" type="SpotLight3D" parent="Arena" unique_id=875936860]
-transform = Transform3D(-0.63965374, -0.33515006, 0.69174975, 0, 0.89993864, 0.4360167, -0.7686633, 0.27889976, -0.57564914, -14.677925, 96.6995, -15.079376)
-light_energy = 16.0
+[node name="SpotLight3D6" type="SpotLight3D" parent="Arena" unique_id=2085097229]
+transform = Transform3D(-0.6777838, -0.73449737, -0.033509187, 0.21664345, -0.24305162, 0.94551134, -0.7026201, 0.63359267, 0.32386044, 51.358166, 93.46906, -9.538616)
+light_energy = 1.67
+shadow_enabled = true
+shadow_bias = 10.0
+shadow_reverse_cull_face = true
+shadow_opacity = 0.35
 spot_range = 143.41638
 spot_angle = 40.098324
 
