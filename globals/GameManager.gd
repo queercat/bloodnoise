@@ -91,6 +91,7 @@ func __ready():
 	uber_material = get_viewport().get_camera_3d().get_node("MeshInstance3D").get_material()
 	camera = get_viewport().get_camera_3d()
 	init_material(uber_material)
+	shake_timer = 0
 	
 func init_material(material):
 	material.set_shader_parameter("enable_party_mode", false)

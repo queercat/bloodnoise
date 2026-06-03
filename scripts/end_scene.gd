@@ -14,6 +14,7 @@ var shader: ShaderMaterial
 var glitch = .1
 
 func play():
+	var s = start_scene.instantiate()
 	static_audio.volume_db = -20
 	static_audio.play()
 	left_audio.play()
@@ -31,7 +32,7 @@ func play():
 	t.tween_property(self, "glitch", 1, 5)
 	t.parallel().tween_property(static_audio, "volume_db", 0, 5)
 	await t.finished
-	get_tree().change_scene_to_packed(start_scene)
+	get_tree().change_scene_to_node(s)
 	
 
 # Called when the node enters the scene tree for the first time.

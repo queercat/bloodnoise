@@ -15,7 +15,6 @@ func trigger():
 func _ready() -> void:
 	trigger()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	look_at(GameManager.player_manager.body.position)

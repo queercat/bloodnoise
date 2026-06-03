@@ -470,7 +470,7 @@ world_mesh = NodePath("../Interpolated Camera/Arm/Arm Anchor/Camera/MeshInstance
 [node name="Eye" parent="." unique_id=1548058268 node_paths=PackedStringArray("impact_node") instance=ExtResource("14_fvjam")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 324.5481, -505.943)
 script = ExtResource("15_80spn")
-time_till_impact_seconds = 5.0
+time_till_impact_seconds = 300.0
 impact_node = NodePath("../ImpactNode")
 
 [node name="Graveyard area" type="Node3D" parent="." unique_id=72370230]
