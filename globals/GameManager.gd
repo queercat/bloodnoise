@@ -24,6 +24,7 @@ var has_started = false
 
 signal LockUnlocked(name: String)
 signal CheatedBadEnd()
+signal LeverToggled(name: String, state: bool)
 
 func spawn_sound_sphere(position: Vector3, growth_speed: float = 5, color: Color = Color.WHITE, max_radius: float = 10):
 	var root = get_tree().root
@@ -59,6 +60,9 @@ func delete_sound_sphere(sphere: Node3D):
 
 func unlocked_lock(name: String):
 	LockUnlocked.emit(name)
+	
+func lever_toggled(name: String, state: bool):
+	LeverToggled.emit(name, state)
 
 func does_player_have_item(name: String):
 	return player_items.any(func (v: CollectableResource): return v.collectable_name == name)
@@ -78,6 +82,7 @@ func shake_camera():
 	shake_timer = Time.get_ticks_msec() + 1000
 
 func apply_camera_shake():
+	return 
 	if camera:
 		var range = .2
 		camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)

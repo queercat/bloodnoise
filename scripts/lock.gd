@@ -10,7 +10,7 @@ var opened = false
 func open():
 	if opened: return
 	player_detection_area.queue_free()
-	GameManager.player_manager.pop_interactable()
+	GameManager.player_manager.pop_interactable(interactable)
 	GameManager.consume_player_item("key")
 	opened = true
 	var t = get_tree().create_tween()
@@ -42,4 +42,4 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.get_parent().name == "Pawn":
-		GameManager.player_manager.pop_interactable()
+		GameManager.player_manager.pop_interactable(interactable)

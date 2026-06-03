@@ -18,10 +18,13 @@ func append_interactable(interactable):
 	if len(interactable_queue) == 1:
 		interactable.show_interaction()
 
-func pop_interactable():
+func pop_interactable(interactable):
 	if len(interactable_queue) >= 1:
-		var interactable = self.interactable_queue.pop_front()
-		interactable.hide_interaction()
+		if interactable == self.interactable_queue.front():
+			interactable.hide_interaction()
+		var idx = interactable_queue.find(interactable)
+		self.interactable_queue.pop_at(idx)
+
 	if len(interactable_queue) >= 1:
 		interactable_queue.front().show_interaction()
 
@@ -40,9 +43,9 @@ func _input(event: InputEvent) -> void:
 		animated_sprite.play("shake")
 		sound_cooldown_timer = sound_cooldown
 		spawn_sound_sphere()
-	if event.is_action("do_interaction") and len(interactable_queue) > 0:
+	if event.is_action("do_interaction") and event.pressed and len(interactable_queue) > 0:
 		if interactable_queue.front().do_interaction():
-			interactable_queue.pop_front()
+			pop_interactable(interactable_queue.front())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
