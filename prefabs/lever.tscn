@@ -11,10 +11,8 @@ radius = 0.8496094
 [node name="lever" unique_id=715748431 node_paths=PackedStringArray("interactable") instance=ExtResource("1_h71ec")]
 script = ExtResource("2_7d20a")
 interactable = NodePath("LeverInteractable")
-default_state = null
-one_way = null
 
-[node name="Cube_001" parent="." index="0" unique_id=1418384462]
+[node name="Cube_001" parent="." index="0" unique_id=293060267]
 transform = Transform3D(0.07258033, -0.22044422, 0, 0.07258034, 0.22044417, 0, 0, 0, 0.1026441, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." index="4" unique_id=790836261]
