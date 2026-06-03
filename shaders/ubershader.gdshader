@@ -15,6 +15,8 @@ render_mode unshaded;
 uniform sampler2D u_dither_tex : repeat_enable, filter_nearest;
 uniform sampler2D u_color_tex : filter_nearest;
 
+uniform float clock;
+
 uniform int u_bit_depth;
 uniform float u_contrast;
 uniform float u_offset;
@@ -23,13 +25,16 @@ uniform int u_dither_size;
 uniform float pulse_width = 2.;
 
 uniform int sphere_data_length;
-uniform vec4 sphere_data[16];
+uniform vec4 sphere_data[128];
 uniform vec4 sphere_attributes_data[16];
 
 uniform float fog_height : hint_range(0.0, 1000., 100.);
 uniform float fog_basis = 0;
 uniform vec4 fog_color : source_color = vec4(1.0);
 uniform sampler2D fog_gradient: repeat_disable;
+
+uniform bool enable_wave;
+uniform bool enable_party_mode;
 
 // Access the screen and depth buffers
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
@@ -41,6 +46,33 @@ varying mat4 CAMERA;
 // Function from Inigo Quilez https://iquilezles.org/articles/distfunctions/
 float sdSphere( vec3 p, float s ) {
 	return length(p)-s;
+}
+
+// https://gist.github.com/mairod/a75e7b44f68110e1576d77419d608786
+vec3 hueShift( vec3 color, float hueAdjust ){
+
+    const vec3  kRGBToYPrime = vec3 (0.299, 0.587, 0.114);
+    const vec3  kRGBToI      = vec3 (0.596, -0.275, -0.321);
+    const vec3  kRGBToQ      = vec3 (0.212, -0.523, 0.311);
+
+    const vec3  kYIQToR     = vec3 (1.0, 0.956, 0.621);
+    const vec3  kYIQToG     = vec3 (1.0, -0.272, -0.647);
+    const vec3  kYIQToB     = vec3 (1.0, -1.107, 1.704);
+
+    float   YPrime  = dot (color, kRGBToYPrime);
+    float   I       = dot (color, kRGBToI);
+    float   Q       = dot (color, kRGBToQ);
+    float   hue     = atan (Q, I);
+    float   chroma  = sqrt (I * I + Q * Q);
+
+    hue += hueAdjust;
+
+    Q = chroma * sin (hue);
+    I = chroma * cos (hue);
+
+    vec3    yIQ   = vec3 (YPrime, I, Q);
+
+    return vec3( dot (yIQ, kYIQToR), dot (yIQ, kYIQToG), dot (yIQ, kYIQToB) );
 }
 
 float map_range(float value, float from_min, float from_max, float to_min, float to_max) {
@@ -70,9 +102,18 @@ float random (vec2 uv) {
         vec2(12.9898,78.233))) * 43758.5453123);
 }
 
+float ts(float ratio) {
+	return clock * ratio;
+}
+
+vec2 wave(vec2 uv) {
+	return vec2(0, cos(uv.x + ts(.01)) * .05);
+}
+
 void fragment() {
 	// Get the original screen rendered texture at the screen uv coordinates.
-	vec4 original = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+	vec2 offset = enable_wave ? wave(SCREEN_UV) : vec2(0.);
+	vec4 original = textureLod(SCREEN_TEXTURE, SCREEN_UV + offset, 0.0);
 	
 	// Get the depth value form the depth buffer.
 	float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).x;
@@ -80,9 +121,9 @@ void fragment() {
 
 	//Unecessary for this effect, but to get the linear depth value,
 	//use the following code.
-	//vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-	//view.xyz /= view.w;
-	//float linear_depth = -view.z;
+	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	view.xyz /= view.w;
+	float linear_depth = -view.z;
 	
 	// Calculate the fragment's world position
 	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
@@ -180,9 +221,10 @@ void fragment() {
     // sample at the lower bound colour if ramp_val is 0.0, upper bound colour if 1.0
     float col_sample = mix(lum_lower, lum_upper, ramp_val);
     vec3 final_col = texture(u_color_tex, vec2(col_sample, 0.5)).rgb;
+	final_col = enable_party_mode ? hueShift(final_col, ts(.01)) : final_col;
 
     // return the final colour!
     output.rgb = final_col;
-	
+		
 	ALBEDO = output;
 }

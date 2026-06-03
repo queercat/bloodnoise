@@ -19,10 +19,6 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://co76rft07a5ib"
 
-[display]
-
-window/size/always_on_top=true
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/csv-data-importer/plugin.cfg")

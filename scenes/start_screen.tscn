@@ -1,0 +1,156 @@
+[gd_scene format=4 uid="uid://cvht7g37gk5nv"]
+
+[ext_resource type="Script" uid="uid://bglhyjd0rqtqg" path="res://scripts/start_screen.gd" id="1_o7i0r"]
+[ext_resource type="PackedScene" uid="uid://cnaecav7atlvb" path="res://models/churchBaked2.0.blend" id="1_tx5wa"]
+[ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_he1sj"]
+[ext_resource type="Shader" uid="uid://cpfel2sbdyvtw" path="res://shaders/dither.gdshader" id="5_o30b1"]
+[ext_resource type="Texture2D" uid="uid://xl3gdbttogv2" path="res://sprites/pallette_may.png" id="6_o30b1"]
+[ext_resource type="Texture2D" uid="uid://bx5irh1kr5g21" path="res://sprites/bayer8tile4.png" id="7_ka6nf"]
+[ext_resource type="PackedScene" uid="uid://dl77favi04yj8" path="res://models/Entity2.blend" id="7_o30b1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hm208"]
+render_priority = 0
+shader = ExtResource("5_o30b1")
+shader_parameter/u_dither_tex = ExtResource("7_ka6nf")
+shader_parameter/u_color_tex = ExtResource("6_o30b1")
+shader_parameter/clock = 0.0
+shader_parameter/u_bit_depth = 12
+shader_parameter/u_contrast = 0.545
+shader_parameter/u_offset = 0.45
+shader_parameter/u_dither_size = 1
+shader_parameter/pulse_width = 2.0
+shader_parameter/sphere_data_length = 0
+shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/fog_height = 0.0
+shader_parameter/fog_basis = 0.0
+shader_parameter/fog_color = Color(1, 1, 1, 1)
+shader_parameter/enable_wave = false
+shader_parameter/enable_party_mode = false
+
+[sub_resource type="BoxMesh" id="BoxMesh_5pab1"]
+size = Vector3(2, 2, 2)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r2jwc"]
+panorama = ExtResource("2_he1sj")
+
+[sub_resource type="Sky" id="Sky_hm208"]
+sky_material = SubResource("PanoramaSkyMaterial_r2jwc")
+
+[sub_resource type="Environment" id="Environment_5pab1"]
+background_mode = 2
+sky = SubResource("Sky_hm208")
+tonemap_mode = 2
+glow_enabled = true
+glow_intensity = 0.96
+glow_bloom = 0.5
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 1.0
+fog_sky_affect = 0.23
+fog_height = 5.6
+fog_height_density = -0.4948
+fog_depth_curve = 9.849147
+fog_depth_begin = 0.0
+fog_depth_end = 20.0
+
+[node name="StartScreen" type="Node3D" unique_id=822459782 node_paths=PackedStringArray("camera", "target", "shader_mesh")]
+script = ExtResource("1_o7i0r")
+camera = NodePath("Camera3D")
+target = NodePath("churchBaked2_0")
+shader_mesh = NodePath("UI/Shader")
+
+[node name="UI" type="Control" parent="." unique_id=801561136]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shader" type="MeshInstance3D" parent="UI" unique_id=2001120792]
+material_override = SubResource("ShaderMaterial_hm208")
+mesh = SubResource("BoxMesh_5pab1")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=628412270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" unique_id=816609901]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/HBoxContainer" unique_id=950081320]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Start" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer" unique_id=40733938]
+layout_mode = 2
+text = "New Game"
+
+[node name="Settings" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1967527201]
+layout_mode = 2
+text = "Settings"
+
+[node name="Exit" type="Button" parent="UI/MarginContainer/HBoxContainer/VBoxContainer" unique_id=839189219]
+layout_mode = 2
+text = "Exit
+"
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/MarginContainer/HBoxContainer" unique_id=2140990432]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1181918712]
+environment = SubResource("Environment_5pab1")
+
+[node name="churchBaked2_0" parent="." unique_id=1636726367 instance=ExtResource("1_tx5wa")]
+transform = Transform3D(0.8706735, 0, -0.49186143, 0, 1, 0, 0.49186143, 0, 0.8706735, 0.0025820136, 0, -0.052756175)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="churchBaked2_0" unique_id=1345830304]
+transform = Transform3D(-0.8706734, -0.24439764, -0.42684606, 5.9604638e-08, 0.8678175, -0.4968831, 0.49186152, -0.43262297, -0.7555856, -1.3832902, -1.7244601, -6.9563546)
+spot_range = 11.840355
+spot_angle = 8.33
+spot_angle_attenuation = 1.3195081
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="churchBaked2_0" unique_id=764193865]
+transform = Transform3D(-0.8706734, -0.24439764, -0.42684606, 5.9604638e-08, 0.8678175, -0.4968831, 0.49186152, -0.43262297, -0.7555856, 0.9263758, -1.7244601, -8.261133)
+spot_range = 11.840355
+spot_angle = 11.474926
+spot_angle_attenuation = 1.3195081
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="churchBaked2_0" unique_id=1295417712]
+transform = Transform3D(-0.8706734, -0.24439764, -0.42684606, 5.9604638e-08, 0.8678175, -0.4968831, 0.49186152, -0.43262297, -0.7555856, -4.3060365, -1.7244601, -8.170902)
+spot_range = 11.840355
+spot_angle = 11.474926
+spot_angle_attenuation = 1.3195081
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="churchBaked2_0" unique_id=805062464]
+transform = Transform3D(-0.8539635, 0.4995395, 0.14562589, 0.5161678, 0.84861577, 0.115854144, -0.06570676, 0.17410266, -0.982533, -4.3060355, 9.132217, -8.170903)
+light_energy = 0.0
+light_specular = 14.282
+spot_range = 11.840355
+spot_angle = 11.474926
+spot_angle_attenuation = 1.3195081
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=267574636]
+transform = Transform3D(-0.25378582, -0.19625422, 0.9471415, -0.050794333, 0.9805531, 0.18956701, -0.9659259, -3.5983545e-09, -0.25881907, 13.656771, 6.4533906, 2.1729393)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1482744526]
+light_energy = 0.632
+light_angular_distance = 66.68
+light_specular = 0.317
+
+[node name="Entity2" parent="." unique_id=1750257133 instance=ExtResource("7_o30b1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.340857)
+
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

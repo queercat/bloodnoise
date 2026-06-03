@@ -7,6 +7,7 @@ class_name PlayerManager
 @export var sound_cooldown : float = 1.0 
 @export var animated_sprite: AnimatedSprite3D
 @export var world_mesh: MeshInstance3D
+var uber_material: ShaderMaterial
 
 var sound_cooldown_timer : float = 0
 var interactable_queue: Array[Interactable] = []
@@ -31,6 +32,7 @@ func spawn_sound_sphere():
 func _ready() -> void:
 	GameManager.player_manager = self
 	world_mesh.show()
+	uber_material = world_mesh.mesh.surface_get_material(0)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action("primary_action") and sound_cooldown_timer <= 0:
@@ -46,3 +48,5 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if sound_cooldown_timer > 0:
 		sound_cooldown_timer -= delta
+	GameManager.feed_material_spheres(uber_material)
+	GameManager.feed_material_clock(uber_material)
