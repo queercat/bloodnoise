@@ -16,10 +16,9 @@ func _ready() -> void:
 		var key = row[1]
 		times.append(float(time))
 		
-	stream.play()
-	animation_player.play("Crank Dat")
-
-	stream.finished.connect(func (): animation_player.stop())
+	# stream.play()
+	# animation_player.play("Crank Dat")
+	# stream.finished.connect(func (): animation_player.stop())
 
 func get_playable_positions():
 	return times.filter(func (v): return v not in burned_times)

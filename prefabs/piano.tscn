@@ -24,7 +24,7 @@ data = "0.0,43
 4.173913043478261,86
 5.130434782608696,31"
 
-[node name="Crank" parent="." index="1" unique_id=365291186]
+[node name="Crank" parent="." index="1" unique_id=758082710]
 transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 4.750014)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="68" unique_id=1407542487]

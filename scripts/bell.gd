@@ -7,7 +7,8 @@ var tolerance = .01
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	stream.play()
+	pass
+	# stream.play()
 
 func get_playable_positions():
 	return time_positions.filter(func (v): return not burned_times.has(v))
