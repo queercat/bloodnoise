@@ -5,4 +5,6 @@
 [resource]
 script = ExtResource("1_wnsr5")
 AUTOHOP = true
+MAX_AIR_SPEED = 25.0
 STEP_HEIGHT = 0.862
+AIR_ACCELERATION = 5.0

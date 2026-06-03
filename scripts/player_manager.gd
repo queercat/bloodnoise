@@ -7,8 +7,11 @@ class_name PlayerManager
 @export var sound_cooldown : float = 1.0 
 @export var animated_sprite: AnimatedSprite3D
 @export var world_mesh: MeshInstance3D
-var uber_material: ShaderMaterial
+@export var move_functions: Node
 
+var uber_material: ShaderMaterial
+var run_action_held: bool = false
+var move_speed: float = 1.0
 var sound_cooldown_timer : float = 0
 var interactable_queue: Array[Interactable] = []
 
@@ -46,6 +49,14 @@ func _input(event: InputEvent) -> void:
 	if event.is_action("do_interaction") and event.pressed and len(interactable_queue) > 0:
 		if interactable_queue.front().do_interaction():
 			pop_interactable(interactable_queue.front())
+	if event.is_action_pressed("pm_run") and not run_action_held:
+		run_action_held = true
+		move_functions.Parameters.FORWARD_SPEED *= 2
+		move_functions.Parameters.MAX_SPEED *= 2
+	elif event.is_action_released("pm_run") and run_action_held:
+		run_action_held = false
+		move_functions.Parameters.FORWARD_SPEED /= 2
+		move_functions.Parameters.MAX_SPEED /= 2
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -53,3 +64,6 @@ func _process(delta: float) -> void:
 		sound_cooldown_timer -= delta
 	GameManager.feed_material_spheres(uber_material)
 	GameManager.feed_material_clock(uber_material)
+	
+	if run_action_held:
+		print("you is running!")
