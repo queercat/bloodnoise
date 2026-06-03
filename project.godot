@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bloodnoise"
-run/main_scene="uid://ctqc3knl1wvkd"
+run/main_scene="uid://cvht7g37gk5nv"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -21,7 +21,7 @@ GameManager="*uid://co76rft07a5ib"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/csv-data-importer/plugin.cfg")
+enabled=PackedStringArray()
 
 [input]
 

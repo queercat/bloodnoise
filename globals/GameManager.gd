@@ -78,10 +78,11 @@ func shake_camera():
 	shake_timer = Time.get_ticks_msec() + 1000
 
 func apply_camera_shake():
-	var range = .2
-	camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)
-	camera_shake_value = Vector2(randf_range(-range, range), randf_range(-range, range))
-	camera.position +=  Vector3(camera_shake_value.x, 0, camera_shake_value.y)
+	if camera:
+		var range = .2
+		camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)
+		camera_shake_value = Vector2(randf_range(-range, range), randf_range(-range, range))
+		camera.position +=  Vector3(camera_shake_value.x, 0, camera_shake_value.y)
 	
 	if Time.get_ticks_msec() >= shake_timer:
 		shake_timer = 0
