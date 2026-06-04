@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode depth_prepass_alpha;
 
 varying vec3 world_vertex;
-
+uniform float reveal_distance: hint_range(0.0, 10.0, 10.0);
 uniform int sphere_data_length;
 uniform vec4 sphere_data[64];
 uniform vec4 sphere_attributes_data[64];
@@ -39,7 +39,7 @@ void fragment() {
 		
 		
 		dist += rand_value;
-		alpha += dist <= sphere_datum.w && dist >= sphere_datum.w - 10. ? 1. - factor : 0.;
+		alpha += dist <= sphere_datum.w && dist >= sphere_datum.w - reveal_distance ? 1. - factor : 0.;
 	}
 	
 	factor = clamp(factor, 0., 1.);

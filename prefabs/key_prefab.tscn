@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://ckeoo4la3vilu" path="res://resources/collectables/key_collectable.tres" id="3_tw651"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yget6"]
+radius = 0.55413646
 
 [node name="Key" unique_id=1155488183 node_paths=PackedStringArray("collection_zone") instance=ExtResource("1_yget6")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)

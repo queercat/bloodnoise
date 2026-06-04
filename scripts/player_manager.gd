@@ -23,7 +23,7 @@ func append_interactable(interactable):
 
 func pop_interactable(interactable):
 	if len(interactable_queue) >= 1:
-		if interactable == self.interactable_queue.front():
+		if interactable == interactable_queue.front():
 			interactable.hide_interaction()
 		var idx = interactable_queue.find(interactable)
 		self.interactable_queue.pop_at(idx)
@@ -62,6 +62,3 @@ func _process(delta: float) -> void:
 		sound_cooldown_timer -= delta
 	GameManager.feed_material_spheres(uber_material)
 	GameManager.feed_material_clock(uber_material)
-	
-	if run_action_held:
-		print("you is running!")

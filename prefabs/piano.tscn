@@ -3,12 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://dp4xqgxb6ifmc" path="res://models/Piano.blend" id="1_fjbyj"]
 [ext_resource type="AudioStream" uid="uid://le8weegq1u3a" path="res://audio/piano/potato.wav" id="2_3iepk"]
 [ext_resource type="Script" uid="uid://bgtwknyynif1e" path="res://classes/midi_sequencer.gd" id="3_5hsnw"]
+[ext_resource type="Script" uid="uid://dtanse4mdwtp3" path="res://scripts/piano_interaction.gd" id="3_r4lml"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_r4lml"]
+radius = 10.635
 
 [node name="Piano" unique_id=145434344 instance=ExtResource("1_fjbyj")]
 
-[node name="Node" type="Node" parent="." index="0" unique_id=443744287 node_paths=PackedStringArray("stream", "animation_player")]
+[node name="Manager" type="Node" parent="." index="0" unique_id=443744287 node_paths=PackedStringArray("stream", "interactable", "animation_player")]
 script = ExtResource("3_5hsnw")
 stream = NodePath("../AudioStreamPlayer3D")
+interactable = NodePath("CrankInteraction")
 animation_player = NodePath("../AnimationPlayer")
 data = "0.0,43
 0.2608695652173913,50
@@ -24,10 +29,23 @@ data = "0.0,43
 4.173913043478261,86
 5.130434782608696,31"
 
-[node name="Crank" parent="." index="1" unique_id=758082710]
-transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 4.750014)
+[node name="CrankInteraction" type="Node" parent="Manager" index="0" unique_id=1905426869]
+script = ExtResource("3_r4lml")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="68" unique_id=1407542487]
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1268322856]
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=464117250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5447514, 0, 3.4255924)
+shape = SubResource("SphereShape3D_r4lml")
+
+[node name="Crank" parent="." index="2" unique_id=798580742]
+transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 0.5438242)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="69" unique_id=1407542487]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.437561, 2.497449, -6.786923)
 stream = ExtResource("2_3iepk")
 unit_size = 43.3
+
+[connection signal="body_entered" from="Area3D" to="Manager" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Manager" method="_on_area_3d_body_exited"]
