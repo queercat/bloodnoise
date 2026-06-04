@@ -94,39 +94,6 @@ adjustment_brightness = 0.77
 adjustment_contrast = 1.145
 adjustment_saturation = 1.12
 
-[sub_resource type="Gradient" id="Gradient_qwilc"]
-offsets = PackedFloat32Array(0.5289855, 1)
-colors = PackedColorArray(1, 1, 1, 1, 0.20425254, 0.20425254, 0.20425254, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_km6ap"]
-gradient = SubResource("Gradient_qwilc")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwilc"]
-render_priority = 0
-shader = ExtResource("12_x6f3n")
-shader_parameter/u_dither_tex = ExtResource("8_2ndj4")
-shader_parameter/u_color_tex = ExtResource("7_tjbww")
-shader_parameter/clock = 0.0
-shader_parameter/u_bit_depth = 30
-shader_parameter/u_contrast = 1.44
-shader_parameter/u_offset = 0.525
-shader_parameter/u_dither_size = 3
-shader_parameter/pulse_width = 0.5
-shader_parameter/sphere_data_length = 0
-shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/fog_height = 1000.0
-shader_parameter/fog_basis = -1000.0
-shader_parameter/fog_color = Color(0, 0, 0, 1)
-shader_parameter/fog_gradient = SubResource("GradientTexture1D_km6ap")
-shader_parameter/enable_wave = false
-shader_parameter/enable_party_mode = false
-
-[sub_resource type="QuadMesh" id="QuadMesh_0op2o"]
-material = SubResource("ShaderMaterial_qwilc")
-flip_faces = true
-size = Vector2(2, 2)
-
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0vx71"]
 data = PackedVector3Array(-0.68219995, -1.5166999, 0.0296, -0.68219995, 1.5166999, -0.0296, -0.68219995, 1.5166999, 0.0296, -0.68219995, -1.5166999, 0.0296, -0.68219995, -1.5166999, -0.0296, -0.68219995, 1.5166999, -0.0296, -0.68219995, -1.5166999, -0.0296, 0.68219995, 1.5166999, -0.0296, -0.68219995, 1.5166999, -0.0296, -0.68219995, -1.5166999, -0.0296, 0.68219995, -1.5166999, -0.0296, 0.68219995, 1.5166999, -0.0296, 0.68219995, -1.5166999, -0.0296, 0.68219995, 1.5166999, 0.0296, 0.68219995, 1.5166999, -0.0296, 0.68219995, -1.5166999, -0.0296, 0.68219995, -1.5166999, 0.0296, 0.68219995, 1.5166999, 0.0296, 0.68219995, -1.5166999, 0.0296, -0.68219995, 1.5166999, 0.0296, 0.68219995, 1.5166999, 0.0296, 0.68219995, -1.5166999, 0.0296, -0.68219995, -1.5166999, 0.0296, -0.68219995, 1.5166999, 0.0296, -0.68219995, -1.5166999, -0.0296, 0.68219995, -1.5166999, 0.0296, 0.68219995, -1.5166999, -0.0296, -0.68219995, -1.5166999, -0.0296, -0.68219995, -1.5166999, 0.0296, 0.68219995, -1.5166999, 0.0296, 0.68219995, 1.5166999, -0.0296, -0.68219995, 1.5166999, 0.0296, -0.68219995, 1.5166999, -0.0296, 0.68219995, 1.5166999, -0.0296, 0.68219995, 1.5166999, 0.0296, -0.68219995, 1.5166999, 0.0296, -3.4466999, -1.5166999, 0.0296, -3.4466999, 1.5166999, -0.0296, -3.4466999, 1.5166999, 0.0296, -3.4466999, -1.5166999, 0.0296, -3.4466999, -1.5166999, -0.0296, -3.4466999, 1.5166999, -0.0296, -3.4466999, -1.5166999, -0.0296, -2.0823, 1.5166999, -0.0296, -3.4466999, 1.5166999, -0.0296, -3.4466999, -1.5166999, -0.0296, -2.0823, -1.5166999, -0.0296, -2.0823, 1.5166999, -0.0296, -2.0823, -1.5166999, -0.0296, -2.0823, 1.5166999, 0.0296, -2.0823, 1.5166999, -0.0296, -2.0823, -1.5166999, -0.0296, -2.0823, -1.5166999, 0.0296, -2.0823, 1.5166999, 0.0296, -2.0823, -1.5166999, 0.0296, -3.4466999, 1.5166999, 0.0296, -2.0823, 1.5166999, 0.0296, -2.0823, -1.5166999, 0.0296, -3.4466999, -1.5166999, 0.0296, -3.4466999, 1.5166999, 0.0296, -3.4466999, -1.5166999, -0.0296, -2.0823, -1.5166999, 0.0296, -2.0823, -1.5166999, -0.0296, -3.4466999, -1.5166999, -0.0296, -3.4466999, -1.5166999, 0.0296, -2.0823, -1.5166999, 0.0296, -2.0823, 1.5166999, -0.0296, -3.4466999, 1.5166999, 0.0296, -3.4466999, 1.5166999, -0.0296, -2.0823, 1.5166999, -0.0296, -2.0823, 1.5166999, 0.0296, -3.4466999, 1.5166999, 0.0296, -6.2110996, -1.5166999, 0.0296, -6.2110996, 1.5166999, -0.0296, -6.2110996, 1.5166999, 0.0296, -6.2110996, -1.5166999, 0.0296, -6.2110996, -1.5166999, -0.0296, -6.2110996, 1.5166999, -0.0296, -6.2110996, -1.5166999, -0.0296, -4.8468, 1.5166999, -0.0296, -6.2110996, 1.5166999, -0.0296, -6.2110996, -1.5166999, -0.0296, -4.8468, -1.5166999, -0.0296, -4.8468, 1.5166999, -0.0296, -4.8468, -1.5166999, -0.0296, -4.8468, 1.5166999, 0.0296, -4.8468, 1.5166999, -0.0296, -4.8468, -1.5166999, -0.0296, -4.8468, -1.5166999, 0.0296, -4.8468, 1.5166999, 0.0296, -4.8468, -1.5166999, 0.0296, -6.2110996, 1.5166999, 0.0296, -4.8468, 1.5166999, 0.0296, -4.8468, -1.5166999, 0.0296, -6.2110996, -1.5166999, 0.0296, -6.2110996, 1.5166999, 0.0296, -6.2110996, -1.5166999, -0.0296, -4.8468, -1.5166999, 0.0296, -4.8468, -1.5166999, -0.0296, -6.2110996, -1.5166999, -0.0296, -6.2110996, -1.5166999, 0.0296, -4.8468, -1.5166999, 0.0296, -4.8468, 1.5166999, -0.0296, -6.2110996, 1.5166999, 0.0296, -6.2110996, 1.5166999, -0.0296, -4.8468, 1.5166999, -0.0296, -4.8468, 1.5166999, 0.0296, -6.2110996, 1.5166999, 0.0296, -0.68219995, -1.5166999, 4.2023, -0.68219995, 1.5166999, 4.2615, -0.68219995, -1.5166999, 4.2615, -0.68219995, -1.5166999, 4.2023, -0.68219995, 1.5166999, 4.2023, -0.68219995, 1.5166999, 4.2615, -0.68219995, -1.5166999, 4.2615, 0.6821, 1.5166999, 4.2616, 0.6821, -1.5166999, 4.2616, -0.68219995, -1.5166999, 4.2615, -0.68219995, 1.5166999, 4.2615, 0.6821, 1.5166999, 4.2616, 0.6821, -1.5166999, 4.2616, 0.6821, 1.5166999, 4.2023, 0.6821, -1.5166999, 4.2023, 0.6821, -1.5166999, 4.2616, 0.6821, 1.5166999, 4.2616, 0.6821, 1.5166999, 4.2023, 0.6821, -1.5166999, 4.2023, -0.68219995, 1.5166999, 4.2023, -0.68219995, -1.5166999, 4.2023, 0.6821, -1.5166999, 4.2023, 0.6821, 1.5166999, 4.2023, -0.68219995, 1.5166999, 4.2023, -0.68219995, -1.5166999, 4.2615, 0.6821, -1.5166999, 4.2023, -0.68219995, -1.5166999, 4.2023, -0.68219995, -1.5166999, 4.2615, 0.6821, -1.5166999, 4.2616, 0.6821, -1.5166999, 4.2023, 0.6821, 1.5166999, 4.2616, -0.68219995, 1.5166999, 4.2023, 0.6821, 1.5166999, 4.2023, 0.6821, 1.5166999, 4.2616, -0.68219995, 1.5166999, 4.2615, -0.68219995, 1.5166999, 4.2023, -3.4466999, -1.5166999, 4.2023, -3.4466999, 1.5166999, 4.2615, -3.4466999, -1.5166999, 4.2615, -3.4466999, -1.5166999, 4.2023, -3.4466999, 1.5166999, 4.2023, -3.4466999, 1.5166999, 4.2615, -3.4466999, -1.5166999, 4.2615, -2.0823, 1.5166999, 4.2615, -2.0823, -1.5166999, 4.2615, -3.4466999, -1.5166999, 4.2615, -3.4466999, 1.5166999, 4.2615, -2.0823, 1.5166999, 4.2615, -2.0823, -1.5166999, 4.2615, -2.0823, 1.5166999, 4.2023, -2.0823, -1.5166999, 4.2023, -2.0823, -1.5166999, 4.2615, -2.0823, 1.5166999, 4.2615, -2.0823, 1.5166999, 4.2023, -2.0823, -1.5166999, 4.2023, -3.4466999, 1.5166999, 4.2023, -3.4466999, -1.5166999, 4.2023, -2.0823, -1.5166999, 4.2023, -2.0823, 1.5166999, 4.2023, -3.4466999, 1.5166999, 4.2023, -3.4466999, -1.5166999, 4.2615, -2.0823, -1.5166999, 4.2023, -3.4466999, -1.5166999, 4.2023, -3.4466999, -1.5166999, 4.2615, -2.0823, -1.5166999, 4.2615, -2.0823, -1.5166999, 4.2023, -2.0823, 1.5166999, 4.2615, -3.4466999, 1.5166999, 4.2023, -2.0823, 1.5166999, 4.2023, -2.0823, 1.5166999, 4.2615, -3.4466999, 1.5166999, 4.2615, -3.4466999, 1.5166999, 4.2023, -6.2110996, -1.5166999, 4.2023, -6.2110996, 1.5166999, 4.2615, -6.2110996, -1.5166999, 4.2615, -6.2110996, -1.5166999, 4.2023, -6.2110996, 1.5166999, 4.2023, -6.2110996, 1.5166999, 4.2615, -6.2110996, -1.5166999, 4.2615, -4.8468, 1.5166999, 4.2615, -4.8468, -1.5166999, 4.2615, -6.2110996, -1.5166999, 4.2615, -6.2110996, 1.5166999, 4.2615, -4.8468, 1.5166999, 4.2615, -4.8468, -1.5166999, 4.2615, -4.8468, 1.5166999, 4.2023, -4.8468, -1.5166999, 4.2023, -4.8468, -1.5166999, 4.2615, -4.8468, 1.5166999, 4.2615, -4.8468, 1.5166999, 4.2023, -4.8468, -1.5166999, 4.2023, -6.2110996, 1.5166999, 4.2023, -6.2110996, -1.5166999, 4.2023, -4.8468, -1.5166999, 4.2023, -4.8468, 1.5166999, 4.2023, -6.2110996, 1.5166999, 4.2023, -6.2110996, -1.5166999, 4.2615, -4.8468, -1.5166999, 4.2023, -6.2110996, -1.5166999, 4.2023, -6.2110996, -1.5166999, 4.2615, -4.8468, -1.5166999, 4.2615, -4.8468, -1.5166999, 4.2023, -4.8468, 1.5166999, 4.2615, -6.2110996, 1.5166999, 4.2023, -4.8468, 1.5166999, 4.2023, -4.8468, 1.5166999, 4.2615, -6.2110996, 1.5166999, 4.2615, -6.2110996, 1.5166999, 4.2023)
 
@@ -321,6 +288,39 @@ shader_parameter/uv1_scale = Vector3(5, 0, 0)
 shader_parameter/uv1_offset = Vector3(0, 1, 0)
 shader_parameter/fall_off_minimum = 0.0
 
+[sub_resource type="Gradient" id="Gradient_qwilc"]
+offsets = PackedFloat32Array(0.5289855, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.20425254, 0.20425254, 0.20425254, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_km6ap"]
+gradient = SubResource("Gradient_qwilc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qwilc"]
+render_priority = 0
+shader = ExtResource("12_x6f3n")
+shader_parameter/u_dither_tex = ExtResource("8_2ndj4")
+shader_parameter/u_color_tex = ExtResource("7_tjbww")
+shader_parameter/clock = 0.0
+shader_parameter/u_bit_depth = 30
+shader_parameter/u_contrast = 1.44
+shader_parameter/u_offset = 0.525
+shader_parameter/u_dither_size = 3
+shader_parameter/pulse_width = 0.5
+shader_parameter/sphere_data_length = 0
+shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/fog_height = 1000.0
+shader_parameter/fog_basis = -1000.0
+shader_parameter/fog_color = Color(0, 0, 0, 1)
+shader_parameter/fog_gradient = SubResource("GradientTexture1D_km6ap")
+shader_parameter/enable_wave = false
+shader_parameter/enable_party_mode = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_0op2o"]
+material = SubResource("ShaderMaterial_qwilc")
+flip_faces = true
+size = Vector2(2, 2)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_of0mr"]
 render_priority = 0
 shader = ExtResource("20_mlt1q")
@@ -422,7 +422,7 @@ script = ExtResource("3_ouvd7")
 
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("shader_mesh", "cutscene_camera")]
 script = ExtResource("1_rlbrl")
-shader_mesh = NodePath("Debug UI/Shader")
+shader_mesh = NodePath("UI/Shader")
 cutscene_camera = NodePath("CutsceneCamera")
 
 [node name="ImpactNode" type="Node3D" parent="." unique_id=555445818]
@@ -452,14 +452,6 @@ GameInfo = NodePath("Game/Info")
 ControlsInfo = NodePath("Controls/Info")
 ViewInfo = NodePath("View Control/Info")
 BodyInfo = NodePath("Body/Info")
-
-[node name="Shader" type="MeshInstance3D" parent="Debug UI" unique_id=1385416911]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 141.91464, -6.1359787, 129.29733)
-visible = false
-cast_shadow = 0
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_0op2o")
-script = ExtResource("13_myl5m")
 
 [node name="Game" type="Control" parent="Debug UI" unique_id=1435332169]
 anchors_preset = 0
@@ -804,7 +796,7 @@ script = ExtResource("48_umj4y")
 shape = SubResource("ConcavePolygonShape3D_am3dy")
 
 [node name="Pawn" type="Node3D" parent="." unique_id=1211940215 node_paths=PackedStringArray("View", "Camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.74973, -6.846977, 129.29733)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.74973, -15.19887, 129.29733)
 script = ExtResource("3_qwilc")
 View = NodePath("View Control")
 Camera = NodePath("Interpolated Camera")
@@ -876,12 +868,13 @@ gizmo_extents = 0.5
 
 [node name="-- Our Stuff --" type="Node" parent="Pawn" unique_id=518815335]
 
-[node name="Player Manager" type="Node" parent="Pawn" unique_id=682892425 node_paths=PackedStringArray("body", "world_mesh", "move_functions")]
+[node name="Player Manager" type="Node" parent="Pawn" unique_id=682892425 node_paths=PackedStringArray("body", "world_mesh", "move_functions", "user_input")]
 script = ExtResource("14_sltxk")
 sound_sphere_prefab = ExtResource("15_re4r8")
 body = NodePath("../Body")
-world_mesh = NodePath("../../Debug UI/Shader")
+world_mesh = NodePath("../../UI/Shader")
 move_functions = NodePath("../Move Functions")
+user_input = NodePath("../User Input")
 
 [node name="Eye" parent="." unique_id=1548058268 node_paths=PackedStringArray("impact_node") instance=ExtResource("14_fvjam")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 6.9206715, 321.94473, 26.72522)
@@ -1333,7 +1326,8 @@ height = 106.90514
 cone = true
 material = SubResource("ShaderMaterial_nqgh3")
 
-[node name="UI" type="Control" parent="." unique_id=1419727198 node_paths=PackedStringArray("interact_text")]
+[node name="UI" type="Control" parent="." unique_id=1419727198 node_paths=PackedStringArray("interact_text", "diagetic_container", "pause_container")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1341,9 +1335,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("12_iw38a")
-interact_text = NodePath("MarginContainer/InteractText")
+interact_text = NodePath("Diagetic/InteractText")
+diagetic_container = NodePath("Diagetic")
+pause_container = NodePath("PauseMenu")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1083209610]
+[node name="Shader" type="MeshInstance3D" parent="UI" unique_id=1385416911]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 141.91464, -6.1359787, 129.29733)
+visible = false
+cast_shadow = 0
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_0op2o")
+script = ExtResource("13_myl5m")
+
+[node name="Diagetic" type="MarginContainer" parent="UI" unique_id=1083209610]
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -1354,13 +1358,38 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/margin_bottom = 32
 
-[node name="InteractText" type="RichTextLabel" parent="UI/MarginContainer" unique_id=1484624220]
+[node name="InteractText" type="RichTextLabel" parent="UI/Diagetic" unique_id=1484624220]
 visible = false
 layout_mode = 2
 bbcode_enabled = true
 text = "[wave][pulse]Press E to Open Lock[/pulse][/wave]"
 fit_content = true
 horizontal_alignment = 1
+
+[node name="PauseMenu" type="CenterContainer" parent="UI" unique_id=416186104]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" unique_id=2125627901]
+layout_mode = 2
+alignment = 1
+
+[node name="Button3" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=1190945931]
+layout_mode = 2
+text = "Continue"
+
+[node name="Button" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=357617327]
+layout_mode = 2
+text = "Settings"
+
+[node name="Button2" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=471933712]
+layout_mode = 2
+text = "Exit"
 
 [node name="Collectables" type="Node" parent="." unique_id=1015635706]
 

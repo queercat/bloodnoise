@@ -7,6 +7,7 @@ class_name PlayerManager
 @export var sound_cooldown : float = 1.0 
 @export var world_mesh: MeshInstance3D
 @export var move_functions: Node
+@export var user_input: Node
 
 var uber_material: ShaderMaterial
 var run_action_held: bool = false

@@ -30,7 +30,6 @@ signal StartCutscene()
 signal StopCutscene()
 
 func start_cutscene():
-	print("start!")
 	StartCutscene.emit()
 
 func stop_cutscene():
@@ -108,6 +107,9 @@ func apply_camera_shake():
 func __ready():
 	camera = get_viewport().get_camera_3d()
 	shake_timer = 0
+
+func _ready() -> void:
+	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
 	
 func init_material(material):
 	material.set_shader_parameter("enable_party_mode", false)
@@ -127,7 +129,7 @@ func feed_material_spheres(material):
 
 func feed_material_clock(material):
 	material.set_shader_parameter("clock", Time.get_ticks_msec())
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not has_started: return
