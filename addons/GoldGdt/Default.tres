@@ -7,4 +7,5 @@ script = ExtResource("1_wnsr5")
 AUTOHOP = true
 MAX_AIR_SPEED = 25.0
 STEP_HEIGHT = 0.862
+HULL_DUCKING_BOUNDS = Vector3(0.813, 1.605, 0.813)
 AIR_ACCELERATION = 5.0
