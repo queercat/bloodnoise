@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://cvht7g37gk5nv"]
+[gd_scene format=3 uid="uid://cvht7g37gk5nv"]
 
 [ext_resource type="Script" uid="uid://bglhyjd0rqtqg" path="res://scripts/start_screen.gd" id="1_o7i0r"]
 [ext_resource type="PackedScene" uid="uid://cnaecav7atlvb" path="res://models/churchBaked2.0.blend" id="1_tx5wa"]
@@ -13,20 +13,10 @@ render_priority = 0
 shader = ExtResource("5_o30b1")
 shader_parameter/u_dither_tex = ExtResource("7_ka6nf")
 shader_parameter/u_color_tex = ExtResource("6_o30b1")
-shader_parameter/clock = 0.0
 shader_parameter/u_bit_depth = 12
-shader_parameter/u_contrast = 0.545
-shader_parameter/u_offset = 0.45
+shader_parameter/u_contrast = 0.335
+shader_parameter/u_offset = 1.38
 shader_parameter/u_dither_size = 1
-shader_parameter/pulse_width = 2.0
-shader_parameter/sphere_data_length = 0
-shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/fog_height = 0.0
-shader_parameter/fog_basis = 0.0
-shader_parameter/fog_color = Color(1, 1, 1, 1)
-shader_parameter/enable_wave = false
-shader_parameter/enable_party_mode = false
 
 [sub_resource type="BoxMesh" id="BoxMesh_5pab1"]
 size = Vector3(2, 2, 2)
@@ -59,7 +49,15 @@ fog_depth_end = 20.0
 script = ExtResource("1_o7i0r")
 camera = NodePath("Camera3D")
 target = NodePath("churchBaked2_0")
-shader_mesh = NodePath("UI/Shader")
+shader_mesh = NodePath("Camera3D/Shader")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=267574636]
+transform = Transform3D(-0.25378582, -0.19625422, 0.9471415, -0.050794333, 0.9805531, 0.18956701, -0.9659259, -1.081633e-12, -0.25881907, 13.656771, 6.4533906, 2.1729393)
+
+[node name="Shader" type="MeshInstance3D" parent="Camera3D" unique_id=2001120792]
+transform = Transform3D(-0.25378582, -0.050794322, -0.96592575, -0.19625421, 0.98055303, -3.7252899e-09, 0.94714147, 0.18956697, -0.25881904, 5.892589, -3.647694, -13.595844)
+material_override = SubResource("ShaderMaterial_hm208")
+mesh = SubResource("BoxMesh_5pab1")
 
 [node name="UI" type="Control" parent="." unique_id=801561136]
 layout_mode = 3
@@ -68,10 +66,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Shader" type="MeshInstance3D" parent="UI" unique_id=2001120792]
-material_override = SubResource("ShaderMaterial_hm208")
-mesh = SubResource("BoxMesh_5pab1")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=628412270]
 layout_mode = 1
@@ -141,9 +135,6 @@ light_specular = 14.282
 spot_range = 11.840355
 spot_angle = 11.474926
 spot_angle_attenuation = 1.3195081
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=267574636]
-transform = Transform3D(-0.25378582, -0.19625422, 0.9471415, -0.050794333, 0.9805531, 0.18956701, -0.9659259, -3.5983545e-09, -0.25881907, 13.656771, 6.4533906, 2.1729393)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1482744526]
 light_energy = 0.632

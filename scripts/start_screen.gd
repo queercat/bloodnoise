@@ -30,7 +30,7 @@ func update_shader(delta: float):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	update_shader(delta * .5)
+	# update_shader(delta * .5)
 	target.rotate(Vector3.UP, delta * .01)
 
 func _on_start_pressed() -> void:

@@ -1,79 +1,19 @@
-/* 
-Basic sci-fi pulse post-processing effect.
-Required to be put on a quad mesh that is rendered in the scene.
-Required associated script to increase the radius over time.
-Video tutorial on YouTube: https://youtu.be/x1dIJdz8Uj8
-Written by Michael Watt
-
-Thanks to Inigo Quilez for the SDF (https://iquilezles.org/articles/distfunctions/)
-Thanks to nonunknown for the conditional statement replacements (https://godotshaders.com/shader/optimize-your-shaders/)
-*/
-
 shader_type spatial;
 render_mode unshaded;
 
 uniform sampler2D u_dither_tex : repeat_enable, filter_nearest;
 uniform sampler2D u_color_tex : filter_nearest;
 
-uniform float clock;
-
 uniform int u_bit_depth;
 uniform float u_contrast;
 uniform float u_offset;
 uniform int u_dither_size;
 
-uniform float pulse_width = 2.;
-
-uniform int sphere_data_length;
-uniform vec4 sphere_data[128];
-uniform vec4 sphere_attributes_data[16];
-
-uniform float fog_height : hint_range(0.0, 1000., 100.);
-uniform float fog_basis = 0;
-uniform vec4 fog_color : source_color = vec4(1.0);
-uniform sampler2D fog_gradient: repeat_disable;
-
-uniform bool enable_wave;
-uniform bool enable_party_mode;
-
-// Access the screen and depth buffers
-uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
-uniform sampler2D DEPTH_TEXTURE : hint_depth_texture, filter_linear_mipmap;
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture;
+uniform sampler2D DEPTH_TEXTURE : hint_depth_texture;
 
 // Necessary for rebuilding the world coordinates
 varying mat4 CAMERA;
-
-// Function from Inigo Quilez https://iquilezles.org/articles/distfunctions/
-float sdSphere( vec3 p, float s ) {
-	return length(p)-s;
-}
-
-// https://gist.github.com/mairod/a75e7b44f68110e1576d77419d608786
-vec3 hueShift( vec3 color, float hueAdjust ){
-
-    const vec3  kRGBToYPrime = vec3 (0.299, 0.587, 0.114);
-    const vec3  kRGBToI      = vec3 (0.596, -0.275, -0.321);
-    const vec3  kRGBToQ      = vec3 (0.212, -0.523, 0.311);
-
-    const vec3  kYIQToR     = vec3 (1.0, 0.956, 0.621);
-    const vec3  kYIQToG     = vec3 (1.0, -0.272, -0.647);
-    const vec3  kYIQToB     = vec3 (1.0, -1.107, 1.704);
-
-    float   YPrime  = dot (color, kRGBToYPrime);
-    float   I       = dot (color, kRGBToI);
-    float   Q       = dot (color, kRGBToQ);
-    float   hue     = atan (Q, I);
-    float   chroma  = sqrt (I * I + Q * Q);
-
-    hue += hueAdjust;
-
-    Q = chroma * sin (hue);
-    I = chroma * cos (hue);
-
-    vec3    yIQ   = vec3 (YPrime, I, Q);
-
-    return vec3( dot (yIQ, kYIQToR), dot (yIQ, kYIQToG), dot (yIQ, kYIQToB) );
-}
 
 float map_range(float value, float from_min, float from_max, float to_min, float to_max) {
 	float r = from_max - from_min;
@@ -81,14 +21,6 @@ float map_range(float value, float from_min, float from_max, float to_min, float
 	float b = (to_max - to_min) * a + to_min;
 	
 	return b; 
-}
-
-// Replacements for < and > because math on GPU is fast. They return 1 or 0
-float when_lt(float left_side, float right_side) {
-	return max(sign(right_side - left_side), 0.0);
-}
-float when_gt(float left_side, float right_side) {
-	return max(sign(left_side - right_side), 0.0);
 }
 
 void vertex() {
@@ -102,75 +34,7 @@ float random (vec2 uv) {
         vec2(12.9898,78.233))) * 43758.5453123);
 }
 
-float ts(float ratio) {
-	return clock * ratio;
-}
-
-vec2 wave(vec2 uv) {
-	return vec2(0, cos(uv.x + ts(.01)) * .05);
-}
-
-void fragment() {
-	// Get the original screen rendered texture at the screen uv coordinates.
-	vec2 offset = enable_wave ? wave(SCREEN_UV) : vec2(0.);
-	vec4 original = textureLod(SCREEN_TEXTURE, SCREEN_UV + offset, 0.0);
-	
-	// Get the depth value form the depth buffer.
-	float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).x;
-	vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
-
-	//Unecessary for this effect, but to get the linear depth value,
-	//use the following code.
-	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-	view.xyz /= view.w;
-	float linear_depth = -view.z;
-	
-	// Calculate the fragment's world position
-	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
-	vec3 world_position = world.xyz / world.w;
-	
-	vec3 output = original.rgb;
-	//float fog_weight = map_range(world_position.y, fog_basis, fog_height, 0., 1.);
-	//float fog_intensity = texture(fog_gradient, vec2(fog_weight, 0.)).r;
-	//
-	//float rand_value = random(SCREEN_UV);
-	//
-	//vec3 noise_rings = vec3(0.);
-	//
-	//for (int idx = 0; idx < sphere_data_length; ++idx) {
-		//vec4 sphere_datum = sphere_data[idx];
-		//vec4 sphere_attribute_datum = sphere_attributes_data[idx];
-		//
-		//float dist = sdSphere(sphere_datum.xyz - world_position, sphere_datum.w);
-		//dist += rand_value;
-		//
-		//float inner_border = sphere_datum.w - 7.5;
-		//
-		//// Extra calculations to get the correct gradient direction.
-		//// Using calculation functions in place of if statements.
-		//float mix_ratio = 0.0;
-		//float check = when_lt(dist, 0.0) * when_gt(dist, -pulse_width);
-		//
-		//float percentage = abs(dist) / abs(pulse_width);
-		//mix_ratio = 1.0 * check - percentage;
-		//mix_ratio = clamp(mix_ratio, 0.0, 1.0);
-		//
-		//float normalized_range = sphere_datum.w / sphere_attribute_datum.w;
-		//normalized_range = map_range(normalized_range, 0.7, 1.0, 0.0, 1.0);
-		//mix_ratio -= map_range(normalized_range, 0., 1., 0., mix_ratio);
-		//noise_rings = mix(noise_rings, sphere_attribute_datum.rgb, mix_ratio);
-		//float len = length(sphere_datum.xyz - world_position);
-		//len += rand_value;
-		//fog_intensity = len >= inner_border && len <= sphere_datum.w - pulse_width ? normalized_range : fog_intensity; 
-	//}
-	//// Set the albedo to the mix between the original screen and the added
-	//// pulse color.
-//
-	//fog_intensity = clamp(fog_intensity, 0., .75);
-	////
-	//output += noise_rings;
-	//output = mix(output, fog_color.rgb, fog_intensity);
-
+vec3 dither(vec3 output, vec2 uv) {
 	vec2 screen_size = vec2(textureSize(SCREEN_TEXTURE, 0)) / float(u_dither_size);
 	
     // calculate pixel luminosity (https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color)
@@ -208,7 +72,7 @@ void fragment() {
     // achieved this in Obra Dinn: https://forums.tigsource.com/index.php?topic=40832.msg1363742#msg1363742
     ivec2 noise_size = textureSize(u_dither_tex, 0);
     vec2 inv_noise_size = vec2(1.0 / float(noise_size.x), 1.0 / float(noise_size.y));
-    vec2 noise_uv = UV * inv_noise_size * vec2(float(screen_size.x), float(screen_size.y));
+    vec2 noise_uv = uv * inv_noise_size * vec2(float(screen_size.x), float(screen_size.y));
     float threshold = texture(u_dither_tex, noise_uv).r;
 
     // adjust the dither slightly so min and max aren't quite at 0.0 and 1.0
@@ -220,11 +84,24 @@ void fragment() {
     float ramp_val = lum_scaled < threshold ? 0.0f : 1.0f;
     // sample at the lower bound colour if ramp_val is 0.0, upper bound colour if 1.0
     float col_sample = mix(lum_lower, lum_upper, ramp_val);
-    vec3 final_col = texture(u_color_tex, vec2(col_sample + ts(.0000001), 0.5)).rgb;
-	final_col = enable_party_mode ? hueShift(final_col, ts(.01)) : final_col;
+    vec3 final_col = texture(u_color_tex, vec2(col_sample, 0.5)).rgb;
+	
+	return final_col;
+}
 
-    // return the final colour!
-    output.rgb = final_col;
-		
+void fragment() {
+	vec4 original = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+	float depth = textureLod(DEPTH_TEXTURE, SCREEN_UV, 0.0).x;
+	vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
+
+	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	view.xyz /= view.w;
+	float linear_depth = -view.z;
+	
+	vec4 world = INV_VIEW_MATRIX * INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+	vec3 world_position = world.xyz / world.w;
+	
+	vec3 output = dither(original.rgb, UV);
+	
 	ALBEDO = output;
 }

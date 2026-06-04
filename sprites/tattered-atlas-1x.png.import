@@ -3,21 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpv5wshuqgc64"
-path.s3tc="res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.s3tc.ctex"
-path.etc2="res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.etc2.ctex"
+path="res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://sprites/tattered-atlas-1x.png"
-dest_files=["res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.s3tc.ctex", "res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.etc2.ctex"]
+dest_files=["res://.godot/imported/tattered-atlas-1x.png-3f27a724c329c5e32d1e2458a458801f.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=3
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -25,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

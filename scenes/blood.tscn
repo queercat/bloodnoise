@@ -506,7 +506,7 @@ shader_parameter/u_color_tex = ExtResource("7_tjbww")
 shader_parameter/clock = 0.0
 shader_parameter/u_bit_depth = 30
 shader_parameter/u_contrast = 1.44
-shader_parameter/u_offset = 0.525
+shader_parameter/u_offset = 0.57
 shader_parameter/u_dither_size = 3
 shader_parameter/pulse_width = 0.5
 shader_parameter/sphere_data_length = 0
@@ -983,7 +983,7 @@ script = ExtResource("48_umj4y")
 shape = SubResource("ConcavePolygonShape3D_am3dy")
 
 [node name="Pawn" type="Node3D" parent="." unique_id=1211940215 node_paths=PackedStringArray("View", "Camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.42039, -13.855053, 91.94656)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 147.30063, -13.855053, 132.19763)
 script = ExtResource("3_qwilc")
 View = NodePath("View Control")
 Camera = NodePath("Interpolated Camera")
@@ -1175,7 +1175,7 @@ shape = SubResource("ConcavePolygonShape3D_nfwl6")
 shape = SubResource("ConcavePolygonShape3D_76mu1")
 
 [node name="Key3" parent="Graveyard area/mausoleum" unique_id=720916152 instance=ExtResource("22_myl5m")]
-transform = Transform3D(0.6661734, 0, -0.38461536, 0, 0.7692307, 0, 0.38461536, 0, 0.6661734, 0.14668274, 0.7081605, -0.41708374)
+transform = Transform3D(0.66617346, 0, -0.38461536, 0, 0.7692308, 0, 0.38461536, 0, 0.66617346, 0.14668274, -0.8057536, -0.41708374)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graveyard area/mausoleum" unique_id=1105570857]
 libraries/ = SubResource("AnimationLibrary_jubwx")
@@ -1807,7 +1807,6 @@ pause_container = NodePath("PauseMenu")
 
 [node name="Shader" type="MeshInstance3D" parent="UI" unique_id=1385416911]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 141.91464, -6.1359787, 129.29733)
-visible = false
 cast_shadow = 0
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_0op2o")
@@ -1874,6 +1873,7 @@ sky_mode = 1
 
 [node name="CSGBox3D" type="CSGBox3D" parent="God Rays/Walls" unique_id=1776428912]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -281.62292, -15.516533, -218.83307)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
@@ -1912,41 +1912,49 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="God Rays/Walls2" unique_id=822905305]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.98267, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="God Rays/Walls2" unique_id=989805786]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -287.33484, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="God Rays/Walls2" unique_id=1935698423]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.102, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="God Rays/Walls2" unique_id=1674300605]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.5818, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="God Rays/Walls2" unique_id=538365371]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.19525, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="God Rays/Walls2" unique_id=651477779]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -306.85583, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="God Rays/Walls2" unique_id=1477914697]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="God Rays/Walls2" unique_id=1315944022]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
@@ -1955,41 +1963,49 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="God Rays/Walls3" unique_id=1567387084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.98267, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="God Rays/Walls3" unique_id=1037622589]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -287.33484, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="God Rays/Walls3" unique_id=455554810]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.102, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="God Rays/Walls3" unique_id=1713909763]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.5818, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="God Rays/Walls3" unique_id=996607273]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.19525, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="God Rays/Walls3" unique_id=1633943381]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -306.85583, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="God Rays/Walls3" unique_id=120140363]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="God Rays/Walls3" unique_id=164166556]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
@@ -1998,41 +2014,49 @@ transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 0, 0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="God Rays/Walls4" unique_id=1467727620]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -280.98267, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="God Rays/Walls4" unique_id=655552573]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -287.33484, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="God Rays/Walls4" unique_id=1141639016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -295.102, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D4" type="CSGBox3D" parent="God Rays/Walls4" unique_id=1508155982]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -300.5818, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="God Rays/Walls4" unique_id=961540494]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -304.19525, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="God Rays/Walls4" unique_id=1944657377]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -306.85583, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="God Rays/Walls4" unique_id=923804957]
 transform = Transform3D(0.99992484, -0.0036413101, 0.011706817, 0.0039522527, 0.99963707, -0.02664753, -0.011605534, 0.026691798, 0.99957633, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="God Rays/Walls4" unique_id=1659524819]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -308.31122, -14.604042, -218.74744)
+extra_cull_margin = 9999.0
 size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 
