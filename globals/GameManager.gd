@@ -7,7 +7,7 @@ var ui: GameUI
 var player_manager: PlayerManager
 var write_mutex: Mutex = Mutex.new()
 var sound_spheres: Array[Node3D] = []
-var uber_material: Material
+var uber_shader: ShaderMaterial
 var sphere_data = []
 var sphere_attributes_data = []
 var camera: Camera3D
@@ -42,14 +42,16 @@ func bad_end():
 	
 	is_ending = true
 	
-	uber_material.set_shader_parameter("enable_party_mode", true)
-	uber_material.set_shader_parameter("enable_wave", true)
+	uber_shader.set_shader_parameter("enable_party_mode", true)
+	uber_shader.set_shader_parameter("enable_wave", true)
 	CheatedBadEnd.emit()
 	
 	await get_tree().create_timer(15).timeout
 	
 	has_started = false
 	get_tree().change_scene_to_packed(end_screen)
+	uber_shader.set_shader_parameter("enable_party_mode", false)
+	uber_shader.set_shader_parameter("enable_wave", false)
 
 func player_entered_end_area(): 
 	if locks_unlocked < total_locks:
@@ -94,9 +96,7 @@ func apply_camera_shake():
 		camera.position -= Vector3(camera_shake_value.x, 0, camera_shake_value.y)
 
 func __ready():
-	uber_material = get_viewport().get_camera_3d().get_node("MeshInstance3D").get_material()
 	camera = get_viewport().get_camera_3d()
-	init_material(uber_material)
 	shake_timer = 0
 	
 func init_material(material):
