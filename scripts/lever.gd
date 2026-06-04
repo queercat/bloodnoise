@@ -24,7 +24,7 @@ func _process(delta: float) -> void:
 
 func _on_area_3d_body_entered(body: Node) -> void:
 	if body.get_parent().name == "Pawn" and not (one_way and changed):
-		GameManager.player_manager.append_interactable(interactable)	
+		GameManager.player_manager.append_interactable(interactable)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if body.get_parent().name == "Pawn" and not (one_way and changed):

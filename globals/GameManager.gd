@@ -26,6 +26,16 @@ signal LockUnlocked(name: String)
 signal CheatedBadEnd()
 signal LeverToggled(name: String, state: bool)
 
+signal StartCutscene()
+signal StopCutscene()
+
+func start_cutscene():
+	print("start!")
+	StartCutscene.emit()
+
+func stop_cutscene():
+	StopCutscene.emit()
+
 func spawn_sound_sphere(position: Vector3, growth_speed: float = 5, color: Color = Color.WHITE, max_radius: float = 10):
 	var root = get_tree().root
 	var instance: Node3D = sound_sphere_prefab.instantiate()

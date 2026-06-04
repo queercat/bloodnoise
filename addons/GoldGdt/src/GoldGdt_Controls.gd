@@ -6,6 +6,8 @@ class_name GoldGdt_Controls extends Node
 @export var Move : GoldGdt_Move
 @export var View : GoldGdt_View
 
+var movement_disabled: bool = false
+
 # Inputs
 var movement_input : Vector2
 var mouse_input : Vector2
@@ -16,9 +18,11 @@ var duck_on : bool
 func _ready() -> void:
 	Input.set_use_accumulated_input(false) # Disable accumulated input for precise inputs.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # Capture the mouse.
+	GameManager.StartCutscene.connect(func (): movement_disabled = true)
+	GameManager.StopCutscene.connect(func (): movement_disabled = false)
 
 func _input(event) -> void:
-	
+	if movement_disabled: return
 	#---------------------
 	# Replace with your own implementation of MOUSE_MODE switching!!
 	#---------------------
@@ -44,10 +48,12 @@ func _input(event) -> void:
 			_gather_mouse_input(event) 
 
 func _process(delta) -> void:
+	if movement_disabled: return
 	# Reset mouse input to avoid drift.
 	mouse_input = Vector2.ZERO
 
 func _physics_process(delta) -> void:
+	if movement_disabled: return
 	_gather_input()
 	_act_on_input()
 

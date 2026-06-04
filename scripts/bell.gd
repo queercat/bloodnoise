@@ -7,7 +7,10 @@ var tolerance = .01
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	await get_tree().create_timer(2).timeout
+	GameManager.start_cutscene()
+	await get_tree().create_timer(2).timeout
+	GameManager.stop_cutscene()
 	# stream.play()
 
 func get_playable_positions():
