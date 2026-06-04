@@ -12,7 +12,7 @@ radius = 0.8496094
 script = ExtResource("2_7d20a")
 interactable = NodePath("LeverInteractable")
 
-[node name="Cube_001" parent="." index="0" unique_id=293060267]
+[node name="Cube_001" parent="." index="0" unique_id=963520882]
 transform = Transform3D(0.07258033, -0.22044422, 0, 0.07258034, 0.22044417, 0, 0, 0, 0.1026441, 0, 0, 0)
 
 [node name="Area3D" type="Area3D" parent="." index="4" unique_id=790836261]
