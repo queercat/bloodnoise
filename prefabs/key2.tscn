@@ -12,7 +12,7 @@ script = ExtResource("2_64s4m")
 collectable_resource = ExtResource("3_wplsc")
 collection_zone = NodePath("Area3D")
 
-[node name="keyModel" parent="." index="0" unique_id=457387028]
+[node name="keyModel" parent="." index="0" unique_id=563402001]
 transform = Transform3D(1.5667623e-16, 3.584334e-09, 0.082, 0.082, -3.584334e-09, -1.9379659e-23, 3.584334e-09, 0.082, -3.584334e-09, 0, 0, 0.18236619)
 
 [node name="Area3D" type="Area3D" parent="." index="1" unique_id=2052857858]
