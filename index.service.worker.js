@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1780621489|6805248';
+const CACHE_VERSION = '1780621523|6527162';
 /** @type {string} */
 const CACHE_PREFIX = 'bloodnoise-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
