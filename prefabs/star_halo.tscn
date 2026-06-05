@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8p530cahx25x"]
+
+[ext_resource type="PackedScene" uid="uid://dmpia3tdnuxn2" path="res://models/starHalo.blend" id="1_064gu"]
+[ext_resource type="Texture2D" uid="uid://d2jy5av6agd7q" path="res://models/textures/starHaloTex.png" id="2_064gu"]
+[ext_resource type="Script" uid="uid://fhiu5s77eo4y" path="res://scripts/star_halo.gd" id="2_c0ldj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opekx"]
+transparency = 2
+alpha_scissor_threshold = 0.28
+alpha_antialiasing_mode = 0
+shading_mode = 0
+albedo_color = Color(0.45646393, 0.456464, 0.45646387, 1)
+albedo_texture = ExtResource("2_064gu")
+billboard_keep_scale = true
+
+[node name="starHalo" unique_id=237688085 instance=ExtResource("1_064gu")]
+script = ExtResource("2_c0ldj")
+
+[node name="Circle" parent="." index="0" unique_id=857037502]
+transform = Transform3D(0.84887797, 0.69589436, 0, -0.69589436, 0.84887797, 0, 0, 0, 1.0976624, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_opekx")
+cast_shadow = 0

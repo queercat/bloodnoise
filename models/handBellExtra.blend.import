@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dahr4uaxanfr0"
-path="res://.godot/imported/handBell.blend-baf63f50e58ca78aca478a6a0c8713eb.scn"
+uid="uid://cjkogyxngrkau"
+path="res://.godot/imported/handBellExtra.blend-58646fb48fae0bd0895d4a760be76b31.scn"
 
 [deps]
 
-source_file="res://models/handBell.blend"
-dest_files=["res://.godot/imported/handBell.blend-baf63f50e58ca78aca478a6a0c8713eb.scn"]
+source_file="res://models/handBellExtra.blend"
+dest_files=["res://.godot/imported/handBellExtra.blend-58646fb48fae0bd0895d4a760be76b31.scn"]
 
 [params]
 
@@ -38,7 +38,7 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-blender/nodes/visible=1
+blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
 blender/nodes/cameras=true

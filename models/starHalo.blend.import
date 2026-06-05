@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dahr4uaxanfr0"
-path="res://.godot/imported/handBell.blend-baf63f50e58ca78aca478a6a0c8713eb.scn"
+uid="uid://dmpia3tdnuxn2"
+path="res://.godot/imported/starHalo.blend-82879e2b2c77886c704c7759e130bee4.scn"
 
 [deps]
 
-source_file="res://models/handBell.blend"
-dest_files=["res://.godot/imported/handBell.blend-baf63f50e58ca78aca478a6a0c8713eb.scn"]
+source_file="res://models/starHalo.blend"
+dest_files=["res://.godot/imported/starHalo.blend-82879e2b2c77886c704c7759e130bee4.scn"]
 
 [params]
 

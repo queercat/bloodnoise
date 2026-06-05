@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://qo46b0s1nyrk"]
+
+[ext_resource type="PackedScene" uid="uid://b20pixotwehac" path="res://models/key2.0.blend" id="1_wriy1"]
+[ext_resource type="Script" uid="uid://dbpx2vlr3quis" path="res://classes/collectable.gd" id="2_64s4m"]
+[ext_resource type="Resource" uid="uid://ckeoo4la3vilu" path="res://resources/collectables/key_collectable.tres" id="3_wplsc"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4lde1"]
+radius = 0.38030785
+
+[node name="key2_0" unique_id=1052127868 node_paths=PackedStringArray("collection_zone") instance=ExtResource("1_wriy1")]
+script = ExtResource("2_64s4m")
+collectable_resource = ExtResource("3_wplsc")
+collection_zone = NodePath("Area3D")
+
+[node name="keyModel" parent="." index="0" unique_id=457387028]
+transform = Transform3D(1.5667623e-16, 3.584334e-09, 0.082, 0.082, -3.584334e-09, -1.9379659e-23, 3.584334e-09, 0.082, -3.584334e-09, 0, 0, 0.18236619)
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=2052857858]
+collision_mask = 6
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1511123334]
+shape = SubResource("SphereShape3D_4lde1")

@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b5ujhgsbtti8m"]
+
+[ext_resource type="PackedScene" uid="uid://dahr4uaxanfr0" path="res://models/handBell.blend" id="1_hfjlg"]
+
+[node name="handBell" unique_id=1464515598 instance=ExtResource("1_hfjlg")]
