@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2gj47drgolq0"]
+
+[ext_resource type="PackedScene" uid="uid://bq86cadfww3jn" path="res://models/heavenDoor1.1.blend" id="1_ikglj"]
+[ext_resource type="Script" uid="uid://wp55bhrg75cq" path="res://scripts/billboard.gd" id="2_1a5ok"]
+
+[node name="heavenDoor1_1" unique_id=162628213 instance=ExtResource("1_ikglj")]
+
+[node name="Eye parent" parent="." index="6" unique_id=1435881662]
+script = ExtResource("2_1a5ok")
+
+[node name="Node3D" type="Node3D" parent="." index="8" unique_id=578789977]
