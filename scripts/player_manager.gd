@@ -14,6 +14,7 @@ var run_action_held: bool = false
 var move_speed: float = 1.0
 var sound_cooldown_timer : float = 0
 var interactable_queue: Array[Interactable] = []
+var has_bell = false
 
 func append_interactable(interactable):
 	self.interactable_queue.append(interactable)
@@ -33,6 +34,9 @@ func pop_interactable(interactable):
 
 func spawn_sound_sphere():
 	GameManager.spawn_sound_sphere(body.global_position, 25, Color.RED, 50)
+	
+func grab_bell():
+	has_bell = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -41,7 +45,7 @@ func _ready() -> void:
 	uber_material = world_mesh.mesh.surface_get_material(0)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action("primary_action") and sound_cooldown_timer <= 0:
+	if event.is_action("primary_action") and sound_cooldown_timer <= 0 and has_bell:
 		sound_cooldown_timer = sound_cooldown
 		spawn_sound_sphere()
 	if event.is_action("do_interaction") and event.pressed and len(interactable_queue) > 0:

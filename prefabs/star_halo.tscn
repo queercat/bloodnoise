@@ -5,18 +5,15 @@
 [ext_resource type="Script" uid="uid://fhiu5s77eo4y" path="res://scripts/star_halo.gd" id="2_c0ldj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_opekx"]
-transparency = 2
-alpha_scissor_threshold = 0.28
-alpha_antialiasing_mode = 0
 shading_mode = 0
-albedo_color = Color(0.45646393, 0.456464, 0.45646387, 1)
+albedo_color = Color(0.3254902, 0.3254902, 0.3254902, 0.8235294)
 albedo_texture = ExtResource("2_064gu")
 billboard_keep_scale = true
 
-[node name="starHalo" unique_id=237688085 instance=ExtResource("1_064gu")]
+[node name="starHalo" unique_id=237688085 node_paths=PackedStringArray("star_obj") instance=ExtResource("1_064gu")]
 script = ExtResource("2_c0ldj")
+star_obj = NodePath("Circle")
 
-[node name="Circle" parent="." index="0" unique_id=857037502]
-transform = Transform3D(0.84887797, 0.69589436, 0, -0.69589436, 0.84887797, 0, 0, 0, 1.0976624, 0, 0, 0)
+[node name="Circle" parent="." index="0" unique_id=1067728873]
 material_override = SubResource("StandardMaterial3D_opekx")
 cast_shadow = 0

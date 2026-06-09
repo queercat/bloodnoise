@@ -1,5 +1,27 @@
 [gd_scene format=3 uid="uid://b5ujhgsbtti8m"]
 
 [ext_resource type="PackedScene" uid="uid://dahr4uaxanfr0" path="res://models/handBell.blend" id="1_hfjlg"]
+[ext_resource type="Script" uid="uid://bjil3txa4j8ag" path="res://scripts/hand_bell_obj.gd" id="2_56wrq"]
+[ext_resource type="Script" uid="uid://b8eeaptwxumgt" path="res://resources/interactables/handbell/handbell_interactable.gd" id="3_27jao"]
 
-[node name="handBell" unique_id=1464515598 instance=ExtResource("1_hfjlg")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hfjlg"]
+height = 11.848944
+radius = 5.0029297
+
+[node name="handBell" unique_id=1464515598 node_paths=PackedStringArray("interactable") instance=ExtResource("1_hfjlg")]
+script = ExtResource("2_56wrq")
+interactable = NodePath("handbell interactable")
+
+[node name="Area3D" type="Area3D" parent="." index="4" unique_id=2014542088]
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=2091403214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.6658597, 0)
+shape = SubResource("CylinderShape3D_hfjlg")
+
+[node name="handbell interactable" type="Node" parent="." index="5" unique_id=515009189]
+script = ExtResource("3_27jao")
+interaction_text = "Press E to grab the bell"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
