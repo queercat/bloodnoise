@@ -185,6 +185,8 @@
   },
   "active": "56ccad64fff75f01",
   "lastOpenFiles": [
+    "scenes/start_screen.tscn14544036.tmp",
+    "project.godot4638311.tmp",
     "scenes/start_screen.tscn124354880249.tmp",
     "export_presets.cfg124214735680.tmp",
     "build/web/bloodnoise.512x512.png124214185736.tmp",
@@ -194,8 +196,6 @@
     "build/web/bloodnoise.pck124212978503.tmp",
     "scenes/start_screen.tscn124204744969.tmp",
     "scripts/intro.gd124181522344.tmp",
-    "scripts/intro.gd124157658905.tmp",
-    "scenes/start_screen.tscn124157632251.tmp",
     "build/web/bloodnoise.512x512.png",
     "build/web/bloodnoise.180x180.png",
     "build/web/bloodnoise.144x144.png",
