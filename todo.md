@@ -6,9 +6,9 @@
 - [x] inventory
 
 # TODO (bare minimum)
-- [ ] piano puzzle
+- [x] piano puzzle
 - [x] maus puzzle
-- [ ] code is findable
+- [x] code is findable
 - [ ] ending sequence (door opening or w/e)
 - [ ] ending sequence (world blows up)
 - [ ] fix the fucking stairs

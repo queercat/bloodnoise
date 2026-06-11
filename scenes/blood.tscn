@@ -880,6 +880,8 @@ offset_right = 1136.0
 offset_bottom = 493.0
 theme_override_font_sizes/font_size = 32
 text = "Warp Arena"
+script = ExtResource("9_38wbt")
+zone = "arena"
 
 [node name="WarpGate" type="Button" parent="UI/PauseMenu/Debug/Warp" unique_id=67262428]
 layout_mode = 0
@@ -2650,6 +2652,11 @@ shadow_reverse_cull_face = true
 shadow_opacity = 0.35
 spot_range = 143.41638
 spot_angle = 40.098324
+
+[node name="WarpZone_Arena" type="Node3D" parent="Arena" unique_id=1839696003]
+transform = Transform3D(-8.661302, 0, 4.9981894, -5.5879354e-08, 10.000004, -1.4901161e-07, -4.998189, -2.9802322e-08, -8.661305, 48.616817, 16.267569, -7.879916)
+script = ExtResource("55_qy0se")
+zone = "arena"
 
 [node name="Piano" parent="Arena" unique_id=145434344 instance=ExtResource("37_fjl1l")]
 transform = Transform3D(-0.42025688, 0, 0.2426355, 0, 0.48527083, 0, -0.24263547, 0, -0.42025694, 36.925323, 14.065784, -11.154541)
