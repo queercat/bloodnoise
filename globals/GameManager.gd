@@ -16,6 +16,7 @@ var shake_timer = 0
 var locks_unlocked = 0
 var endings_seen = 0
 var end_screen = preload("res://scenes/end_screen.tscn")
+var heaven_door: Node3D
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 var is_ending = false
@@ -31,6 +32,14 @@ signal MidiNote(emitter, key)
 signal SetWorldPasscode(passcode)
 
 var warp_zones = {}
+
+func do_ending(name: String):
+	match name.to_lower():
+		"good":
+			good_end()
+		"bad":
+			bad_end()
+			
 
 func register_warp_zone(node):
 	warp_zones[node.zone] = node
@@ -85,6 +94,7 @@ func good_end():
 		return
 	
 	is_ending = true
+	heaven_door.open()
 
 func player_entered_end_area(): 
 	if locks_unlocked < total_locks:

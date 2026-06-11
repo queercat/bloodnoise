@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bnroqxvn2vlhu" path="res://addons/GoldGdt/src/GoldGdt_Move.gd" id="8_mcc26"]
 [ext_resource type="Script" uid="uid://bjvf2180jcvsb" path="res://scripts/warp_button.gd" id="9_38wbt"]
 [ext_resource type="Script" uid="uid://bweoo24e2h20g" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="9_mdqft"]
+[ext_resource type="Script" uid="uid://dcjbgl1lp4edu" path="res://scripts/end_button.gd" id="10_7accx"]
 [ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="10_tjbww"]
 [ext_resource type="PackedScene" uid="uid://d2urr8uwblm0n" path="res://prefabs/lock.tscn" id="11_k0bd8"]
 [ext_resource type="Script" uid="uid://df4m21h4hfq4" path="res://scripts/ui.gd" id="12_iw38a"]
@@ -61,6 +62,7 @@
 [ext_resource type="Script" uid="uid://svucifinsmj1" path="res://scripts/invisible_for_mesh.gd" id="48_umj4y"]
 [ext_resource type="AudioStream" uid="uid://df74h3n767i5n" path="res://audio/bad_end/the_hampsterdance_song.mp3" id="49_6soou"]
 [ext_resource type="Script" uid="uid://conshh1a4g5xo" path="res://scripts/bpm_emitter.gd" id="50_igm46"]
+[ext_resource type="Script" uid="uid://cx2lsq5v4kyj1" path="res://scripts/heaven_door.gd" id="51_g2xtu"]
 [ext_resource type="PackedScene" uid="uid://daj5b31mkafw8" path="res://prefabs/lever.tscn" id="51_xhap4"]
 [ext_resource type="PackedScene" uid="uid://bu6250s8qrdcw" path="res://models/mausoleum.blend" id="53_umj4y"]
 [ext_resource type="Script" uid="uid://c56pitmna6req" path="res://scripts/warp_zone.gd" id="55_qy0se"]
@@ -505,6 +507,68 @@ data = PackedVector3Array(0.0056999996, 0.7158, 0.077199996, 0.0056999996, 0.715
 [sub_resource type="BoxShape3D" id="BoxShape3D_myl5m"]
 size = Vector3(10.427856, 7.504883, 11.749023)
 
+[sub_resource type="Animation" id="Animation_g2xtu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_38wbt"]
+resource_name = "open"
+length = 6.0
+step = 0.016666668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.5707964, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5833333, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.5707964, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2xtu"]
+_data = {
+&"RESET": SubResource("Animation_g2xtu"),
+&"open": SubResource("Animation_38wbt")
+}
+
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_f4lf1"]
 data = PackedVector3Array(-0.0656, 0.17559999, 7.4912996, -0.0656, -0.16129999, -0.0892, -0.0656, -0.16129999, 7.4912996, -0.0656, 0.17559999, 7.4912996, -0.0656, 0.17559999, -0.0892, -0.0656, -0.16129999, -0.0892, -0.0656, 0.17559999, -0.0892, 0.0656, -0.16129999, -0.0892, -0.0656, -0.16129999, -0.0892, -0.0656, 0.17559999, -0.0892, 0.0656, 0.17559999, -0.0892, 0.0656, -0.16129999, -0.0892, 0.0656, 0.17559999, -0.0892, 0.0656, -0.16129999, 7.4912996, 0.0656, -0.16129999, -0.0892, 0.0656, 0.17559999, -0.0892, 0.0656, 0.17559999, 7.4912996, 0.0656, -0.16129999, 7.4912996, 0.0656, 0.17559999, 7.4912996, -0.0656, -0.16129999, 7.4912996, 0.0656, -0.16129999, 7.4912996, 0.0656, 0.17559999, 7.4912996, -0.0656, 0.17559999, 7.4912996, -0.0656, -0.16129999, 7.4912996, -0.0656, 0.17559999, -0.0892, 0.0656, 0.17559999, 7.4912996, 0.0656, 0.17559999, -0.0892, -0.0656, 0.17559999, -0.0892, -0.0656, 0.17559999, 7.4912996, 0.0656, 0.17559999, 7.4912996, 0.0656, -0.16129999, -0.0892, -0.0656, -0.16129999, 7.4912996, -0.0656, -0.16129999, -0.0892, 0.0656, -0.16129999, -0.0892, 0.0656, -0.16129999, 7.4912996, -0.0656, -0.16129999, 7.4912996, -0.0656, 1.5236, 7.4912996, -0.0656, 1.1866, -0.0892, -0.0656, 1.1866, 7.4912996, -0.0656, 1.5236, 7.4912996, -0.0656, 1.5236, -0.0892, -0.0656, 1.1866, -0.0892, -0.0656, 1.5236, -0.0892, 0.0656, 1.1866, -0.0892, -0.0656, 1.1866, -0.0892, -0.0656, 1.5236, -0.0892, 0.0656, 1.5236, -0.0892, 0.0656, 1.1866, -0.0892, 0.0656, 1.5236, -0.0892, 0.0656, 1.1866, 7.4912996, 0.0656, 1.1866, -0.0892, 0.0656, 1.5236, -0.0892, 0.0656, 1.5236, 7.4912996, 0.0656, 1.1866, 7.4912996, 0.0656, 1.5236, 7.4912996, -0.0656, 1.1866, 7.4912996, 0.0656, 1.1866, 7.4912996, 0.0656, 1.5236, 7.4912996, -0.0656, 1.5236, 7.4912996, -0.0656, 1.1866, 7.4912996, -0.0656, 1.5236, -0.0892, 0.0656, 1.5236, 7.4912996, 0.0656, 1.5236, -0.0892, -0.0656, 1.5236, -0.0892, -0.0656, 1.5236, 7.4912996, 0.0656, 1.5236, 7.4912996, 0.0656, 1.1866, -0.0892, -0.0656, 1.1866, 7.4912996, -0.0656, 1.1866, -0.0892, 0.0656, 1.1866, -0.0892, 0.0656, 1.1866, 7.4912996, -0.0656, 1.1866, 7.4912996, -0.0656, 2.8715, 7.4912996, -0.0656, 2.5345, -0.0892, -0.0656, 2.5345, 7.4912996, -0.0656, 2.8715, 7.4912996, -0.0656, 2.8715, -0.0892, -0.0656, 2.5345, -0.0892, -0.0656, 2.8715, -0.0892, 0.0656, 2.5345, -0.0892, -0.0656, 2.5345, -0.0892, -0.0656, 2.8715, -0.0892, 0.0656, 2.8715, -0.0892, 0.0656, 2.5345, -0.0892, 0.0656, 2.8715, -0.0892, 0.0656, 2.5345, 7.4912996, 0.0656, 2.5345, -0.0892, 0.0656, 2.8715, -0.0892, 0.0656, 2.8715, 7.4912996, 0.0656, 2.5345, 7.4912996, 0.0656, 2.8715, 7.4912996, -0.0656, 2.5345, 7.4912996, 0.0656, 2.5345, 7.4912996, 0.0656, 2.8715, 7.4912996, -0.0656, 2.8715, 7.4912996, -0.0656, 2.5345, 7.4912996, -0.0656, 2.8715, -0.0892, 0.0656, 2.8715, 7.4912996, 0.0656, 2.8715, -0.0892, -0.0656, 2.8715, -0.0892, -0.0656, 2.8715, 7.4912996, 0.0656, 2.8715, 7.4912996, 0.0656, 2.5345, -0.0892, -0.0656, 2.5345, 7.4912996, -0.0656, 2.5345, -0.0892, 0.0656, 2.5345, -0.0892, 0.0656, 2.5345, 7.4912996, -0.0656, 2.5345, 7.4912996)
 
@@ -929,6 +993,8 @@ offset_right = 1125.0
 offset_bottom = 151.0
 theme_override_font_sizes/font_size = 32
 text = "Good"
+script = ExtResource("10_7accx")
+ending = "good"
 
 [node name="BadEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=777999062]
 layout_mode = 0
@@ -938,6 +1004,8 @@ offset_right = 1126.0
 offset_bottom = 220.0
 theme_override_font_sizes/font_size = 32
 text = "Bad"
+script = ExtResource("10_7accx")
+ending = "bad"
 
 [node name="HampterEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=569396894]
 layout_mode = 0
@@ -947,6 +1015,7 @@ offset_right = 1127.0
 offset_bottom = 285.0
 theme_override_font_sizes/font_size = 32
 text = "Hampter"
+script = ExtResource("10_7accx")
 
 [node name="BackroomsEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=1347764053]
 layout_mode = 0
@@ -956,6 +1025,7 @@ offset_right = 1125.0
 offset_bottom = 348.0
 theme_override_font_sizes/font_size = 32
 text = "Backrooms"
+script = ExtResource("10_7accx")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" unique_id=2125627901]
 layout_mode = 2
@@ -1770,14 +1840,16 @@ transform = Transform3D(-3.85414e-09, 0.41384032, 0.42473, 5.42686e-08, 0.42473,
 [node name="Lock3" parent="Gate Area/Gate L" unique_id=150199516 instance=ExtResource("11_k0bd8")]
 transform = Transform3D(-3.8541472e-09, 0.41384038, 0.42473, 5.42686e-08, 0.42473, -0.41384038, -0.59300876, 3.617908e-08, -4.0632624e-08, -0.9857178, 0.97838545, 12.105416)
 
-[node name="Area3D" type="Area3D" parent="Gate Area/Gate L" unique_id=198762435]
-
 [node name="heavenDoor1_1" parent="Gate Area" unique_id=162628213 instance=ExtResource("48_tviso")]
 transform = Transform3D(-8.287689, -0.08395392, 28.832405, -1.2939513, 29.970734, -0.2846694, -28.80348, -1.3222327, -8.283226, -121.99524, 296.04504, 62.02878)
+script = ExtResource("51_g2xtu")
 
-[node name="Eye parent" parent="Gate Area/heavenDoor1_1" index="6" unique_id=97918547]
+[node name="Eye parent" parent="Gate Area/heavenDoor1_1" index="6" unique_id=1916377250]
 script = ExtResource("32_cr2ap")
 sprite_rotation = 3.14
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Gate Area/heavenDoor1_1" unique_id=146631757]
+libraries/ = SubResource("AnimationLibrary_g2xtu")
 
 [node name="Stairs" parent="Gate Area" unique_id=945768958 instance=ExtResource("13_wo4ll")]
 transform = Transform3D(-4.3711374e-08, 0, 1.7212412, -0.04959934, 0.9987692, -3.7317482e-09, -0.9987689, -0.049599353, -7.5145245e-08, 9.346649, -4.58088, 0.06447697)
