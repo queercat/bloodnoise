@@ -19,7 +19,7 @@ var end_screen = preload("res://scenes/end_screen.tscn")
 var start_screen = preload("res://scenes/start_screen.tscn")
 var heaven_door: Node3D
 var has_seen_intro: bool = false
-var volume: float = 50
+var volume: float = 100
 var y_sensitivty: float = 1
 var x_sensitivty: float = 1
 
