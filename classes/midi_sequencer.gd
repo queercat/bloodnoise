@@ -16,9 +16,8 @@ func _ready() -> void:
 		var row = line.split(",")
 		var time = row[0]
 		var key = row[1]
-		times.append(float(time))
+		times.append([float(time), int(key)])
 		
-	
 	animation_player.play("Crank Dat")
 	animation_player.pause()
 
@@ -27,12 +26,22 @@ func can_i_crank_it():
 
 func crank_dat():
 	is_cranking = true
-	animation_player.play()
+	animation_player.play("Crank Dat")
+	stream.play()
+	stream.finished.connect(handle_finished)
+
+func handle_finished():
+	GameManager.midi_note("piano_reset", -1)
+	animation_player.pause()
+	is_cranking = false
+	burned_times = []
+	stream.finished.disconnect(handle_finished)
 
 func get_playable_positions():
-	return times.filter(func (v): return v not in burned_times)
+	return times.filter(func (v): return v[0] not in burned_times)
 
-func trigger():
+func trigger(time, key):
+	GameManager.midi_note("piano", key)
 	GameManager.spawn_sound_sphere(stream.global_position, 50, Color.PURPLE, 200)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,9 +51,9 @@ func _process(delta: float) -> void:
 		var positions = get_playable_positions()
 		
 		for time_marker in positions:
-			if time_marker <= current_time:
-				trigger()
-				burned_times.append(time_marker)
+			if time_marker[0] <= current_time:
+				trigger(time_marker[0], time_marker[1])
+				burned_times.append(time_marker[0])
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:

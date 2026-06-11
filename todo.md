@@ -7,7 +7,7 @@
 
 # TODO (bare minimum)
 - [ ] piano puzzle
-- [ ] maus puzzle
+- [x] maus puzzle
 - [ ] code is findable
 - [ ] ending sequence (door opening or w/e)
 - [ ] ending sequence (world blows up)

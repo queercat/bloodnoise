@@ -28,6 +28,11 @@ signal LeverToggled(name: String, state: bool)
 
 signal StartCutscene()
 signal StopCutscene()
+signal MidiNote(emitter, key)
+
+func midi_note(emitter, key):
+	print(key)
+	MidiNote.emit(emitter, key)
 
 func start_cutscene():
 	StartCutscene.emit()
