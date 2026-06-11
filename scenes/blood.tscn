@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://dcjbgl1lp4edu" path="res://scripts/end_button.gd" id="10_7accx"]
 [ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="10_tjbww"]
 [ext_resource type="PackedScene" uid="uid://d2urr8uwblm0n" path="res://prefabs/lock.tscn" id="11_k0bd8"]
+[ext_resource type="PackedScene" uid="uid://wjc6ynk8m2n5" path="res://scenes/settings_menu.tscn" id="11_yi4jm"]
 [ext_resource type="Script" uid="uid://df4m21h4hfq4" path="res://scripts/ui.gd" id="12_iw38a"]
 [ext_resource type="Shader" uid="uid://2rffyrswv5sg" path="res://shaders/ubershader.gdshader" id="12_x6f3n"]
 [ext_resource type="Script" uid="uid://do2hilgyttw42" path="res://scripts/sound_sphere_quad.gd" id="13_myl5m"]
@@ -940,10 +941,10 @@ layout_mode = 2
 
 [node name="Warp" type="Control" parent="UI/PauseMenu/Debug" unique_id=220914048]
 anchors_preset = 0
-offset_left = -576.0
-offset_top = -327.0
-offset_right = -576.0
-offset_bottom = -327.0
+offset_left = -222.0
+offset_top = -157.0
+offset_right = -222.0
+offset_bottom = -157.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/PauseMenu/Debug/Warp" unique_id=1944536300]
 layout_mode = 0
@@ -989,10 +990,10 @@ zone = "maze"
 
 [node name="Endings" type="Control" parent="UI/PauseMenu/Debug" unique_id=2116120400]
 anchors_preset = 0
-offset_left = -576.0
-offset_top = -327.0
-offset_right = -576.0
-offset_bottom = -327.0
+offset_left = -222.0
+offset_top = -157.0
+offset_right = -222.0
+offset_bottom = -157.0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI/PauseMenu/Debug/Endings" unique_id=1719441405]
 layout_mode = 0
@@ -1047,21 +1048,28 @@ theme_override_font_sizes/font_size = 32
 text = "Backrooms"
 script = ExtResource("10_7accx")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/PauseMenu" unique_id=2125627901]
+[node name="PauseMenu" type="VBoxContainer" parent="UI/PauseMenu" unique_id=2125627901]
 layout_mode = 2
+theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Button3" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=1190945931]
+[node name="Continue" type="Button" parent="UI/PauseMenu/PauseMenu" unique_id=1190945931]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Continue"
 
-[node name="Button" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=357617327]
+[node name="Settings" type="Button" parent="UI/PauseMenu/PauseMenu" unique_id=357617327]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Settings"
 
-[node name="Button2" type="Button" parent="UI/PauseMenu/VBoxContainer" unique_id=471933712]
+[node name="Exit" type="Button" parent="UI/PauseMenu/PauseMenu" unique_id=471933712]
 layout_mode = 2
+theme_override_font_sizes/font_size = 64
 text = "Exit"
+
+[node name="SettingsMenu" parent="UI" unique_id=1480369154 instance=ExtResource("11_yi4jm")]
+layout_mode = 1
 
 [node name="Pawn" type="Node3D" parent="." unique_id=1211940215 node_paths=PackedStringArray("View", "Camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.50621, -15.477346, 112.57591)
@@ -1863,6 +1871,12 @@ transform = Transform3D(-3.8541472e-09, 0.41384038, 0.42473, 5.42686e-08, 0.4247
 [node name="heavenDoor1_1" parent="Gate Area" unique_id=162628213 instance=ExtResource("48_tviso")]
 transform = Transform3D(-8.287689, -0.08395392, 28.832405, -1.2939513, 29.970734, -0.2846694, -28.80348, -1.3222327, -8.283226, -121.99524, 296.04504, 62.02878)
 script = ExtResource("51_g2xtu")
+
+[node name="metal brackets" parent="Gate Area/heavenDoor1_1" index="2" unique_id=995824006]
+visible = false
+
+[node name="curly metal" parent="Gate Area/heavenDoor1_1" index="3" unique_id=1397475226]
+visible = false
 
 [node name="door" parent="Gate Area/heavenDoor1_1" index="4" unique_id=110045573]
 ignore_occlusion_culling = true

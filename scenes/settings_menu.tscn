@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://wjc6ynk8m2n5"]
+
+[ext_resource type="Script" uid="uid://cl65c8l110cc6" path="res://scripts/settings_menu.gd" id="1_n87rw"]
+
+[node name="SettingsMenu" type="MarginContainer" unique_id=1480369154]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 256
+theme_override_constants/margin_top = 256
+theme_override_constants/margin_right = 256
+theme_override_constants/margin_bottom = 256
+script = ExtResource("1_n87rw")
+
+[node name="SettingsMenu" type="VBoxContainer" parent="." unique_id=2027676958]
+layout_mode = 2
+
+[node name="MenuItem" type="VBoxContainer" parent="SettingsMenu" unique_id=1790306402]
+layout_mode = 2
+
+[node name="Volume" type="Label" parent="SettingsMenu/MenuItem" unique_id=754836089]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsMenu/MenuItem" unique_id=259035463]
+layout_mode = 2
+value = 50.0
+
+[node name="Back" type="Button" parent="." unique_id=1930137698]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 32
+text = "Back"

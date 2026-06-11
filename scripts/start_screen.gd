@@ -5,6 +5,10 @@ var blood = preload("res://scenes/blood.tscn")
 @export var camera: Camera3D
 @export var target: Node3D
 @export var shader_mesh: MeshInstance3D
+@onready var settings_button = $"UI/Menu/HBoxContainer/VBoxContainer/Settings"
+@onready var settings_menu = $"UI/SettingsMenu"
+@onready var menu = $"UI/Menu"
+@onready var quit_button = $"UI/Menu/HBoxContainer/VBoxContainer/Exit"
 var shader_material: ShaderMaterial
 var time = 0
 
@@ -13,8 +17,10 @@ func update_camera():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	settings_button.pressed.connect(func (): settings_menu.switch_from(menu))
 	shader_material = shader_mesh.material_override
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	quit_button.pressed.connect(GameManager.handle_quit)
 
 func map_mod(value: float, from_min: float, from_max: float, to_min: float, to_max: float):
 	var ratio = (value - from_min) / (from_max - from_min)

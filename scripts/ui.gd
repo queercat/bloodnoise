@@ -5,11 +5,20 @@ class_name GameUI
 @export var diagetic_container: Control
 @export var pause_container: Control
 
+@onready var exit_button = $"PauseMenu/PauseMenu/Exit"
+@onready var continue_button = $"PauseMenu/PauseMenu/Continue"
+@onready var settings_button = $"PauseMenu/PauseMenu/Settings"
+@onready var pause_menu = $"PauseMenu"
+@onready var settings_menu = $"SettingsMenu"
+
 var lock: Array = [null, Mutex.new()]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	GameManager.ui = self
+	continue_button.pressed.connect(handle_unpause)
+	exit_button.pressed.connect(GameManager.handle_exit)
+	settings_button.pressed.connect(func (): settings_menu.switch_from(pause_menu))
 
 func acquire_lock(owner):
 	lock[1].lock()
@@ -49,7 +58,8 @@ func _input(event: InputEvent) -> void:
 			false:
 				handle_pause()
 			true:
-				handle_unpause()
+				if pause_menu.is_visible_in_tree():
+					handle_unpause()
 		
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

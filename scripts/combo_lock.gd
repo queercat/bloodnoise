@@ -50,19 +50,19 @@ func _process(delta: float) -> void:
 	
 	if result:
 		var parent = result.collider.get_parent()
-		var text = "Press E to rotate %s cylinder"
+		var text = "[wave][pulse]Press E to Rotate %s Cylinder[/pulse][/wave]"
 		if parent:
 			match parent.name:
 				"Top":
-					GameManager.ui.show_interact_text(text % "top")
+					GameManager.ui.show_interact_text(text % "Top")
 					target = parent
 					pointer = 2
 				"Middle":
-					GameManager.ui.show_interact_text(text % "middle")
+					GameManager.ui.show_interact_text(text % "Middle")
 					target = parent
 					pointer = 1
 				"Bottom":
-					GameManager.ui.show_interact_text(text % "bottom")
+					GameManager.ui.show_interact_text(text % "Bottom")
 					target = parent
 					pointer = 0
 	elif target:

@@ -16,7 +16,9 @@ var shake_timer = 0
 var locks_unlocked = 0
 var endings_seen = 0
 var end_screen = preload("res://scenes/end_screen.tscn")
+var start_screen = preload("res://scenes/start_screen.tscn")
 var heaven_door: Node3D
+var volume = 50
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 var is_ending = false
@@ -26,12 +28,17 @@ signal LockUnlocked(name: String)
 signal CheatedBadEnd()
 signal LeverToggled(name: String, state: bool)
 
+signal VolumeChanged(volume: float)
 signal StartCutscene()
 signal StopCutscene()
 signal MidiNote(emitter, key)
 signal SetWorldPasscode(passcode)
 
 var warp_zones = {}
+
+func volume_changed(new_volume):
+	volume = new_volume
+	VolumeChanged.emit(new_volume)
 
 func do_ending(name: String):
 	match name.to_lower():
@@ -166,7 +173,15 @@ func feed_material_spheres(material):
 
 func feed_material_clock(material):
 	material.set_shader_parameter("clock", Time.get_ticks_msec())
-	
+
+func handle_exit():
+	has_started = false
+	get_tree().change_scene_to_packed(start_screen)
+	get_tree().paused = false
+
+func handle_quit():
+	get_tree().quit()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if not has_started: return
