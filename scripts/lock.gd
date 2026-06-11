@@ -21,7 +21,7 @@ func open():
 	t.tween_property(self, "scale", Vector3.ZERO, 1.3)
 	t.parallel().tween_property(self, "global_rotation_degrees", Vector3(0, 480, 0), 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 	await t.finished
-	GameManager.LockUnlocked.emit(name)
+	GameManager.unlocked_lock(name)
 	queue_free()
 
 func can_open_lock():

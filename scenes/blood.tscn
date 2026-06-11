@@ -64,6 +64,7 @@
 [ext_resource type="Script" uid="uid://conshh1a4g5xo" path="res://scripts/bpm_emitter.gd" id="50_igm46"]
 [ext_resource type="Script" uid="uid://cx2lsq5v4kyj1" path="res://scripts/heaven_door.gd" id="51_g2xtu"]
 [ext_resource type="PackedScene" uid="uid://daj5b31mkafw8" path="res://prefabs/lever.tscn" id="51_xhap4"]
+[ext_resource type="Shader" uid="uid://o8y63uk8ow0v" path="res://shaders/portal.gdshader" id="53_ilobo"]
 [ext_resource type="PackedScene" uid="uid://bu6250s8qrdcw" path="res://models/mausoleum.blend" id="53_umj4y"]
 [ext_resource type="Script" uid="uid://c56pitmna6req" path="res://scripts/warp_zone.gd" id="55_qy0se"]
 [ext_resource type="Shader" uid="uid://dptsnfffnjun0" path="res://shaders/invisible_textured.gdshader" id="56_nfwl6"]
@@ -507,6 +508,22 @@ data = PackedVector3Array(0.0056999996, 0.7158, 0.077199996, 0.0056999996, 0.715
 [sub_resource type="BoxShape3D" id="BoxShape3D_myl5m"]
 size = Vector3(10.427856, 7.504883, 11.749023)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ilobo"]
+render_priority = 1
+shader = ExtResource("53_ilobo")
+shader_parameter/color = Color(1, 1, 1, 0.25098)
+shader_parameter/noise_scale = 4.0
+shader_parameter/noise_speed = Vector2(0.05, 0)
+shader_parameter/softness = 3.0
+shader_parameter/fade_in = 0.1
+shader_parameter/fade_out = 0.9
+shader_parameter/near_fade = 3.0
+shader_parameter/far_fade = 50.0
+shader_parameter/phase = 0.45
+shader_parameter/scale_factor = 1.0
+shader_parameter/random_offset = Vector2(0.21, 0.67)
+shader_parameter/billboard = true
+
 [sub_resource type="Animation" id="Animation_g2xtu"]
 length = 0.001
 tracks/0/type = "value"
@@ -684,6 +701,9 @@ size = Vector3(10, 1, 10)
 data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tqruv"]
+data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_81jqh"]
 data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qdt0t"]
@@ -1070,7 +1090,7 @@ editor_description = "
 
 [node name="Camera" type="Camera3D" parent="Pawn/Interpolated Camera/Arm/Arm Anchor" unique_id=1752051055]
 fov = 105.0
-near = 0.001
+near = 0.1
 
 [node name="User Input" type="Node" parent="Pawn" unique_id=1218988230 node_paths=PackedStringArray("Body", "Move", "View")]
 script = ExtResource("5_iuxes")
@@ -1844,9 +1864,21 @@ transform = Transform3D(-3.8541472e-09, 0.41384038, 0.42473, 5.42686e-08, 0.4247
 transform = Transform3D(-8.287689, -0.08395392, 28.832405, -1.2939513, 29.970734, -0.2846694, -28.80348, -1.3222327, -8.283226, -121.99524, 296.04504, 62.02878)
 script = ExtResource("51_g2xtu")
 
-[node name="Eye parent" parent="Gate Area/heavenDoor1_1" index="6" unique_id=1916377250]
+[node name="door" parent="Gate Area/heavenDoor1_1" index="4" unique_id=110045573]
+ignore_occlusion_culling = true
+
+[node name="Eye parent" parent="Gate Area/heavenDoor1_1" index="6" unique_id=2073579969]
+visible = false
 script = ExtResource("32_cr2ap")
 sprite_rotation = 3.14
+
+[node name="door_001" parent="Gate Area/heavenDoor1_1" index="7" unique_id=941385467]
+ignore_occlusion_culling = true
+
+[node name="Plane" parent="Gate Area/heavenDoor1_1" index="8" unique_id=753404191]
+sorting_use_aabb_center = false
+material_override = SubResource("ShaderMaterial_ilobo")
+ignore_occlusion_culling = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Gate Area/heavenDoor1_1" unique_id=146631757]
 libraries/ = SubResource("AnimationLibrary_g2xtu")
@@ -2084,7 +2116,7 @@ omni_range = 40.53969
 omni_attenuation = 0.66
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Gate Area/lights" unique_id=465129048]
-transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -270.59344, 117.20399, 74.85395)
+transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -234.87384, 321.79285, 74.85395)
 light_color = Color(0.41342783, 0.55970645, 0.7431366, 1)
 light_energy = 16.0
 light_indirect_energy = 1.395
@@ -2092,38 +2124,40 @@ light_volumetric_fog_energy = 1.385
 omni_range = 194.8854
 omni_attenuation = 0.66
 
-[node name="OmniLight3D12" type="OmniLight3D" parent="Gate Area/lights" unique_id=288513447]
-transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -235.41031, 22.599525, 9.225962)
+[node name="OmniLight3D12" type="OmniLight3D" parent="Gate Area/lights" unique_id=1086625663]
+transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -234.87384, 321.79285, 74.85395)
 light_color = Color(0.41342783, 0.55970645, 0.7431366, 1)
-light_energy = 0.789
+light_energy = 16.0
 light_indirect_energy = 1.395
 light_volumetric_fog_energy = 1.385
-omni_range = 40.53969
+omni_range = 194.8854
 omni_attenuation = 0.66
 
-[node name="OmniLight3D13" type="OmniLight3D" parent="Gate Area/lights" unique_id=178600450]
-transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -259.81833, 30.533752, 19.458506)
+[node name="OmniLight3D13" type="OmniLight3D" parent="Gate Area/lights" unique_id=867710257]
+transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -234.87384, 190.3515, 74.85395)
 light_color = Color(0.41342783, 0.55970645, 0.7431366, 1)
-light_energy = 1.21
+light_energy = 16.0
 light_indirect_energy = 1.395
 light_volumetric_fog_energy = 1.385
-omni_range = 40.53969
+omni_range = 194.8854
 omni_attenuation = 0.66
 
-[node name="OmniLight3D14" type="OmniLight3D" parent="Gate Area/lights" unique_id=1054148304]
-transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -283.0996, 40.04876, 36.100006)
+[node name="OmniLight3D14" type="OmniLight3D" parent="Gate Area/lights" unique_id=1692409737]
+transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -234.87384, 103.85367, 74.85395)
 light_color = Color(0.41342783, 0.55970645, 0.7431366, 1)
-light_energy = 0.578
+light_energy = 16.0
 light_indirect_energy = 1.395
 light_volumetric_fog_energy = 1.385
-omni_range = 40.53969
+omni_range = 194.8854
 omni_attenuation = 0.66
 
-[node name="OmniLight3D15" type="OmniLight3D" parent="Gate Area/lights" unique_id=1484563669]
-transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -300.65314, 49.428864, 57.549324)
+[node name="OmniLight3D15" type="OmniLight3D" parent="Gate Area/lights" unique_id=631291791]
+transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -234.87384, 103.85367, 74.85395)
 light_color = Color(0.41342783, 0.55970645, 0.7431366, 1)
-light_energy = 0.158
-omni_range = 40.53969
+light_energy = 16.0
+light_indirect_energy = 1.395
+light_volumetric_fog_energy = 1.385
+omni_range = 194.8854
 omni_attenuation = 0.66
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Gate Area/lights" unique_id=1218322167]
@@ -2154,7 +2188,21 @@ spot_range = 286.826
 spot_angle = 26.05
 
 [node name="GateGodRays" type="CSGCylinder3D" parent="Gate Area/lights" unique_id=1307965621]
-transform = Transform3D(4.1000066, 3.261328, -8.905884, -15.300387, 1.3479483, 3.419241, 5.1346703, 1.412487, 17.300018, -170.09528, 76.24186, 45.128548)
+transform = Transform3D(-3.8052416, 2.354206, 14.839122, -13.940832, -1.971949, 3.418974, 8.273453, -2.239971, 12.586013, -264.86423, 32.65484, 45.128548)
+radius = 1.4
+height = 108.03112
+cone = true
+material = SubResource("ShaderMaterial_nqgh3")
+
+[node name="GateGodRays3" type="CSGCylinder3D" parent="Gate Area/lights" unique_id=1562306093]
+transform = Transform3D(4.1000066, 3.261328, -8.905884, -15.300387, 1.3479483, 3.419241, 5.1346703, 1.412487, 17.300018, -170.09528, 89.00143, 78.55225)
+radius = 1.4
+height = 108.03112
+cone = true
+material = SubResource("ShaderMaterial_nqgh3")
+
+[node name="GateGodRays4" type="CSGCylinder3D" parent="Gate Area/lights" unique_id=1678644126]
+transform = Transform3D(7.218024, 3.3750787, -3.0411325, -14.594611, 1.7299328, 3.103376, 3.4891484, 0.25401512, 19.272184, -170.09528, 129.18665, 97.08827)
 radius = 1.4
 height = 108.03112
 cone = true
@@ -2560,7 +2608,7 @@ shape = SubResource("ConcavePolygonShape3D_fjl1l")
 [node name="Puzzle Cubes" type="Node" parent="Arena" unique_id=750716720]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1141608226]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -101.328606, -9.25476, 157.54625)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -101.35311, -7.061261, 157.47403)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
@@ -2575,7 +2623,7 @@ offset = Vector3(0, -20, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1326592670]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -91.4039, -7.433188, 153.77057)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -91.41767, -6.2002583, 153.72998)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
@@ -2590,7 +2638,7 @@ offset = Vector3(0, 10, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=2134931646]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -94.34009, -5.8641224, 144.03293)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -94.27462, -5.3726597, 144.19852)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
@@ -2605,7 +2653,7 @@ offset = Vector3(0, -20, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=371973282]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -97.73595, -4.6995287, 134.76764)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -100.98612, -4.694058, 136.03642)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
@@ -2620,7 +2668,7 @@ offset = Vector3(-80, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1409107633]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -107.140656, -3.4127126, 138.41386)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -110.663345, -3.9616578, 138.41386)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
@@ -2635,22 +2683,23 @@ offset = Vector3(-80, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tqruv")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=888023081]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -131.22719, -3.2279086, 102.305046)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -119.24781, -3.4640348, 145.07135)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 63
 note_source = "piano"
 duration_in_seconds = 1.0
-target_position = Vector3(-116.01307, -1.7750558, 141.27188)
+offset = Vector3(-80, 0, -80)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D6" unique_id=1738442473]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D6" unique_id=1480985594]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D6/StaticBody3D" unique_id=1882273962]
-shape = SubResource("ConcavePolygonShape3D_dbdwf")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D6/StaticBody3D" unique_id=677597400]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.453951, 0.35635152, 3.1199306e-08)
+shape = SubResource("ConcavePolygonShape3D_81jqh")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=86695701]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -111.33761, -1.2039899, 152.80536)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -111.31974, -2.8040266, 152.85805)
 material_override = SubResource("ShaderMaterial_qdt0t")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")

@@ -29,7 +29,7 @@ func unlock():
 	t.tween_property(parent, "scale", Vector3.ZERO, 1.3)
 	t.parallel().tween_property(parent, "global_rotation_degrees", Vector3(0, 480, 0), 1.5).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_EXPO)
 	await t.finished
-	GameManager.LockUnlocked.emit(parent.name)
+	GameManager.unlocked_lock(parent.name)
 	parent.queue_free()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
