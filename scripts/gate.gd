@@ -3,7 +3,7 @@ extends Node3D
 var is_open = false
 var original_rotation
 @export var open_duration_seconds: int = 4
-var locks_left = 3
+var locks_left = 4
 
 func handle_lock_unlocked(name):
 	locks_left -= 1

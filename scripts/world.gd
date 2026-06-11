@@ -14,6 +14,7 @@ func _ready() -> void:
 	GameManager.__ready()
 	GameManager.StartCutscene.connect(start_cutscene)
 	GameManager.StopCutscene.connect(end_cutscene)
+	GameManager.set_world_passcode(randi_range(1, 999))
 
 func start_cutscene():
 	cutscene_camera.make_current()

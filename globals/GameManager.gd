@@ -15,7 +15,6 @@ var camera_shake_value: Vector2 = Vector2.ZERO
 var shake_timer = 0
 var locks_unlocked = 0
 var endings_seen = 0
-
 var end_screen = preload("res://scenes/end_screen.tscn")
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
@@ -29,6 +28,10 @@ signal LeverToggled(name: String, state: bool)
 signal StartCutscene()
 signal StopCutscene()
 signal MidiNote(emitter, key)
+signal SetWorldPasscode(passcode)
+
+func set_world_passcode(passcode):
+	SetWorldPasscode.emit(passcode)
 
 func midi_note(emitter, key):
 	print(key)
