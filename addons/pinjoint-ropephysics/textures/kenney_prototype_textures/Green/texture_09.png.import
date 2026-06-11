@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clxhd54ok1eia"
-path.s3tc="res://.godot/imported/plastered_stone_wall_disp_2k.png-c7b84a7625dcd183e7bc5d1a7c8f56ae.s3tc.ctex"
-path.etc2="res://.godot/imported/plastered_stone_wall_disp_2k.png-c7b84a7625dcd183e7bc5d1a7c8f56ae.etc2.ctex"
+uid="uid://crssf8e2w5f38"
+path.s3tc="res://.godot/imported/texture_09.png-f8bb94b62e3dc46caee49c835567d427.s3tc.ctex"
+path.etc2="res://.godot/imported/texture_09.png-f8bb94b62e3dc46caee49c835567d427.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/plastered_stone_wall_2k.blend/plastered_stone_wall_disp_2k.png"
-dest_files=["res://.godot/imported/plastered_stone_wall_disp_2k.png-c7b84a7625dcd183e7bc5d1a7c8f56ae.s3tc.ctex", "res://.godot/imported/plastered_stone_wall_disp_2k.png-c7b84a7625dcd183e7bc5d1a7c8f56ae.etc2.ctex"]
+source_file="res://addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Green/texture_09.png"
+dest_files=["res://.godot/imported/texture_09.png-f8bb94b62e3dc46caee49c835567d427.s3tc.ctex", "res://.godot/imported/texture_09.png-f8bb94b62e3dc46caee49c835567d427.etc2.ctex"]
 
 [params]
 

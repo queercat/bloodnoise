@@ -1,15 +1,17 @@
 shader_type spatial;
+varying vec3 world_vertex;
+
 render_mode depth_prepass_alpha;
 
-varying vec3 world_vertex;
-uniform float reveal_distance: hint_range(0.0, 10.0, 10.0);
+uniform float reveal_band: hint_range(0., 40., 10.);
+
+uniform sampler2D albedo: source_color;
+uniform sampler2D normal: source_color;
+uniform sampler2D roughness: source_color;
+
 uniform int sphere_data_length;
 uniform vec4 sphere_data[64];
 uniform vec4 sphere_attributes_data[64];
-
-void vertex() {
-	world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
-}
 
 float random (vec2 uv) {
     return fract(sin(dot(uv.xy,
@@ -24,6 +26,10 @@ float map_range(float value, float from_min, float from_max, float to_min, float
 	return b; 
 }
 
+void vertex() {
+	world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+
 void fragment() {
 	float rand_value = random(SCREEN_UV);
 	float max_alpha = 0.;
@@ -36,14 +42,16 @@ void fragment() {
 		float w = map_range(sphere_datum.w, 0., sphere_attribute_datum.w, 0., 1.);
 		float wp = map_range(w, .8, 1., 0., 1.);
 		dist += rand_value;
-		float alpha = dist <= 0. && dist >= -reveal_distance * (1. - wp) ? 1. : 0.;
+		float alpha = dist <= 0. && dist >= -reveal_band * 1. - wp ? 1. : 0.;
 		max_alpha = max(alpha, max_alpha);
 	}
 
 	// sampling some noise instead of 0.5 may look better
-	if (max_alpha < 0.5) {
+	if (1. - max_alpha < 0.5) {
 		discard;
 	}
 	
-	ALBEDO = vec3(1., 1., 1.);
+	ALBEDO = texture(albedo, UV).rgb;
+	NORMAL_MAP = texture(normal, UV).rgb;
+	ROUGHNESS = texture(roughness, UV).a;
 }
