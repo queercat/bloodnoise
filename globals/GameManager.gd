@@ -20,6 +20,8 @@ var start_screen = preload("res://scenes/start_screen.tscn")
 var heaven_door: Node3D
 var has_seen_intro: bool = false
 var volume: float = 50
+var y_sensitivty: float = 1
+var x_sensitivty: float = 1
 
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
