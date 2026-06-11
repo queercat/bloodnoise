@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "todo.md",
+                "file": "gameplay notes.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "todo"
+              "title": "gameplay notes"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "todo.md",
+                "file": "gameplay notes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for todo"
+              "title": "Backlinks for gameplay notes"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "todo.md",
+                "file": "gameplay notes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from todo"
+              "title": "Outgoing links from gameplay notes"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "todo.md",
+                "file": "gameplay notes.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of todo"
+              "title": "Outline of gameplay notes"
             }
           }
         ]
@@ -185,23 +185,29 @@
   },
   "active": "56ccad64fff75f01",
   "lastOpenFiles": [
-    "scenes/start_screen.tscn110026475237.tmp",
-    "scenes/start_screen.tscn110017430762.tmp",
-    "scenes/start_screen.tscn109998353182.tmp",
-    "globals/GameManager.gd109992788881.tmp",
-    "scenes/start_screen.tscn109992762934.tmp",
-    "scripts/start_screen.gd109970540790.tmp",
-    "scenes/start_screen.tscn109970516005.tmp",
-    "scripts/start_screen.gd109969231279.tmp",
-    "scenes/start_screen.tscn109969206442.tmp",
-    "scenes/start_screen.tscn109956881796.tmp",
-    "scripts/start_screen.gd109952238608.tmp",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Red/texture_09.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Purple/texture_09.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Orange/texture_09.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Light/texture_07.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Green/texture_09.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Dark/texture_09.png",
-    "addons/pinjoint-ropephysics/textures/kenney_prototype_textures/Dark/texture_08.png"
+    "scenes/start_screen.tscn124354880249.tmp",
+    "export_presets.cfg124214735680.tmp",
+    "build/web/bloodnoise.512x512.png124214185736.tmp",
+    "build/web/bloodnoise.side.wasm124214032523.tmp",
+    "build/web/bloodnoise.wasm124213931917.tmp",
+    "build/web/bloodnoise.js124213386625.tmp",
+    "build/web/bloodnoise.pck124212978503.tmp",
+    "scenes/start_screen.tscn124204744969.tmp",
+    "scripts/intro.gd124181522344.tmp",
+    "scripts/intro.gd124157658905.tmp",
+    "scenes/start_screen.tscn124157632251.tmp",
+    "build/web/bloodnoise.512x512.png",
+    "build/web/bloodnoise.180x180.png",
+    "build/web/bloodnoise.144x144.png",
+    "build/web/bloodnoise.apple-touch-icon.png",
+    "build/web/bloodnoise.icon.png",
+    "build/web/bloodnoise.png",
+    "addons/MP4Player/assets/MP4PLAYERICON.png",
+    "addons/MP4Player/assets/cover.png",
+    "addons/addons/MP4Player/assets/MP4PLAYERICON.png",
+    "addons/addons/MP4Player/assets/cover.png",
+    "addons/godot-mp4-player/README.md",
+    "todo.md",
+    "gameplay notes.md"
   ]
 }

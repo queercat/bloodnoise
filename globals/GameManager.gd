@@ -18,7 +18,9 @@ var endings_seen = 0
 var end_screen = preload("res://scenes/end_screen.tscn")
 var start_screen = preload("res://scenes/start_screen.tscn")
 var heaven_door: Node3D
-var volume = 50
+var has_seen_intro: bool = false
+var volume: float = 50
+
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
 var is_ending = false
@@ -36,8 +38,10 @@ signal SetWorldPasscode(passcode)
 
 var warp_zones = {}
 
-func volume_changed(new_volume):
+func volume_changed(new_volume: float):
 	volume = new_volume
+	AudioServer.set_bus_volume_linear(1, volume / 100)
+	AudioServer.set_bus_volume_linear(2, volume / 100)
 	VolumeChanged.emit(new_volume)
 
 func do_ending(name: String):
@@ -45,6 +49,7 @@ func do_ending(name: String):
 		"good":
 			good_end()
 		"bad":
+			bad_end()
 			bad_end()
 			
 
@@ -154,10 +159,24 @@ func __ready():
 
 func _ready() -> void:
 	process_mode = ProcessMode.PROCESS_MODE_ALWAYS
+	volume_changed(volume)
 	
 func init_material(material):
 	material.set_shader_parameter("enable_party_mode", false)
 	material.set_shader_parameter("enable_wave", false)
+
+func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus = "Sound Effect"):
+	var node = AudioStreamPlayer3D.new()
+	node.stream = stream
+	node.position = position
+	node.pitch_scale = pitch
+	node.bus = bus
+	
+	if parent == null:
+		parent = get_tree().root
+	
+	parent.add_child(node)
+	node.play()
 
 func generate_sphere_data():
 	sphere_data.clear()

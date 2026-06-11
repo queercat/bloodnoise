@@ -51,6 +51,7 @@
 [ext_resource type="PackedScene" uid="uid://d3g3pe3h1cgf3" path="res://models/ComboGear.blend" id="40_x6f3n"]
 [ext_resource type="PackedScene" uid="uid://dug2lv8ihk4tc" path="res://models/ComboLock.blend" id="41_myl5m"]
 [ext_resource type="PackedScene" uid="uid://cn70m3l1lcdc5" path="res://models/WorldFence.blend" id="42_sltxk"]
+[ext_resource type="AudioStream" uid="uid://my3inoc0y5ct" path="res://audio/sound effects/stone_sliding_sound_effect.mp3" id="43_mtcds"]
 [ext_resource type="Script" uid="uid://djxxrq0h7o1xx" path="res://scripts/bell.gd" id="43_tqmw2"]
 [ext_resource type="AudioStream" uid="uid://b85kyb2sf2ybu" path="res://audio/church/ominous_bells_of_doom.mp3" id="44_5rba8"]
 [ext_resource type="PackedScene" uid="uid://ceb36ifxo0hit" path="res://models/pedestal.blend" id="45_fkjev"]
@@ -58,7 +59,6 @@
 [ext_resource type="Shader" uid="uid://cba1h0f2v5vfg" path="res://shaders/reveal.gdshader" id="47_72o5q"]
 [ext_resource type="PackedScene" uid="uid://8p530cahx25x" path="res://prefabs/star_halo.tscn" id="47_jubwx"]
 [ext_resource type="PackedScene" uid="uid://b5ujhgsbtti8m" path="res://prefabs/hand_bell.tscn" id="47_tm517"]
-[ext_resource type="Script" uid="uid://3k523olcdhxp" path="res://scripts/end_area.gd" id="48_qedqr"]
 [ext_resource type="PackedScene" uid="uid://bq86cadfww3jn" path="res://models/heavenDoor1.1.blend" id="48_tviso"]
 [ext_resource type="Script" uid="uid://svucifinsmj1" path="res://scripts/invisible_for_mesh.gd" id="48_umj4y"]
 [ext_resource type="AudioStream" uid="uid://df74h3n767i5n" path="res://audio/bad_end/the_hampsterdance_song.mp3" id="49_6soou"]
@@ -354,6 +354,30 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [25.311]
+}
 
 [sub_resource type="Animation" id="Animation_udiat"]
 resource_name = "Rise"
@@ -382,6 +406,30 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 0, -0.09599311), Vector3(0, 0, 0.09599311), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3D:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3166667, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [25.311, -34.162]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jubwx"]
@@ -740,11 +788,11 @@ shader_parameter/uv1_scale = Vector3(5, 0, 0)
 shader_parameter/uv1_offset = Vector3(0, 1, 0)
 shader_parameter/fall_off_minimum = 0.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_5rba8"]
-size = Vector3(27.21936, 11.153442, 16.480835)
-
 [sub_resource type="Resource" id="Resource_udiat"]
 script = ExtResource("3_ouvd7")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mtcds"]
+size = Vector3(26.689514, 10.178833, 17.998291)
 
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("shader_mesh", "cutscene_camera")]
 script = ExtResource("1_rlbrl")
@@ -1607,6 +1655,10 @@ transform = Transform3D(0.66617346, 0, -0.38461536, 0, 0.7692308, 0, 0.38461536,
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Graveyard Area/mausoleum" unique_id=1105570857]
 libraries/ = SubResource("AnimationLibrary_jubwx")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Graveyard Area/mausoleum" unique_id=1089730219]
+stream = ExtResource("43_mtcds")
+volume_db = 25.311
+
 [node name="Gate Area" type="Node3D" parent="." unique_id=2003854232]
 transform = Transform3D(1, 0, 0, 0, 0.9987692, -0.049599353, 0, 0.049599353, 0.9987692, -187.37405, 5.3848658, 14.089752)
 
@@ -1869,7 +1921,7 @@ transform = Transform3D(-3.85414e-09, 0.41384032, 0.42473, 5.42686e-08, 0.42473,
 transform = Transform3D(-3.8541472e-09, 0.41384038, 0.42473, 5.42686e-08, 0.42473, -0.41384038, -0.59300876, 3.617908e-08, -4.0632624e-08, -0.9857178, 0.97838545, 12.105416)
 
 [node name="heavenDoor1_1" parent="Gate Area" unique_id=162628213 instance=ExtResource("48_tviso")]
-transform = Transform3D(-8.287689, -0.08395392, 28.832405, -1.2939513, 29.970734, -0.2846694, -28.80348, -1.3222327, -8.283226, -121.99524, 296.04504, 62.02878)
+transform = Transform3D(-8.287689, -0.08395392, 28.832405, -1.2939513, 29.970734, -0.2846694, -28.80348, -1.3222327, -8.283226, -115.948, 295.57245, 50.93357)
 script = ExtResource("51_g2xtu")
 
 [node name="metal brackets" parent="Gate Area/heavenDoor1_1" index="2" unique_id=995824006]
@@ -1898,7 +1950,7 @@ ignore_occlusion_culling = true
 libraries/ = SubResource("AnimationLibrary_g2xtu")
 
 [node name="Stairs" parent="Gate Area" unique_id=945768958 instance=ExtResource("13_wo4ll")]
-transform = Transform3D(-4.3711374e-08, 0, 1.7212412, -0.04959934, 0.9987692, -3.7317482e-09, -0.9987689, -0.049599353, -7.5145245e-08, 9.346649, -4.58088, 0.06447697)
+transform = Transform3D(-4.3711374e-08, 0, 1.7212412, -0.04959934, 0.9987692, -3.7317482e-09, -0.9987689, -0.049599353, -7.5145245e-08, 4.6239166, -4.58088, 0.064477175)
 
 [node name="fences" type="Node" parent="Gate Area" unique_id=1230678637]
 
@@ -2622,13 +2674,13 @@ shape = SubResource("ConcavePolygonShape3D_fjl1l")
 [node name="Puzzle Cubes" type="Node" parent="Arena" unique_id=750716720]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1141608226]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -101.35311, -7.061261, 157.47403)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -100.96168, -7.5554886, 157.33965)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 72
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(0, -20, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D" unique_id=508923386]
@@ -2637,13 +2689,13 @@ offset = Vector3(0, -20, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1326592670]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -91.41767, -6.2002583, 153.72998)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -91.41507, -6.4332795, 153.73766)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 67
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(0, 10, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D2" unique_id=1078380468]
@@ -2652,13 +2704,13 @@ offset = Vector3(0, 10, 0)
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=2134931646]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -94.27462, -5.3726597, 144.19852)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -94.27176, -5.6285086, 144.20694)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 75
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(0, -20, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D3" unique_id=953711685]
@@ -2673,7 +2725,7 @@ mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 66
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(-80, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D4" unique_id=1477379511]
@@ -2688,7 +2740,7 @@ mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 65
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(-80, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D5" unique_id=1208589253]
@@ -2697,13 +2749,13 @@ offset = Vector3(-80, 0, 0)
 shape = SubResource("ConcavePolygonShape3D_tqruv")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=888023081]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -119.24781, -3.4640348, 145.07135)
+transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -119.25169, -3.1164505, 145.0599)
 material_override = SubResource("ShaderMaterial_76mu1")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
 note_number = 63
 note_source = "piano"
-duration_in_seconds = 1.0
+duration_in_seconds = 1.5
 offset = Vector3(-80, 0, -80)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D6" unique_id=1480985594]
@@ -3060,22 +3112,6 @@ size = Vector3(1, 10000, 2000)
 material = SubResource("ShaderMaterial_of0mr")
 metadata/_edit_lock_ = true
 
-[node name="EndArea" type="Area3D" parent="." unique_id=681881418 node_paths=PackedStringArray("audio_player")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.4395, 9.089333, 15.941711)
-collision_mask = 6
-script = ExtResource("48_qedqr")
-audio_player = NodePath("AudioStreamPlayer3D")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea" unique_id=106143345]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.10968, -2.0272827, -1.5374146)
-shape = SubResource("BoxShape3D_5rba8")
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="EndArea" unique_id=45984273]
-stream = ExtResource("49_6soou")
-volume_db = -20.0
-script = ExtResource("50_igm46")
-bpm = 136.0
-
 [node name="CutsceneCamera" type="Camera3D" parent="." unique_id=850531811]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -191.85205, 15.099575, 14.2235775)
 
@@ -3105,9 +3141,22 @@ transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.
 [node name="Bottom" parent="Numbas" unique_id=1490297593 instance=ExtResource("67_qdt0t")]
 transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.50000006, -151.3564, 9.580782, 35.093155)
 
+[node name="EndArea2" type="Area3D" parent="." unique_id=1854641964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.76982, 4.026125, 12.771522)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="EndArea2" unique_id=45984273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.669678, 5.0632076, 3.1701899)
+stream = ExtResource("49_6soou")
+volume_db = -20.0
+script = ExtResource("50_igm46")
+bpm = 136.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea2" unique_id=1541562896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275299, 4.5894165, 2.1256104)
+shape = SubResource("BoxShape3D_mtcds")
+
 [connection signal="body_entered" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_entered"]
 [connection signal="body_exited" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_exited"]
-[connection signal="body_entered" from="EndArea" to="EndArea" method="_on_body_entered"]
 
 [editable path="ground/ground_prefab"]
 [editable path="ground/WorldFence"]

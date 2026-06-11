@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://xl3gdbttogv2" path="res://sprites/pallette_may.png" id="6_o30b1"]
 [ext_resource type="Texture2D" uid="uid://bx5irh1kr5g21" path="res://sprites/bayer8tile4.png" id="7_ka6nf"]
 [ext_resource type="PackedScene" uid="uid://dl77favi04yj8" path="res://models/Entity2.blend" id="7_o30b1"]
+[ext_resource type="PackedScene" uid="uid://c6hr5lr5yy6bg" path="res://scenes/intro.tscn" id="9_ws7p0"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm208"]
 render_priority = 0
@@ -146,5 +147,7 @@ light_specular = 0.317
 
 [node name="Entity2" parent="." unique_id=1750257133 instance=ExtResource("7_o30b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.340857)
+
+[node name="Intro" parent="." unique_id=419253110 instance=ExtResource("9_ws7p0")]
 
 [connection signal="pressed" from="UI/Menu/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

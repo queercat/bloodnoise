@@ -27,7 +27,7 @@ func on_note(emitter, note):
 	if emitter == note_source and note == note_number and not fired:
 		var t = get_tree().root.create_tween()
 		var target = target_position if target_position != Vector3.ZERO else position - offset 
-		t.tween_property(self, "position", target, duration_in_seconds).set_ease(Tween.EASE_IN)
+		t.tween_property(self, "position", target, duration_in_seconds)
 		fired = true
 	if emitter == "%s_reset" % note_source and fired:
 		reset()
