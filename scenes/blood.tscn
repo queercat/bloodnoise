@@ -859,7 +859,7 @@ layout_mode = 2
 text = "Exit"
 
 [node name="Pawn" type="Node3D" parent="." unique_id=1211940215 node_paths=PackedStringArray("View", "Camera")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106.4708, -7.146122, 131.77698)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 129.73357, -12.473716, 125.25099)
 script = ExtResource("3_qwilc")
 View = NodePath("View Control")
 Camera = NodePath("Interpolated Camera")
