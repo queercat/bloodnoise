@@ -1,8 +1,8 @@
 shader_type spatial;
 varying vec3 world_vertex;
-
 render_mode depth_prepass_alpha;
 
+uniform bool is_enabled = false;
 uniform float reveal_band: hint_range(0., 40., 10.);
 
 uniform sampler2D albedo: source_color;
@@ -31,24 +31,26 @@ void vertex() {
 }
 
 void fragment() {
-	float rand_value = random(SCREEN_UV);
-	float max_alpha = 0.;
-	
-	for (int idx = 0; idx < sphere_data_length; idx++) {
-		vec4 sphere_datum = sphere_data[idx];
-		vec4 sphere_attribute_datum = sphere_attributes_data[idx];
+	if (is_enabled) {
+		float rand_value = random(SCREEN_UV);
+		float max_alpha = 0.;
 		
-		float dist = length(sphere_datum.xyz - world_vertex) - sphere_datum.w;
-		float w = map_range(sphere_datum.w, 0., sphere_attribute_datum.w, 0., 1.);
-		float wp = map_range(w, .8, 1., 0., 1.);
-		dist += rand_value;
-		float alpha = dist <= 0. && dist >= -reveal_band * 1. - wp ? 1. : 0.;
-		max_alpha = max(alpha, max_alpha);
-	}
+		for (int idx = 0; idx < sphere_data_length; idx++) {
+			vec4 sphere_datum = sphere_data[idx];
+			vec4 sphere_attribute_datum = sphere_attributes_data[idx];
+			
+			float dist = length(sphere_datum.xyz - world_vertex) - sphere_datum.w;
+			float w = map_range(sphere_datum.w, 0., sphere_attribute_datum.w, 0., 1.);
+			float wp = map_range(w, .8, 1., 0., 1.);
+			dist += rand_value;
+			float alpha = dist <= 0. && dist >= -reveal_band * 1. - wp ? 1. : 0.;
+			max_alpha = max(alpha, max_alpha);
+		}
 
-	// sampling some noise instead of 0.5 may look better
-	if (1. - max_alpha < 0.5) {
-		discard;
+		// sampling some noise instead of 0.5 may look better
+		if (1. - max_alpha < 0.5) {
+			discard;
+		}
 	}
 	
 	ALBEDO = texture(albedo, UV).rgb;

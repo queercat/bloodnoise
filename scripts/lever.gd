@@ -1,4 +1,4 @@
-extends Node
+extends Node3D
 
 @export var interactable: Interactable
 @export var default_state: bool = false
@@ -23,10 +23,12 @@ func _process(delta: float) -> void:
 	pass
 
 func _on_area_3d_body_entered(body: Node) -> void:
+	if not is_visible_in_tree(): return
 	if body.get_parent().name == "Pawn" and not (one_way and changed):
 		GameManager.player_manager.append_interactable(interactable)
 
 func _on_area_3d_body_exited(body: Node3D) -> void:
+	if not is_visible_in_tree(): return
 	if body.get_parent().name == "Pawn" and not (one_way and changed):
 		interactable.skip_hide = false
 		GameManager.player_manager.pop_interactable(interactable)
