@@ -30,6 +30,16 @@ signal StopCutscene()
 signal MidiNote(emitter, key)
 signal SetWorldPasscode(passcode)
 
+var warp_zones = {}
+
+func register_warp_zone(node):
+	warp_zones[node.zone] = node
+
+func warp_to(zone):
+	print("warping to %s" % zone)
+	print(warp_zones[zone])
+	player_manager.body.global_position = warp_zones[zone].global_position
+
 func set_world_passcode(passcode):
 	SetWorldPasscode.emit(passcode)
 
@@ -70,15 +80,24 @@ func bad_end():
 	uber_shader.set_shader_parameter("enable_party_mode", false)
 	uber_shader.set_shader_parameter("enable_wave", false)
 
+func good_end():
+	if is_ending:
+		return
+	
+	is_ending = true
+
 func player_entered_end_area(): 
 	if locks_unlocked < total_locks:
 		bad_end()
+	else:
+		good_end()
 
 func delete_sound_sphere(sphere: Node3D):
 	sound_spheres.erase(sphere)
 
 func unlocked_lock(name: String):
 	LockUnlocked.emit(name)
+	locks_unlocked += 1
 	
 func lever_toggled(name: String, state: bool):
 	LeverToggled.emit(name, state)

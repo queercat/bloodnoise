@@ -8,6 +8,7 @@ uniform float reveal_band: hint_range(0., 40., 10.);
 uniform sampler2D albedo: source_color;
 uniform sampler2D normal: source_color;
 uniform sampler2D roughness: source_color;
+uniform bool emissive = false;
 
 uniform int sphere_data_length;
 uniform vec4 sphere_data[64];
@@ -53,7 +54,11 @@ void fragment() {
 		}
 	}
 	
+	if (emissive) {
+		EMISSION = texture(albedo, UV).rgb;
+	}
 	ALBEDO = texture(albedo, UV).rgb;
+	
 	NORMAL_MAP = texture(normal, UV).rgb;
 	ROUGHNESS = texture(roughness, UV).a;
 }

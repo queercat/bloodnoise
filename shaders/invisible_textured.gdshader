@@ -5,6 +5,8 @@ render_mode depth_prepass_alpha;
 uniform bool is_enabled = true;
 uniform float reveal_band: hint_range(0., 40., 10.);
 
+uniform bool emissive = false;
+
 uniform sampler2D albedo: source_color;
 uniform sampler2D normal: source_color;
 uniform sampler2D roughness: source_color;
@@ -53,6 +55,9 @@ void fragment() {
 		}
 	}
 	
+	if (emissive) {
+		EMISSION = texture(albedo, UV).rgb;
+	}
 	ALBEDO = texture(albedo, UV).rgb;
 	NORMAL_MAP = texture(normal, UV).rgb;
 	ROUGHNESS = texture(roughness, UV).a;

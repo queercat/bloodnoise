@@ -14,7 +14,7 @@ var run_action_held: bool = false
 var move_speed: float = 1.0
 var sound_cooldown_timer : float = 0
 var interactable_queue: Array[Interactable] = []
-var has_bell = false
+var has_bell = true
 
 func append_interactable(interactable):
 	self.interactable_queue.append(interactable)

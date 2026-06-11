@@ -18,7 +18,7 @@ func handle_set_passcode(passcode):
 		"Bottom":
 			index = 2
 	
-	var numbers = str("%3d" % passcode)
+	var numbers = str("%03d" % passcode)
 	var n = numbers[index]
 	get_node("%s" % n).show()
 	

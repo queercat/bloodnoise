@@ -3,13 +3,10 @@ extends Node3D
 class_name Collectable
 @export var collectable_resource: Resource
 @export var collection_zone: Area3D
+var target = null
 
 func collect():
-	var t = get_tree().create_tween()
-	t.tween_property(self, "global_position", GameManager.player_manager.body.global_position, 1)
-	await t.finished
-	GameManager.give_player_item(collectable_resource)
-	queue_free()
+	target = GameManager.player_manager.body.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,3 +19,5 @@ func handle_body_entered(body: Node3D):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	rotate(Vector3.UP, delta)
+	if target != null:
+		lerp(position, target, .1)

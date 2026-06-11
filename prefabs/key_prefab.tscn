@@ -3,9 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://cpb5asoa5nlke" path="res://models/Key.blend" id="1_yget6"]
 [ext_resource type="Script" uid="uid://dbpx2vlr3quis" path="res://classes/collectable.gd" id="2_tw651"]
 [ext_resource type="Resource" uid="uid://ckeoo4la3vilu" path="res://resources/collectables/key_collectable.tres" id="3_tw651"]
+[ext_resource type="PackedScene" uid="uid://b20pixotwehac" path="res://models/key2.0.blend" id="4_hnln5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yget6"]
-radius = 0.55413646
+radius = 0.82110256
 
 [node name="Key" unique_id=1155488183 node_paths=PackedStringArray("collection_zone") instance=ExtResource("1_yget6")]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
@@ -13,7 +14,49 @@ script = ExtResource("2_tw651")
 collectable_resource = ExtResource("3_tw651")
 collection_zone = NodePath("Area3D")
 
-[node name="Area3D" type="Area3D" parent="." index="13" unique_id=744243185]
+[node name="key2_0" parent="." index="0" unique_id=2011375983 instance=ExtResource("4_hnln5")]
+transform = Transform3D(-1.9378732e-08, 0.4433337, 1.9378732e-08, -0.4433337, -1.9378732e-08, -1.9378732e-08, -1.9378732e-08, -1.937873e-08, 0.4433337, 0.24811035, 0.20093727, 8.783247e-09)
+
+[node name="Curve" parent="." index="1" unique_id=1338684967]
+visible = false
+
+[node name="Curve_001" parent="." index="2" unique_id=307941051]
+visible = false
+
+[node name="Curve_002" parent="." index="3" unique_id=1174997478]
+visible = false
+
+[node name="Curve_003" parent="." index="4" unique_id=204691118]
+visible = false
+
+[node name="Curve_004" parent="." index="5" unique_id=1024403016]
+visible = false
+
+[node name="Curve_005" parent="." index="6" unique_id=1636914300]
+visible = false
+
+[node name="Curve_006" parent="." index="7" unique_id=538477136]
+visible = false
+
+[node name="Curve_007" parent="." index="8" unique_id=1124091704]
+visible = false
+
+[node name="Curve_008" parent="." index="9" unique_id=581098291]
+visible = false
+
+[node name="Curve_009" parent="." index="10" unique_id=415547941]
+visible = false
+
+[node name="Curve_010" parent="." index="11" unique_id=280857471]
+visible = false
+
+[node name="Curve_011" parent="." index="12" unique_id=874511795]
+visible = false
+
+[node name="Curve_012" parent="." index="13" unique_id=2114868685]
+visible = false
+
+[node name="Area3D" type="Area3D" parent="." index="14" unique_id=744243185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.33238763, 0.17110085, 7.479056e-09)
 collision_mask = 6
 

@@ -1,37 +1,77 @@
-[gd_scene format=3 uid="uid://bjbxbdy2n8by2"]
+[gd_scene format=4 uid="uid://bjbxbdy2n8by2"]
 
 [ext_resource type="PackedScene" uid="uid://pr6ettp5bgpa" path="res://models/Numbas.blend" id="1_id36q"]
 [ext_resource type="Script" uid="uid://bquu3robukf5u" path="res://classes/numbas.gd" id="2_1oxho"]
+[ext_resource type="Shader" uid="uid://dptsnfffnjun0" path="res://shaders/invisible_textured.gdshader" id="3_3dskb"]
+[ext_resource type="Script" uid="uid://svucifinsmj1" path="res://scripts/invisible_for_mesh.gd" id="4_3dskb"]
+
+[sub_resource type="Gradient" id="Gradient_cicg3"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.84531564, 0.73365295, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3dskb"]
+gradient = SubResource("Gradient_cicg3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dskb"]
+render_priority = 0
+shader = ExtResource("3_3dskb")
+shader_parameter/is_enabled = true
+shader_parameter/reveal_band = 20.0
+shader_parameter/emissive = true
+shader_parameter/albedo = SubResource("GradientTexture1D_3dskb")
+shader_parameter/sphere_data_length = 0
+shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [node name="Numbas" unique_id=1490297593 instance=ExtResource("1_id36q")]
 script = ExtResource("2_1oxho")
 
 [node name="9" parent="." index="0" unique_id=86337123]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="8" parent="." index="1" unique_id=135307135]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="7" parent="." index="2" unique_id=383014373]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="6" parent="." index="3" unique_id=1669679444]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="5" parent="." index="4" unique_id=1408675688]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="4" parent="." index="5" unique_id=2037941578]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="3" parent="." index="6" unique_id=1783743129]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="2" parent="." index="7" unique_id=1812467327]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="1" parent="." index="8" unique_id=591450060]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
 
 [node name="0" parent="." index="9" unique_id=1841615078]
 visible = false
+material_override = SubResource("ShaderMaterial_3dskb")
+script = ExtResource("4_3dskb")
