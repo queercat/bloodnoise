@@ -4,6 +4,7 @@ extends Node3D
 @export var cutscene_camera: Camera3D
 @onready var heaven_door = $"Gate Area/heavenDoor1_1"
 @onready var bad_end_camera = $"BadEndCamera"
+@onready var good_end_camera = $"GoodEndCamera"
 @onready var eye = $"Eye"
 var uber_shader: ShaderMaterial
 var is_ending = false
@@ -30,9 +31,11 @@ func hampter_end():
 func bad_end():
 	if is_ending: return
 	bad_end_camera.make_current()
+	bad_end_camera.shake_intensity = 1
 	eye.target = bad_end_camera
-	await get_tree().create_timer(5).timeout
-	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	var t = get_tree().create_tween()
+	t.tween_property(bad_end_camera, "shake_intensity", 4, 5)
+	await t.finished
 
 func do_ending(ending_name: Types.GameEnding):
 	match ending_name:
@@ -40,16 +43,17 @@ func do_ending(ending_name: Types.GameEnding):
 			await good_end()
 		Types.GameEnding.BAD:
 			await bad_end()
-
+	is_ending = true
+	
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	queue_free()
 
-	is_ending = true
-
 func good_end():
-	if is_ending:
-		return
-	
+	good_end_camera.make_current()
 	heaven_door.open()
+	var t = create_tween()
+	t.tween_property(good_end_camera, "global_position", good_end_camera.target.global_position, 5)
+	await t.finished
 
 func player_entered_end_area(): 
 	if locks_unlocked < total_locks:

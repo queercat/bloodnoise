@@ -1,3 +1,6 @@
+# AAA
+- [ ] camera fade to white
+- [ ] 
 # Done
 - [x] can trigger lights and is cool
 - [x] locked gate / locked trap door
