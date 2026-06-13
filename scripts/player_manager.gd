@@ -8,6 +8,8 @@ class_name PlayerManager
 @export var world_mesh: MeshInstance3D
 @export var move_functions: Node
 @export var user_input: Node
+@export var hand_bell: Node3D
+@export var hand_bell_anim : AnimationPlayer
 
 var uber_material: ShaderMaterial
 var run_action_held: bool = false
@@ -16,6 +18,7 @@ var sound_cooldown_timer : float = 0
 var interactable_queue: Array[Interactable] = []
 var has_bell = false
 var ring_bell_first_time = false
+
 
 func append_interactable(interactable):
 	self.interactable_queue.append(interactable)
@@ -39,7 +42,8 @@ func spawn_sound_sphere():
 	
 func grab_bell():
 	GameManager.BellGrabbed.emit()
-	GameManager.ui.show_interact_text("Press LMB to ring bell")
+	GameManager.ui.show_interact_text("Press LMB to ring the bell")
+	hand_bell.show()
 	has_bell = true
 
 # Called when the node enters the scene tree for the first time.
@@ -54,6 +58,8 @@ func _input(event: InputEvent) -> void:
 			ring_bell_first_time = true
 			GameManager.ui.hide_interact_text()
 		sound_cooldown_timer = sound_cooldown
+		hand_bell_anim.stop()
+		hand_bell_anim.play("Animation")
 		spawn_sound_sphere()
 	if event.is_action("do_interaction") and event.pressed and len(interactable_queue) > 0:
 		if interactable_queue.front().do_interaction():
