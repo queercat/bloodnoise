@@ -8,6 +8,7 @@ func _ready() -> void:
 	
 func open():
 	animation_player.play("open")
+	GameManager.spawn_global_noise(preload("res://audio/sound effects/door.mp3"),1, "Sound Effect", .1)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
