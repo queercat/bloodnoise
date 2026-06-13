@@ -35,7 +35,7 @@ func pop_interactable(interactable):
 
 func spawn_sound_sphere():
 	GameManager.spawn_sound_sphere(body.global_position, 25, Color.RED, 50)
-	GameManager.spawn_noise(preload("res://audio/player/bell1.wav"), Vector3.ZERO, self, randf_range(.7, 1.2))
+	GameManager.spawn_noise(preload("res://audio/player/bell1.wav"), body.position, self, randf_range(.7, 1.2))
 	
 func grab_bell():
 	GameManager.BellGrabbed.emit()

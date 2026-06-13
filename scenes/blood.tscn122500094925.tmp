@@ -73,9 +73,6 @@
 [ext_resource type="Script" uid="uid://3rg4rbc7jxuf" path="res://scripts/note_move.gd" id="59_0vx71"]
 [ext_resource type="AudioStream" uid="uid://6vpmn3dsyp7b" path="res://audio/piano/penis.wav" id="61_qdt0t"]
 [ext_resource type="PackedScene" uid="uid://bjbxbdy2n8by2" path="res://prefabs/numbas.tscn" id="67_qdt0t"]
-[ext_resource type="AudioStream" uid="uid://cjl1ye8sqsovb" path="res://audio/ambience/ambientNoise.wav" id="72_mtcds"]
-[ext_resource type="AudioStream" uid="uid://cjw8rt2rt81t" path="res://audio/ambience/mainSong.wav" id="73_d5y7o"]
-[ext_resource type="Script" uid="uid://bbj4mj28qoyv0" path="res://scripts/song_manager.gd" id="73_x51un"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -3143,22 +3140,6 @@ transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.
 
 [node name="Bottom" parent="Numbas" unique_id=1490297593 instance=ExtResource("67_qdt0t")]
 transform = Transform3D(-0.50000006, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.50000006, -151.3564, 9.580782, 35.093155)
-
-[node name="Ambient" type="AudioStreamPlayer" parent="." unique_id=1242500085]
-stream = ExtResource("72_mtcds")
-volume_db = -10.03
-autoplay = true
-
-[node name="Song Manager" type="Node" parent="." unique_id=1088021132]
-script = ExtResource("73_x51un")
-
-[node name="Song A" type="AudioStreamPlayer" parent="Song Manager" unique_id=1266729296]
-stream = ExtResource("73_d5y7o")
-volume_db = -10.03
-
-[node name="Song B" type="AudioStreamPlayer" parent="Song Manager" unique_id=232839598]
-stream = ExtResource("73_d5y7o")
-volume_db = -10.03
 
 [node name="EndArea2" type="Area3D" parent="." unique_id=1854641964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.76982, 4.026125, 12.771522)

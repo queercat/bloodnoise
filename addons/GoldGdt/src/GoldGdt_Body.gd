@@ -34,6 +34,8 @@ var wall_normal : Vector3 = Vector3.ZERO
 var ducked : bool = false # True if you are fully ducked.
 var ducking : bool = false # True if you are currently between ducked and normal standing.
 
+var last_brapped_timer = 0
+
 # Identifier for wall proximity.
 enum WallCollision {
 	NONE,
@@ -71,8 +73,15 @@ func _physics_process(delta) -> void:
 	# Position the horizontal_view.
 	View.horizontal_view.transform.origin.y = offset
 	
+	# TODO: with this add move sounds
+	var on_floor = is_on_floor()
+	
+	#if last_brapped_timer <= Time.get_ticks_msec() and on_floor and abs(velocity.x + velocity.y + velocity.z) >= .5:
+		#GameManager.spawn_global_noise(preload("res://audio/sound effects/walk.mp3"), randf_range(.8, 1.2), "Sound Effect", .1)
+		#last_brapped_timer = Time.get_ticks_msec() + 500
+	
 	# Add the gravity.
-	if not is_on_floor():
+	if not on_floor:
 		velocity.y -= Parameters.GRAVITY * delta
 	
 	
@@ -123,6 +132,7 @@ func _check_for_step() -> void:
 		var normal := collision.get_normal()
 		
 		if is_on_floor() and normal.y < 0.7:
+			print("stair step")
 			_move_step(normal)
 
 # Deforms step trace info based on wall proximity

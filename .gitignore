@@ -4,3 +4,4 @@
 override.cfg
 .DS_STORE
 build/
+.vscode

@@ -24,6 +24,7 @@ buses/default_bus_layout="uid://j1lqhfrbvnov"
 
 GameManager="*uid://co76rft07a5ib"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+Types="*uid://cil7h753x8f60"
 
 [display]
 

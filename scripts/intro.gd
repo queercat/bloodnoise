@@ -1,6 +1,6 @@
 extends Control
 
-@export var skip_intro: bool = true
+@export var skip_intro: bool = false
 
 @onready var video_player = $"VideoStreamPlayer"
 # Called when the node enters the scene tree for the first time.

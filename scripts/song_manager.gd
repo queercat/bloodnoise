@@ -1,14 +1,17 @@
-extends Node3D
+extends Node
 
-@onready var animation_player = $"AnimationPlayer"
+@onready var song_a: AudioStreamPlayer = $"Song A"
+@onready var song_b: AudioStreamPlayer = $"Song B"
+
+var index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	
-func open():
-	animation_player.play("open")
-	
+	GameManager.BellGrabbed.connect(start)
+
+func start():
+	song_a.play()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

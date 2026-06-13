@@ -47,5 +47,4 @@ func _process(delta: float) -> void:
 	target.rotate(Vector3.UP, delta * .01)
 
 func _on_start_pressed() -> void:
-	GameManager.has_started = true
 	get_tree().change_scene_to_packed(blood)
