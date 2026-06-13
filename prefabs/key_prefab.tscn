@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://dbpx2vlr3quis" path="res://classes/collectable.gd" id="2_tw651"]
 [ext_resource type="Resource" uid="uid://ckeoo4la3vilu" path="res://resources/collectables/key_collectable.tres" id="3_tw651"]
 [ext_resource type="PackedScene" uid="uid://b20pixotwehac" path="res://models/key2.0.blend" id="4_hnln5"]
+[ext_resource type="AudioStream" uid="uid://duiromp3t8w2c" path="res://audio/sound effects/keyLoop.wav" id="5_ohdfp"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_yget6"]
 radius = 0.82110256
@@ -17,43 +18,43 @@ collection_zone = NodePath("Area3D")
 [node name="key2_0" parent="." index="0" unique_id=2011375983 instance=ExtResource("4_hnln5")]
 transform = Transform3D(-1.9378732e-08, 0.4433337, 1.9378732e-08, -0.4433337, -1.9378732e-08, -1.9378732e-08, -1.9378732e-08, -1.937873e-08, 0.4433337, 0.24811035, 0.20093727, 8.783247e-09)
 
-[node name="Curve" parent="." index="1" unique_id=1338684967]
+[node name="Curve" parent="." index="1" unique_id=466271799]
 visible = false
 
-[node name="Curve_001" parent="." index="2" unique_id=307941051]
+[node name="Curve_001" parent="." index="2" unique_id=49725380]
 visible = false
 
-[node name="Curve_002" parent="." index="3" unique_id=1174997478]
+[node name="Curve_002" parent="." index="3" unique_id=1485902061]
 visible = false
 
-[node name="Curve_003" parent="." index="4" unique_id=204691118]
+[node name="Curve_003" parent="." index="4" unique_id=765065006]
 visible = false
 
-[node name="Curve_004" parent="." index="5" unique_id=1024403016]
+[node name="Curve_004" parent="." index="5" unique_id=1944664824]
 visible = false
 
-[node name="Curve_005" parent="." index="6" unique_id=1636914300]
+[node name="Curve_005" parent="." index="6" unique_id=1977302397]
 visible = false
 
-[node name="Curve_006" parent="." index="7" unique_id=538477136]
+[node name="Curve_006" parent="." index="7" unique_id=727162345]
 visible = false
 
-[node name="Curve_007" parent="." index="8" unique_id=1124091704]
+[node name="Curve_007" parent="." index="8" unique_id=1884743569]
 visible = false
 
-[node name="Curve_008" parent="." index="9" unique_id=581098291]
+[node name="Curve_008" parent="." index="9" unique_id=1400977109]
 visible = false
 
-[node name="Curve_009" parent="." index="10" unique_id=415547941]
+[node name="Curve_009" parent="." index="10" unique_id=1004355862]
 visible = false
 
-[node name="Curve_010" parent="." index="11" unique_id=280857471]
+[node name="Curve_010" parent="." index="11" unique_id=60693045]
 visible = false
 
-[node name="Curve_011" parent="." index="12" unique_id=874511795]
+[node name="Curve_011" parent="." index="12" unique_id=781888013]
 visible = false
 
-[node name="Curve_012" parent="." index="13" unique_id=2114868685]
+[node name="Curve_012" parent="." index="13" unique_id=1049551164]
 visible = false
 
 [node name="Area3D" type="Area3D" parent="." index="14" unique_id=744243185]
@@ -62,3 +63,10 @@ collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=373910792]
 shape = SubResource("SphereShape3D_yget6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="15" unique_id=1231045718]
+stream = ExtResource("5_ohdfp")
+volume_db = 12.72
+autoplay = true
+max_distance = 76.56
+bus = &"Sound Effect"

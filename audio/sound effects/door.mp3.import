@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://del8anu8p4itk"
+path="res://.godot/imported/door.mp3-2eadf755404f405fa4d4b6fd6af8848c.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/door.mp3"
+dest_files=["res://.godot/imported/door.mp3-2eadf755404f405fa4d4b6fd6af8848c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
