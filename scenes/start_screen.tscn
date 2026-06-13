@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bwtlejqri0mcw" path="res://sprites/logo_full.png" id="7_qls88"]
 [ext_resource type="PackedScene" uid="uid://c6hr5lr5yy6bg" path="res://scenes/intro.tscn" id="9_ws7p0"]
 [ext_resource type="AudioStream" uid="uid://deg8h1s2xof0k" path="res://audio/noise/plumbawumba.wav" id="10_ecdxc"]
+[ext_resource type="Script" uid="uid://bxyi3gc6g1sbw" path="res://scripts/look_at_mouse.gd" id="12_xfy2r"]
 [ext_resource type="Shader" uid="uid://b3t222u1psveu" path="res://shaders/noisy2.gdshader" id="13_bdg0b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm208"]
@@ -204,6 +205,7 @@ light_specular = 0.317
 
 [node name="Entity2" parent="." unique_id=1750257133 instance=ExtResource("7_o30b1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.340857)
+script = ExtResource("12_xfy2r")
 
 [node name="Intro" parent="." unique_id=419253110 instance=ExtResource("9_ws7p0")]
 
