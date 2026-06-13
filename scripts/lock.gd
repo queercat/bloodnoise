@@ -14,6 +14,9 @@ func open():
 	GameManager.consume_player_item("key")
 	opened = true
 	var t = get_tree().create_tween()
+	
+	GameManager.spawn_noise(preload("res://audio/sound effects/unlock.mp3"), global_position, get_tree().root, randf_range(.8, 1.2), "Sound Effect", 10, 75)
+	
 	animation_player.play("OpenAnimation")
 	t.tween_property(self, "position", Vector3(position.x  - 2, position.y, position.z), 2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 	await t.finished

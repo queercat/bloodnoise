@@ -27,7 +27,6 @@ func _ready() -> void:
 	shader_material = shader_mesh.material_override
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	quit_button.pressed.connect(GameManager.handle_quit)
-	
 
 func map_mod(value: float, from_min: float, from_max: float, to_min: float, to_max: float):
 	var ratio = (value - from_min) / (from_max - from_min)

@@ -10,11 +10,14 @@ class_name GameUI
 @onready var settings_button = $"PauseMenu/PauseMenu/Settings"
 @onready var pause_menu = $"PauseMenu"
 @onready var settings_menu = $"SettingsMenu"
+@onready var debug_menu = $"PauseMenu/Debug"
 
 var lock: Array = [null, Mutex.new()]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if OS.has_feature("editor"):
+		debug_menu.show()
 	GameManager.ui = self
 	continue_button.pressed.connect(handle_unpause)
 	exit_button.pressed.connect(GameManager.handle_exit)

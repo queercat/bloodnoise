@@ -8,7 +8,7 @@ var sound_spheres: Array[Node3D] = []
 var uber_shader: ShaderMaterial
 var sphere_data = []
 var sphere_attributes_data = []
-var endings_seen = 0
+var endings_seen = {}
 var end_screen = preload("res://scenes/end_screen.tscn")
 var start_screen = preload("res://scenes/start_screen.tscn")
 var has_seen_intro: bool = false
@@ -113,12 +113,14 @@ func spawn_global_noise(stream: AudioStream, pitch = 1, bus = "Sound Effect", db
 	add_child(node)
 	node.play()
 
-func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus = "Sound Effect"):
+func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus = "Sound Effect", db_modifier: float = 1, max_distance = 75):
 	var node = AudioStreamPlayer3D.new()
 	node.stream = stream
 	node.position = position
 	node.pitch_scale = pitch
 	node.bus = bus
+	node.max_distance = max_distance
+	node.volume_linear *= db_modifier
 	
 	if parent == null:
 		parent = get_tree().root

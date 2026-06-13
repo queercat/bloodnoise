@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 	
 	var space_state = get_world_3d().direct_space_state
 	var cam = get_viewport().get_camera_3d()
-	var mousepos = get_viewport().get_mouse_position()
+	var mousepos = get_viewport().get_visible_rect().get_center()
 
 	var origin = cam.project_ray_origin(mousepos)
 	var end = origin + cam.project_ray_normal(mousepos) * 100

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crolge418s1gn"
+path="res://.godot/imported/unlock.mp3-7f794a7e64fd1657e16a0e22c012da06.mp3str"
+
+[deps]
+
+source_file="res://audio/sound effects/unlock.mp3"
+dest_files=["res://.godot/imported/unlock.mp3-7f794a7e64fd1657e16a0e22c012da06.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

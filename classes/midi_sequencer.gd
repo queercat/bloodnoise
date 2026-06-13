@@ -19,20 +19,20 @@ func _ready() -> void:
 		times.append([float(time), int(key)])
 		
 	animation_player.play("Crank Dat")
-	animation_player.pause()
+	animation_player.speed_scale = 0
 
 func can_i_crank_it():
 	return not is_cranking
 
 func crank_dat():
 	is_cranking = true
-	animation_player.play("Crank Dat")
+	animation_player.speed_scale = 1
 	stream.play()
 	stream.finished.connect(handle_finished)
 
 func handle_finished():
 	GameManager.midi_note("piano_reset", -1)
-	animation_player.pause()
+	animation_player.speed_scale = 0
 	is_cranking = false
 	burned_times = []
 	stream.finished.disconnect(handle_finished)
@@ -46,7 +46,7 @@ func trigger(time, key):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if stream.playing:
+	if animation_player.speed_scale > 0:
 		var current_time = stream.get_playback_position()
 		var positions = get_playable_positions()
 		

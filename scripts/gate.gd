@@ -22,6 +22,7 @@ func open():
 	var t = create_tween()
 	t.tween_property(self, "rotation_degrees", Vector3(rotation_degrees.x, -90, rotation_degrees.z), open_duration_seconds).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	await t.finished
+	GameManager.world.do_ending(Types.GameEnding.GOOD)
 
 func close():
 	if not is_open: return

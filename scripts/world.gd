@@ -6,6 +6,7 @@ extends Node3D
 @onready var bad_end_camera = $"BadEndCamera"
 @onready var good_end_camera = $"GoodEndCamera"
 @onready var eye = $"Eye"
+@onready var end_scene: PackedScene = load("res://scenes/end_screen.tscn")
 var uber_shader: ShaderMaterial
 var is_ending = false
 var locks_unlocked = 0
@@ -45,7 +46,8 @@ func do_ending(ending_name: Types.GameEnding):
 			await bad_end()
 	is_ending = true
 	
-	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	GameManager.endings_seen[ending_name] = true
+	get_tree().change_scene_to_packed(end_scene)
 	queue_free()
 
 func good_end():
