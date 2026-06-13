@@ -3,13 +3,14 @@ extends Node3D
 @export var shader_mesh: MeshInstance3D
 @export var cutscene_camera: Camera3D
 @onready var heaven_door = $"Gate Area/heavenDoor1_1"
-var end_screen = preload("res://scenes/end_screen.tscn")
+@onready var bad_end_camera = $"BadEndCamera"
+@onready var eye = $"Eye"
 var uber_shader: ShaderMaterial
 var is_ending = false
 var locks_unlocked = 0
 var total_locks = 4
 
-func bad_end():
+func hampter_end():
 	if is_ending:
 		return
 	
@@ -21,16 +22,26 @@ func bad_end():
 	
 	await get_tree().create_timer(15).timeout
 	
-	get_tree().change_scene_to_packed(end_screen)
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	
 	uber_shader.set_shader_parameter("enable_party_mode", false)
 	uber_shader.set_shader_parameter("enable_wave", false)
 
-func do_ending(ending_name: String):
-	match ending_name.to_lower():
-		"good":
-			good_end()
-		"bad":
-			bad_end()
+func bad_end():
+	if is_ending: return
+	bad_end_camera.make_current()
+	eye.target = bad_end_camera
+	await get_tree().create_timer(5).timeout
+	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+
+func do_ending(ending_name: Types.GameEnding):
+	match ending_name:
+		Types.GameEnding.GOOD:
+			await good_end()
+		Types.GameEnding.BAD:
+			await bad_end()
+
+	queue_free()
 
 	is_ending = true
 
@@ -42,9 +53,9 @@ func good_end():
 
 func player_entered_end_area(): 
 	if locks_unlocked < total_locks:
-		bad_end()
+		do_ending(Types.GameEnding.BAD)
 	else:
-		good_end()
+		do_ending(Types.GameEnding.GOOD)
 
 func end_game(ending_type: Types.GameEnding):
 	pass

@@ -79,6 +79,7 @@
 [ext_resource type="AudioStream" uid="uid://cjw8rt2rt81t" path="res://audio/ambience/mainSong.wav" id="73_d5y7o"]
 [ext_resource type="Script" uid="uid://bbj4mj28qoyv0" path="res://scripts/song_manager.gd" id="73_x51un"]
 [ext_resource type="Shader" uid="uid://d1xgi3r6em3pe" path="res://shaders/firebawl.gdshader" id="77_kp70u"]
+[ext_resource type="Script" uid="uid://crydasgb1d3sk" path="res://scripts/look_at.gd" id="80_2e7mr"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_bmbh8"]
 panorama = ExtResource("2_bmbh8")
@@ -824,6 +825,9 @@ shader_parameter/fall_off_minimum = 0.0
 [sub_resource type="Resource" id="Resource_udiat"]
 script = ExtResource("3_ouvd7")
 
+[sub_resource type="Resource" id="Resource_2e7mr"]
+script = ExtResource("3_ouvd7")
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtcds"]
 size = Vector3(26.689514, 10.178833, 17.998291)
 
@@ -1236,7 +1240,7 @@ user_input = NodePath("../User Input")
 [node name="Eye" parent="." unique_id=1548058268 node_paths=PackedStringArray("impact_node") instance=ExtResource("14_fvjam")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 6.9206715, 321.94473, 26.72522)
 script = ExtResource("15_80spn")
-time_till_impact_seconds = 300.0
+time_till_impact_seconds = 10.0
 impact_node = NodePath("../ImpactNode")
 
 [node name="Sphere" parent="Eye" index="0" unique_id=975561228]
@@ -1255,7 +1259,7 @@ mesh = SubResource("SphereMesh_kp70u")
 script = ExtResource("24_b51y4")
 
 [node name="ImpactNode" type="Node3D" parent="." unique_id=555445818]
-transform = Transform3D(23.885479, 0, 0, 0, 16.498016, 0, 0, 0, 23.885479, 2.7050114, 18.908062, 9.307007)
+transform = Transform3D(23.885479, 0, 0, 0, 16.498016, 0, 0, 0, 23.885479, 2.7050114, 40.6963, 9.307007)
 
 [node name="ground" type="Node3D" parent="." unique_id=2064482699]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6256733, -0.2726326, 1.7056885)
@@ -3204,6 +3208,17 @@ volume_db = -10.03
 [node name="Song B" type="AudioStreamPlayer" parent="Song Manager" unique_id=232839598]
 stream = ExtResource("73_d5y7o")
 volume_db = -10.03
+
+[node name="BadEndCamera" type="Camera3D" parent="." unique_id=1147777082 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 0.6506549, 0.75937355, 0, -0.75937355, 0.6506549, 6.9206715, 67.64406, 178.82819)
+script = ExtResource("80_2e7mr")
+target = NodePath("../Eye")
+
+[node name="PhantomCamera3D" type="Node3D" parent="BadEndCamera" unique_id=1252261855]
+script = ExtResource("2_fkjev")
+priority = 14
+tween_resource = SubResource("Resource_2e7mr")
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
 [node name="EndArea2" type="Area3D" parent="." unique_id=1854641964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.76982, 4.026125, 12.771522)

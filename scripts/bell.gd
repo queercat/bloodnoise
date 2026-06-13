@@ -14,6 +14,7 @@ func do_cutscene():
 	stream.play()
 	await get_tree().create_timer(10).timeout
 	GameManager.stop_cutscene()
+	GameManager.world.eye.trigger()
 	
 func handle_lever(name, state):
 	if name == "churchLever" and state == true:
