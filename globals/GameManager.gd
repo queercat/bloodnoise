@@ -31,6 +31,7 @@ var has_started = false
 signal LockUnlocked(name: String)
 signal CheatedBadEnd()
 signal LeverToggled(name: String, state: bool)
+signal BellGrabbed()
 
 signal VolumeChanged(volume: float)
 signal StartCutscene()

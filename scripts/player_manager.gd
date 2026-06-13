@@ -37,6 +37,7 @@ func spawn_sound_sphere():
 	GameManager.spawn_noise(preload("res://audio/player/bell1.wav"), Vector3.ZERO, self, randf_range(.7, 1.2))
 	
 func grab_bell():
+	GameManager.BellGrabbed.emit()
 	has_bell = true
 
 # Called when the node enters the scene tree for the first time.
