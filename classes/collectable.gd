@@ -9,6 +9,7 @@ var rotation_speed = 1
 
 func collect():
 	target = GameManager.player_manager.body
+	GameManager.spawn_global_noise(preload("res://audio/sound effects/keyPickup.wav"))
 
 func consume():
 	if being_consumed: return
