@@ -4,15 +4,14 @@
 - [x] bell
 - [x] key
 - [x] inventory
-
 # TODO (bare minimum)
 - [x] piano puzzle
 - [x] maus puzzle
 - [x] code is findable
 - [x] fix the door model
+- [x] show maze entrance
 - [ ] endings
 - [ ] fix piano puzzle
-- [ ] show maze entrance
 - [ ] ending sequence (door opening or w/e)
 - [ ] ending sequence (world blows up)
 - [ ] fix the fucking stairs
