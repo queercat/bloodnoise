@@ -24,5 +24,5 @@ func _on_area_3d_body_entered(body: Node) -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	if star_halo: star_halo.set_active(false)
 	if body.get_parent().name == "Pawn":
-		interactable.skip_hide = false
+		interactable.skip_hide = true
 		GameManager.player_manager.pop_interactable(interactable)
