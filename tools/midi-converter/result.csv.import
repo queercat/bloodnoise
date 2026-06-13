@@ -6,10 +6,10 @@ uid="uid://b26pmoo6i4054"
 
 [deps]
 
-files=["res://tools/midi-converter/result.72.translation"]
+files=["res://tools/midi-converter/result.88.translation"]
 
 source_file="res://tools/midi-converter/result.csv"
-dest_files=["res://tools/midi-converter/result.72.translation"]
+dest_files=["res://tools/midi-converter/result.88.translation"]
 
 [params]
 

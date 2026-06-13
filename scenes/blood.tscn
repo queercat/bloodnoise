@@ -63,8 +63,6 @@
 [ext_resource type="PackedScene" uid="uid://b5ujhgsbtti8m" path="res://prefabs/hand_bell.tscn" id="47_tm517"]
 [ext_resource type="PackedScene" uid="uid://bq86cadfww3jn" path="res://models/heavenDoor1.1.blend" id="48_tviso"]
 [ext_resource type="Script" uid="uid://svucifinsmj1" path="res://scripts/invisible_for_mesh.gd" id="48_umj4y"]
-[ext_resource type="AudioStream" uid="uid://df74h3n767i5n" path="res://audio/bad_end/the_hampsterdance_song.mp3" id="49_6soou"]
-[ext_resource type="Script" uid="uid://conshh1a4g5xo" path="res://scripts/bpm_emitter.gd" id="50_igm46"]
 [ext_resource type="Script" uid="uid://cx2lsq5v4kyj1" path="res://scripts/heaven_door.gd" id="51_g2xtu"]
 [ext_resource type="PackedScene" uid="uid://daj5b31mkafw8" path="res://prefabs/lever.tscn" id="51_xhap4"]
 [ext_resource type="Shader" uid="uid://o8y63uk8ow0v" path="res://shaders/portal.gdshader" id="53_ilobo"]
@@ -717,6 +715,7 @@ shader = ExtResource("47_72o5q")
 shader_parameter/sphere_data_length = 0
 shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/reveal_distance = 40.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vstgb"]
 render_priority = 0
@@ -724,6 +723,7 @@ shader = ExtResource("47_72o5q")
 shader_parameter/sphere_data_length = 0
 shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+shader_parameter/reveal_distance = 40.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_udiat"]
 render_priority = 0
@@ -773,7 +773,7 @@ gradient = SubResource("Gradient_am3dy")
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2e7mr"]
 load_path = "res://.godot/imported/squid_sack_diffuse.png-c6c944f5efc019561816df75f089a2bd.s3tc.ctex"
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_76mu1"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_26i3a"]
 render_priority = 0
 shader = ExtResource("56_nfwl6")
 shader_parameter/is_enabled = true
@@ -790,24 +790,6 @@ size = Vector3(10, 1, 10)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dbdwf"]
 data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tqruv"]
-data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_81jqh"]
-data = PackedVector3Array(-5, 0.5, 5, 5, 0.5, 5, -5, -0.5, 5, 5, 0.5, 5, 5, -0.5, 5, -5, -0.5, 5, 5, 0.5, -5, -5, 0.5, -5, 5, -0.5, -5, -5, 0.5, -5, -5, -0.5, -5, 5, -0.5, -5, 5, 0.5, 5, 5, 0.5, -5, 5, -0.5, 5, 5, 0.5, -5, 5, -0.5, -5, 5, -0.5, 5, -5, 0.5, -5, -5, 0.5, 5, -5, -0.5, -5, -5, 0.5, 5, -5, -0.5, 5, -5, -0.5, -5, 5, 0.5, 5, -5, 0.5, 5, 5, 0.5, -5, -5, 0.5, 5, -5, 0.5, -5, 5, 0.5, -5, -5, -0.5, 5, 5, -0.5, 5, -5, -0.5, -5, 5, -0.5, 5, 5, -0.5, -5, -5, -0.5, -5)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_qdt0t"]
-render_priority = 0
-shader = ExtResource("56_nfwl6")
-shader_parameter/is_enabled = false
-shader_parameter/reveal_band = 30.0
-shader_parameter/emissive = false
-shader_parameter/albedo = SubResource("GradientTexture1D_0vx71")
-shader_parameter/normal = SubResource("CompressedTexture2D_2e7mr")
-shader_parameter/sphere_data_length = 0
-shader_parameter/sphere_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-shader_parameter/sphere_attributes_data = PackedVector4Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jeye1"]
 load_path = "res://.godot/imported/squid_legs_albedo.png-4b5f1f2a482c4ac926f61795ade46c29.s3tc.ctex"
@@ -831,7 +813,7 @@ script = ExtResource("3_ouvd7")
 script = ExtResource("3_ouvd7")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtcds"]
-size = Vector3(26.689514, 10.178833, 17.998291)
+size = Vector3(28.729645, 10.178833, 19.660934)
 
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("shader_mesh", "cutscene_camera")]
 script = ExtResource("1_rlbrl")
@@ -1067,6 +1049,8 @@ offset_right = 1137.0
 offset_bottom = 562.0
 theme_override_font_sizes/font_size = 32
 text = "Warp Gate"
+script = ExtResource("9_38wbt")
+zone = "gate"
 
 [node name="WarpMaze" type="Button" parent="UI/PauseMenu/Debug/Warp" unique_id=1335111361]
 layout_mode = 0
@@ -1128,6 +1112,7 @@ offset_bottom = 285.0
 theme_override_font_sizes/font_size = 32
 text = "Hampter"
 script = ExtResource("10_7accx")
+ending = "2"
 
 [node name="BackroomsEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=1347764053]
 layout_mode = 0
@@ -1615,7 +1600,7 @@ x_offset = -10.0
 maus = NodePath("../MausManager")
 
 [node name="node" type="Node3D" parent="Graveyard Area/coffins" unique_id=174031810]
-transform = Transform3D(0.9230768, 0, 2.5393698e-08, 0, 0.9230768, 0, -2.5393698e-08, 0, 0.9230768, 35.99646, -22.537657, 30.901329)
+transform = Transform3D(-0.9230768, 0, 5.5304234e-08, 0, 0.9230768, 0, -5.5304234e-08, 0, -0.9230768, 43.56095, -22.421036, 30.255592)
 
 [node name="Lights" type="Node" parent="Graveyard Area" unique_id=1455433081]
 
@@ -1973,6 +1958,11 @@ top_area = NodePath("../Top/Area3D")
 middle_area = NodePath("../Middle/Area3D")
 bottom_area = NodePath("../Bottom/Area3D")
 lock_area = NodePath("../LockArea")
+
+[node name="GateZone" type="Node3D" parent="Gate Area" unique_id=1954107891]
+transform = Transform3D(-1.6863158, 0, -1.4742241e-07, -4.440892e-16, 1.6863163, -1.4901161e-08, 1.4742247e-07, -1.4901161e-08, -1.6863163, 27.899414, 9.404147, -3.2192688)
+script = ExtResource("55_qy0se")
+zone = "gate"
 
 [node name="Gate L" parent="Gate Area" unique_id=797412355 instance=ExtResource("8_31cwg")]
 transform = Transform3D(-1.6863158, 0, -1.4742241e-07, 0, 1.6863158, 0, 1.4742241e-07, 0, -1.6863158, 14.190277, -3.979537, 13.318966)
@@ -2381,325 +2371,22 @@ shape = SubResource("ConcavePolygonShape3D_umj4y")
 [node name="HiddenWall_00" parent="Maze Area/Maze2" index="1" unique_id=708908506]
 material_override = SubResource("ShaderMaterial_umj4y")
 script = ExtResource("48_umj4y")
+reveal_distance = 40.0
 
 [node name="HiddenWall_01" parent="Maze Area/Maze2" index="2" unique_id=770075605]
 material_override = SubResource("ShaderMaterial_vstgb")
 script = ExtResource("48_umj4y")
+reveal_distance = 40.0
 
 [node name="HiddenWall_02" parent="Maze Area/Maze2" index="3" unique_id=583477805]
 material_override = SubResource("ShaderMaterial_vstgb")
 script = ExtResource("48_umj4y")
+reveal_distance = 40.0
 
 [node name="HiddenWall_03" parent="Maze Area/Maze2" index="4" unique_id=759489041]
 material_override = SubResource("ShaderMaterial_vstgb")
 script = ExtResource("48_umj4y")
-
-[node name="Step" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1300674529]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.8149624, -0.06592846, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step" unique_id=2070023270]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step/StaticBody3D" unique_id=611748676]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step11" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=575530656]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -3.0920506, -0.22861958, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step11" unique_id=1371208111]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step11/StaticBody3D" unique_id=370035128]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step25" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1830931634]
-transform = Transform3D(-4.371137e-08, -1, 1.3113416e-07, 1, -4.371139e-08, -1.3113424e-07, 1.3113424e-07, 1.3113416e-07, 1, -5.238991, 1.7133207, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("CylinderMesh_ouvd7")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="Step12" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=939473767]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -3.3319073, -0.40144157, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step12" unique_id=1253889500]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step12/StaticBody3D" unique_id=1794669334]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step2" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=503975892]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.5061016, 0.14781857, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step2" unique_id=1186769911]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step2/StaticBody3D" unique_id=403669849]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step3" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=819274486]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.207775, 0.30120468, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step3" unique_id=505002311]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step3/StaticBody3D" unique_id=1513640188]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step4" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=752295475]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.8784981, 0.5010891, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step4" unique_id=853641383]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step4/StaticBody3D" unique_id=274249238]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step5" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=72347278]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.5274429, 0.695179, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step5" unique_id=2088184798]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step5/StaticBody3D" unique_id=1514518107]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step19" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1046335859]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.3605843, 0.79837894, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step19" unique_id=711083481]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step19/StaticBody3D" unique_id=961510607]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step20" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1201971851]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.7173672, 0.5953274, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step20" unique_id=1672251155]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step20/StaticBody3D" unique_id=1949053197]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step21" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=947809100]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.0363808, 0.39688396, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step21" unique_id=1969540266]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step21/StaticBody3D" unique_id=559660282]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step22" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1547804209]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.3620682, 0.17157555, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step22" unique_id=123307893]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step22/StaticBody3D" unique_id=1288520700]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step23" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=886981460]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.6278057, 0.0071172714, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step23" unique_id=686815871]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step23/StaticBody3D" unique_id=1820638829]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step24" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1750968123]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -2.6278057, 0.0071172714, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step24" unique_id=898727563]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step24/StaticBody3D" unique_id=1016716918]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step6" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=669918467]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.2455425, 0.90801525, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step6" unique_id=369048528]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step6/StaticBody3D" unique_id=1313182452]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step7" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=2121910690]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -1.022543, 1.0193119, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step7" unique_id=1003993481]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step7/StaticBody3D" unique_id=955302527]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step17" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1375295239]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.8644638, 1.1329937, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step17" unique_id=1207079637]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step17/StaticBody3D" unique_id=1014026672]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step8" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1195138959]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.72366905, 1.2502079, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step8" unique_id=1006307167]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step8/StaticBody3D" unique_id=1147199699]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step18" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1254941774]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.6353035, 1.3410506, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step18" unique_id=1431478223]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step18/StaticBody3D" unique_id=512689566]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step9" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1316188626]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.56009674, 1.4102545, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step9" unique_id=1363326437]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step9/StaticBody3D" unique_id=487481445]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step10" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=7630890]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.40607262, 1.5114431, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step10" unique_id=1829741801]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step10/StaticBody3D" unique_id=193904342]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step13" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1696584616]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.25037766, 1.5872793, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step13" unique_id=1851109926]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step13/StaticBody3D" unique_id=2012252370]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step14" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1933081278]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, -0.094371796, 1.6390357, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step14" unique_id=136565967]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step14/StaticBody3D" unique_id=1663830399]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step15" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=281134300]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, 0.05442238, 1.724546, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step15" unique_id=304875761]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step15/StaticBody3D" unique_id=973501140]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step16" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=1768117967]
-transform = Transform3D(1, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 1, 0.20163155, 1.7866788, 14.167587)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 100.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step16" unique_id=1846418526]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step16/StaticBody3D" unique_id=1347963234]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
-
-[node name="Step26" type="MeshInstance3D" parent="Maze Area/Maze2" unique_id=830019160]
-transform = Transform3D(3.213706, 0, -8.526513e-14, 0, 1, 0, 3.410605e-13, 0, 0.99999976, -5.1697636, 1.8689113, 11.198296)
-material_override = SubResource("ShaderMaterial_udiat")
-mesh = SubResource("BoxMesh_udiat")
-script = ExtResource("48_umj4y")
-reveal_distance = 25.0
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Step26" unique_id=1736267375]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Step26/StaticBody3D" unique_id=448743633]
-shape = SubResource("ConcavePolygonShape3D_mjaoi")
+reveal_distance = 40.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Maze Area/Maze2" unique_id=356274180]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.925761, 0)
@@ -2710,6 +2397,315 @@ omni_range = 45.5782
 transform = Transform3D(1, 0, -2.4868994e-14, 0, 1, 0, 2.4868994e-14, 0, 1, -5.338377, 5.5152125, 11.985222)
 light_energy = 10.6
 omni_range = 45.5782
+
+[node name="Node" type="Node" parent="Maze Area/Maze2" unique_id=771960706]
+
+[node name="Step" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1300674529]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -30.471205, -77.50023)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step" unique_id=2070023270]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step/StaticBody3D" unique_id=611748676]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step11" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=575530656]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -31.040625, -76.53042)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step11" unique_id=1371208111]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step11/StaticBody3D" unique_id=370035128]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step25" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1830931634]
+transform = Transform3D(4.5896982e-07, -5.684342e-14, 3.5, 3.5, -1.5298986e-07, -4.5896985e-07, 1.5298986e-07, 3.5, 5.684342e-14, 180.7575, -24.243834, -69.01613)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("CylinderMesh_ouvd7")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="Step12" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=939473767]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -31.6455, -75.69092)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step12" unique_id=1253889500]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step12/StaticBody3D" unique_id=1794669334]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step2" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=503975892]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -29.723091, -78.58124)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step2" unique_id=1186769911]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step2/StaticBody3D" unique_id=403669849]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step3" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=819274486]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -29.18624, -79.62538)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step3" unique_id=505002311]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step3/StaticBody3D" unique_id=1513640188]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step4" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=752295475]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -28.486645, -80.77785)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step4" unique_id=853641383]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step4/StaticBody3D" unique_id=274249238]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step5" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=72347278]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -27.80733, -82.006546)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step5" unique_id=2088184798]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step5/StaticBody3D" unique_id=1514518107]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step19" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1046335859]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -27.446129, -82.590546)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step19" unique_id=711083481]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step19/StaticBody3D" unique_id=961510607]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step20" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1201971851]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -28.15681, -81.34181)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step20" unique_id=1672251155]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step20/StaticBody3D" unique_id=1949053197]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step21" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=947809100]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -28.851362, -80.22526)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step21" unique_id=1969540266]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step21/StaticBody3D" unique_id=559660282]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step22" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1547804209]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -29.639942, -79.08536)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step22" unique_id=123307893]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step22/StaticBody3D" unique_id=1288520700]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step23" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=886981460]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -30.215546, -78.15527)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step23" unique_id=686815871]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step23/StaticBody3D" unique_id=1820638829]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step24" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1750968123]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -30.215546, -78.15527)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step24" unique_id=898727563]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step24/StaticBody3D" unique_id=1016716918]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step6" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=669918467]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -27.062403, -82.993195)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step6" unique_id=369048528]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step6/StaticBody3D" unique_id=1313182452]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step7" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=2121910690]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -26.672863, -83.7737)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step7" unique_id=1003993481]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step7/StaticBody3D" unique_id=955302527]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step17" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1375295239]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -26.274979, -84.32697)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step17" unique_id=1207079637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step17/StaticBody3D" unique_id=1014026672]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step8" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1195138959]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -25.864727, -84.819756)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step8" unique_id=1006307167]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step8/StaticBody3D" unique_id=1147199699]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step18" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1254941774]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -25.54678, -85.12903)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step18" unique_id=1431478223]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step18/StaticBody3D" unique_id=512689566]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step9" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1316188626]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -25.304565, -85.39226)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step9" unique_id=1363326437]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step9/StaticBody3D" unique_id=487481445]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step10" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=7630890]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -24.950405, -85.93134)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step10" unique_id=1829741801]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step10/StaticBody3D" unique_id=193904342]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step13" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1696584616]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -24.684978, -86.47627)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step13" unique_id=1851109926]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step13/StaticBody3D" unique_id=2012252370]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step14" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1933081278]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -24.50383, -87.02229)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step14" unique_id=136565967]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step14/StaticBody3D" unique_id=1663830399]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step15" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=281134300]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -24.204544, -87.543076)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step15" unique_id=304875761]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step15/StaticBody3D" unique_id=973501140]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step16" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=1768117967]
+transform = Transform3D(4.589699e-07, 0, 3.5, 0, 3.5, 0, -3.5, 0, 4.589699e-07, 180.7575, -23.98708, -88.058304)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 100.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step16" unique_id=1846418526]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step16/StaticBody3D" unique_id=1347963234]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
+
+[node name="Step26" type="MeshInstance3D" parent="Maze Area/Maze2/Node" unique_id=830019160]
+transform = Transform3D(1.4749946e-06, 0, 3.499999, 0, 3.5, 0, -11.247971, 0, 4.589698e-07, 170.36499, -23.699266, -69.25842)
+material_override = SubResource("ShaderMaterial_udiat")
+mesh = SubResource("BoxMesh_udiat")
+script = ExtResource("48_umj4y")
+reveal_distance = 25.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Maze Area/Maze2/Node/Step26" unique_id=1736267375]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maze Area/Maze2/Node/Step26/StaticBody3D" unique_id=448743633]
+shape = SubResource("ConcavePolygonShape3D_mjaoi")
 
 [node name="WarpZone_Maze" type="Node3D" parent="Maze Area" unique_id=646929566]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.314037, 1.5861425, -3.5814953)
@@ -2756,110 +2752,126 @@ shape = SubResource("ConcavePolygonShape3D_fjl1l")
 
 [node name="Puzzle Cubes" type="Node" parent="Arena" unique_id=750716720]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1141608226]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -100.96168, -7.5554886, 157.33965)
-material_override = SubResource("ShaderMaterial_76mu1")
+[node name="Key2" parent="Arena/Puzzle Cubes" unique_id=358746100 instance=ExtResource("22_myl5m")]
+transform = Transform3D(9.885048, -0.11162592, -1.5077779, 0.15990722, 9.993965, 0.30847085, 1.5034261, -0.32903537, 9.880868, -124.98259, 61.8947, 154.15025)
+
+[node name="Platform" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1695785969]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -105.78175, -12.026, 167.44217)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 72
 note_source = "piano"
-duration_in_seconds = 1.5
-offset = Vector3(0, -20, 0)
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D" unique_id=508923386]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D/StaticBody3D" unique_id=1982297058]
-shape = SubResource("ConcavePolygonShape3D_dbdwf")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1326592670]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -91.41507, -6.4332795, 153.73766)
-material_override = SubResource("ShaderMaterial_76mu1")
-mesh = SubResource("BoxMesh_cr2ap")
-script = ExtResource("59_0vx71")
-note_number = 67
-note_source = "piano"
-duration_in_seconds = 1.5
+duration_in_seconds = 0.5
 offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D2" unique_id=1078380468]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform" unique_id=573093569]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D2/StaticBody3D" unique_id=2042601202]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform/StaticBody3D" unique_id=157875874]
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=2134931646]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -94.27176, -5.6285086, 144.20694)
-material_override = SubResource("ShaderMaterial_76mu1")
+[node name="Platform2" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=879806885]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -96.03514, -3.3651915, 168.91087)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 75
+note_idx = 1
 note_source = "piano"
-duration_in_seconds = 1.5
-offset = Vector3(0, -20, 0)
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D3" unique_id=953711685]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform2" unique_id=288583173]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D3/StaticBody3D" unique_id=1279927287]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform2/StaticBody3D" unique_id=342963662]
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=371973282]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -100.98612, -4.694058, 136.03642)
-material_override = SubResource("ShaderMaterial_76mu1")
+[node name="Platform3" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=508379934]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -94.28841, 4.4296093, 158.33165)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 66
+note_idx = 2
 note_source = "piano"
-duration_in_seconds = 1.5
-offset = Vector3(-80, 0, 0)
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D4" unique_id=1477379511]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform3" unique_id=124858045]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D4/StaticBody3D" unique_id=2066529349]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform3/StaticBody3D" unique_id=1504990389]
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=1409107633]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -110.663345, -3.9616578, 138.41386)
-material_override = SubResource("ShaderMaterial_76mu1")
+[node name="Platform4" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=2126495154]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -92.554405, 12.475023, 147.80006)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 65
+note_idx = 3
 note_source = "piano"
-duration_in_seconds = 1.5
-offset = Vector3(-80, 0, 0)
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D5" unique_id=1208589253]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform4" unique_id=1898373888]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D5/StaticBody3D" unique_id=2017046343]
-shape = SubResource("ConcavePolygonShape3D_tqruv")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform4/StaticBody3D" unique_id=746563824]
+shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=888023081]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -119.25169, -3.1164505, 145.0599)
-material_override = SubResource("ShaderMaterial_76mu1")
+[node name="Platform5" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=604505418]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -102.83329, 20.370117, 145.72441)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 63
+note_idx = 4
 note_source = "piano"
-duration_in_seconds = 1.5
-offset = Vector3(-80, 0, -80)
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D6" unique_id=1480985594]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform5" unique_id=754094399]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D6/StaticBody3D" unique_id=677597400]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.453951, 0.35635152, 3.1199306e-08)
-shape = SubResource("ConcavePolygonShape3D_81jqh")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform5/StaticBody3D" unique_id=1704217490]
+shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=86695701]
-transform = Transform3D(-0.93153507, -0.011162589, -0.36347997, 0.0015679048, 0.99939615, -0.03471005, 0.36364797, -0.03290353, -0.9309551, -111.31974, -2.8040266, 152.85805)
-material_override = SubResource("ShaderMaterial_qdt0t")
+[node name="Platform6" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=410280512]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -113.19065, 28.399574, 143.63062)
+material_override = SubResource("ShaderMaterial_26i3a")
 mesh = SubResource("BoxMesh_cr2ap")
 script = ExtResource("59_0vx71")
-note_number = 24
+note_idx = 5
 note_source = "piano"
-duration_in_seconds = 3.0
-target_position = Vector3(-111.51445, 9.732074, 157.03514)
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/MeshInstance3D8" unique_id=396509027]
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform6" unique_id=722121522]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/MeshInstance3D8/StaticBody3D" unique_id=685763884]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform6/StaticBody3D" unique_id=471574932]
+shape = SubResource("ConcavePolygonShape3D_dbdwf")
+
+[node name="Platform7" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=997192178]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -123.48992, 37.23523, 137.71896)
+material_override = SubResource("ShaderMaterial_26i3a")
+mesh = SubResource("BoxMesh_cr2ap")
+script = ExtResource("59_0vx71")
+note_idx = 6
+note_source = "piano"
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform7" unique_id=814555671]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform7/StaticBody3D" unique_id=1311150574]
+shape = SubResource("ConcavePolygonShape3D_dbdwf")
+
+[node name="Platform8" type="MeshInstance3D" parent="Arena/Puzzle Cubes" unique_id=144943412]
+transform = Transform3D(-0.9844463, -0.011162591, 0.17533068, -0.016753422, 0.99939615, -0.030439585, -0.17488502, -0.03290353, -0.98403883, -125.03329, 46.024048, 151.68591)
+material_override = SubResource("ShaderMaterial_26i3a")
+mesh = SubResource("BoxMesh_cr2ap")
+script = ExtResource("59_0vx71")
+note_idx = 7
+note_source = "piano"
+duration_in_seconds = 0.5
+offset = Vector3(0, 10, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Arena/Puzzle Cubes/Platform8" unique_id=1191685512]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Arena/Puzzle Cubes/Platform8/StaticBody3D" unique_id=503511830]
 shape = SubResource("ConcavePolygonShape3D_dbdwf")
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Arena" unique_id=276391544]
@@ -2930,9 +2942,6 @@ zone = "arena"
 
 [node name="Piano" parent="Arena" unique_id=145434344 instance=ExtResource("37_fjl1l")]
 transform = Transform3D(-0.42025688, 0, 0.2426355, 0, 0.48527083, 0, -0.24263547, 0, -0.42025694, 36.925323, 14.065784, -11.154541)
-
-[node name="Key2" parent="Arena" unique_id=358746100 instance=ExtResource("22_myl5m")]
-transform = Transform3D(-8.661302, 0, 4.998189, -4.0978193e-08, 10.000003, -1.1920929e-07, -4.9981885, -2.9802322e-08, -8.661304, 40.31857, 36.733162, -5.819927)
 
 [node name="Collectables" type="Node" parent="." unique_id=1015635706]
 
@@ -3243,22 +3252,18 @@ priority = 14
 tween_resource = SubResource("Resource_2e7mr")
 metadata/_custom_type_script = "uid://csjccrhj5wnx7"
 
-[node name="EndArea2" type="Area3D" parent="." unique_id=1854641964]
+[node name="EndArea" type="Area3D" parent="." unique_id=1854641964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -191.76982, 4.026125, 12.771522)
+collision_layer = 7
+collision_mask = 3
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="EndArea2" unique_id=45984273]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.669678, 5.0632076, 3.1701899)
-stream = ExtResource("49_6soou")
-volume_db = -20.0
-script = ExtResource("50_igm46")
-bpm = 136.0
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea2" unique_id=1541562896]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.275299, 4.5894165, 2.1256104)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea" unique_id=1541562896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2552338, 4.5894165, 1.8284378)
 shape = SubResource("BoxShape3D_mtcds")
 
 [connection signal="body_entered" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_entered"]
 [connection signal="body_exited" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_exited"]
+[connection signal="body_entered" from="EndArea" to="." method="_on_end_area_body_entered"]
 
 [editable path="Pawn/Interpolated Camera/Arm/Arm Anchor/handBell2"]
 [editable path="Eye"]

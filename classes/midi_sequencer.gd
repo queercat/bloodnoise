@@ -12,11 +12,13 @@ var is_cranking: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	var idx = 0
 	for line in data.split("\n"):
 		var row = line.split(",")
 		var time = row[0]
 		var key = row[1]
-		times.append([float(time), int(key)])
+		times.append([float(time), int(key), idx])
+		idx += 1
 		
 	animation_player.play("Crank Dat")
 	animation_player.speed_scale = 0
@@ -31,7 +33,7 @@ func crank_dat():
 	stream.finished.connect(handle_finished)
 
 func handle_finished():
-	GameManager.midi_note("piano_reset", -1)
+	GameManager.midi_note("piano_reset", -1, -1)
 	animation_player.speed_scale = 0
 	is_cranking = false
 	burned_times = []
@@ -40,8 +42,8 @@ func handle_finished():
 func get_playable_positions():
 	return times.filter(func (v): return v[0] not in burned_times)
 
-func trigger(time, key):
-	GameManager.midi_note("piano", key)
+func trigger(time, key, index):
+	GameManager.midi_note("piano", key, index)
 	GameManager.spawn_sound_sphere(stream.global_position, 50, Color.PURPLE, 200)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -52,7 +54,7 @@ func _process(delta: float) -> void:
 		
 		for time_marker in positions:
 			if time_marker[0] <= current_time:
-				trigger(time_marker[0], time_marker[1])
+				trigger(time_marker[0], time_marker[1], time_marker[2])
 				burned_times.append(time_marker[0])
 
 

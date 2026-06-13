@@ -92,7 +92,7 @@ func _friction(delta: float, strength: float) -> void:
 
 # Applies a jump force to the player.
 func _jump(delta: float) -> void:
-	print("jump!")
+	# print("jump!")
 	# Apply the jump impulse
 	Body.velocity.y = sqrt(2 * Parameters.GRAVITY * Parameters.JUMP_HEIGHT)
 	

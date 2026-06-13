@@ -132,7 +132,7 @@ func _check_for_step() -> void:
 		var normal := collision.get_normal()
 		
 		if is_on_floor() and normal.y < 0.7:
-			print("stair step")
+			# print("stair step")
 			_move_step(normal)
 
 # Deforms step trace info based on wall proximity

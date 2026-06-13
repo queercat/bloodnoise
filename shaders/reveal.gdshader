@@ -6,6 +6,7 @@ varying vec3 world_vertex;
 uniform int sphere_data_length;
 uniform vec4 sphere_data[64];
 uniform vec4 sphere_attributes_data[64];
+uniform float reveal_distance: hint_range(0.0, 40.0, 0.1) = 40.; 
 
 void vertex() {
 	world_vertex = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
@@ -27,7 +28,7 @@ void fragment() {
 		
 		float dist = length(sphere_datum.xyz - world_vertex);
 		dist += rand_value;
-		alpha -= dist <= sphere_datum.w && dist <= 10. ? 1. : 0.;
+		alpha -= dist <= sphere_datum.w && dist <= reveal_distance ? 1. : 0.;
 	}
 
 	// sampling some noise instead of 0.5 may look better

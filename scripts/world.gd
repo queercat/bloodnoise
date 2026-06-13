@@ -13,24 +13,23 @@ var locks_unlocked = 0
 var total_locks = 4
 
 func hampter_end():
-	if is_ending:
-		return
+	var node = GameManager.spawn_global_noise(preload("res://audio/bad_end/the_hampsterdance_song.mp3"), 1, "Music", 1, self)
 	
-	is_ending = true
+	node.set_script(preload("res://scripts/bpm_emitter.gd"))
+	node.bpm = 136
+	node.target = GameManager.player_manager.body
+	node.set_process(true)
 	
 	uber_shader.set_shader_parameter("enable_party_mode", true)
 	uber_shader.set_shader_parameter("enable_wave", true)
-	GameManager.CheatedBadEnd.emit()
 	
 	await get_tree().create_timer(15).timeout
 	
-	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
-	
+	node.stop()
 	uber_shader.set_shader_parameter("enable_party_mode", false)
 	uber_shader.set_shader_parameter("enable_wave", false)
 
 func bad_end():
-	if is_ending: return
 	bad_end_camera.make_current()
 	bad_end_camera.shake_intensity = 1
 	eye.target = bad_end_camera
@@ -39,12 +38,21 @@ func bad_end():
 	await t.finished
 
 func do_ending(ending_name: Types.GameEnding):
+	if is_ending:
+		return
+
+	is_ending = true
+	
 	match ending_name:
 		Types.GameEnding.GOOD:
+			GameManager.endings_seen[Types.GameEnding.GOOD] = true
 			await good_end()
 		Types.GameEnding.BAD:
+			GameManager.endings_seen[Types.GameEnding.BAD] = true
 			await bad_end()
-	is_ending = true
+		Types.GameEnding.HAMPTER:
+			GameManager.endings_seen[Types.GameEnding.HAMPTER] = true
+			await hampter_end()
 	
 	GameManager.endings_seen[ending_name] = true
 	get_tree().change_scene_to_packed(end_scene)
@@ -102,3 +110,10 @@ func end_cutscene():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_end_area_body_entered(body: Node3D) -> void:
+	var parent = body.get_parent()
+	if parent and parent.name == "Pawn":
+		if locks_unlocked < total_locks:
+			do_ending(Types.GameEnding.HAMPTER)

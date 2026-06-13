@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dp4xqgxb6ifmc" path="res://models/Piano.blend" id="1_fjbyj"]
 [ext_resource type="Script" uid="uid://bgtwknyynif1e" path="res://classes/midi_sequencer.gd" id="3_5hsnw"]
 [ext_resource type="Script" uid="uid://dtanse4mdwtp3" path="res://scripts/piano_interaction.gd" id="3_r4lml"]
-[ext_resource type="AudioStream" uid="uid://6vpmn3dsyp7b" path="res://audio/piano/penis.wav" id="4_r4lml"]
+[ext_resource type="AudioStream" uid="uid://bkuarbqrwcrpm" path="res://audio/noise/church.mp3" id="4_r4lml"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_r4lml"]
 radius = 10.635
@@ -27,13 +27,14 @@ script = ExtResource("3_5hsnw")
 stream = NodePath("../AudioStreamPlayer3D")
 interactable = NodePath("CrankInteraction")
 animation_player = NodePath("../AnimationPlayer")
-data = "0.8999999999999999,72
-1.7249999999999999,67
-2.375,75
-3.1999999999999997,66
-4.1625,65
-5.1,63
-6.75,24"
+data = "1.0,88
+2.0,92
+2.9895833333333335,90
+4.0,83
+6.0,83
+6.989583333333333,90
+7.989583333333333,92
+9.0,88"
 
 [node name="CrankInteraction" type="Node" parent="Manager" index="0" unique_id=1905426869]
 script = ExtResource("3_r4lml")
@@ -46,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5447514, 0, 3.4255924)
 shape = SubResource("SphereShape3D_r4lml")
 
 [node name="Crank" parent="." index="2" unique_id=344111270]
-transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 0.5438242)
+transform = Transform3D(2.440154, 0, 0, 0, 2.440154, 0, 0, 0, 2.440154, -3.1738663, 1.7163719, 4.750014)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Crank" index="0" unique_id=637139083]
 

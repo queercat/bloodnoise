@@ -18,7 +18,6 @@ var x_sensitivty: float = 1
 
 
 var sound_sphere_prefab = preload("res://prefabs/sound_sphere.tscn")
-var is_ending = false
 var world
 
 signal LockUnlocked(name: String)
@@ -29,7 +28,7 @@ signal BellGrabbed()
 signal VolumeChanged(volume: float)
 signal StartCutscene()
 signal StopCutscene()
-signal MidiNote(emitter, key)
+signal MidiNote(emitter, key, idx)
 signal SetWorldPasscode(passcode)
 
 var warp_zones = {}
@@ -52,9 +51,8 @@ func warp_to(zone):
 func set_world_passcode(passcode):
 	SetWorldPasscode.emit(passcode)
 
-func midi_note(emitter, key):
-	print(key)
-	MidiNote.emit(emitter, key)
+func midi_note(emitter, key, idx):
+	MidiNote.emit(emitter, key, idx)
 
 func start_cutscene():
 	StartCutscene.emit()
@@ -103,17 +101,19 @@ func init_material(material):
 	material.set_shader_parameter("enable_party_mode", false)
 	material.set_shader_parameter("enable_wave", false)
 
-func spawn_global_noise(stream: AudioStream, pitch = 1, bus = "Sound Effect", db_modifier: float = 1):
+func spawn_global_noise(stream: AudioStream, pitch = 1, bus = "Sound Effect", db_modifier: float = 1, parent = self) -> AudioStreamPlayer:
 	var node: AudioStreamPlayer = AudioStreamPlayer.new()
 	node.stream = stream
 	node.pitch_scale = pitch
 	node.bus = bus
 	node.volume_linear *= db_modifier
 	
-	add_child(node)
+	parent.add_child(node)
 	node.play()
+	
+	return node
 
-func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus = "Sound Effect", db_modifier: float = 1, max_distance = 75):
+func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus = "Sound Effect", db_modifier: float = 1, max_distance = 75) -> AudioStreamPlayer3D:
 	var node = AudioStreamPlayer3D.new()
 	node.stream = stream
 	node.position = position
@@ -127,6 +127,8 @@ func spawn_noise(stream: AudioStream, position: Vector3, parent, pitch = 1, bus 
 	
 	parent.add_child(node)
 	node.play()
+	
+	return node
 
 func generate_sphere_data():
 	sphere_data.clear()
