@@ -3,25 +3,45 @@
 [ext_resource type="Script" uid="uid://bglhyjd0rqtqg" path="res://scripts/start_screen.gd" id="1_o7i0r"]
 [ext_resource type="PackedScene" uid="uid://cnaecav7atlvb" path="res://models/churchBaked2.0.blend" id="1_tx5wa"]
 [ext_resource type="Texture2D" uid="uid://c4jr4m82xdph2" path="res://textures/sky/blood-2.png" id="2_he1sj"]
+[ext_resource type="Texture2D" uid="uid://dpv5wshuqgc64" path="res://sprites/tattered-atlas-1x.png" id="4_pcj7n"]
 [ext_resource type="PackedScene" uid="uid://wjc6ynk8m2n5" path="res://scenes/settings_menu.tscn" id="5_ka6nf"]
 [ext_resource type="Shader" uid="uid://cpfel2sbdyvtw" path="res://shaders/dither.gdshader" id="5_o30b1"]
-[ext_resource type="Texture2D" uid="uid://xl3gdbttogv2" path="res://sprites/pallette_may.png" id="6_o30b1"]
 [ext_resource type="Texture2D" uid="uid://bx5irh1kr5g21" path="res://sprites/bayer8tile4.png" id="7_ka6nf"]
 [ext_resource type="PackedScene" uid="uid://dl77favi04yj8" path="res://models/Entity2.blend" id="7_o30b1"]
+[ext_resource type="Shader" uid="uid://c28imv7d856vq" path="res://shaders/noisy.gdshader" id="7_pcj7n"]
+[ext_resource type="Texture2D" uid="uid://bwtlejqri0mcw" path="res://sprites/logo_full.png" id="7_qls88"]
 [ext_resource type="PackedScene" uid="uid://c6hr5lr5yy6bg" path="res://scenes/intro.tscn" id="9_ws7p0"]
+[ext_resource type="AudioStream" uid="uid://deg8h1s2xof0k" path="res://audio/noise/plumbawumba.wav" id="10_ecdxc"]
+[ext_resource type="Shader" uid="uid://b3t222u1psveu" path="res://shaders/noisy2.gdshader" id="13_bdg0b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hm208"]
 render_priority = 0
 shader = ExtResource("5_o30b1")
 shader_parameter/u_dither_tex = ExtResource("7_ka6nf")
-shader_parameter/u_color_tex = ExtResource("6_o30b1")
-shader_parameter/u_bit_depth = 12
-shader_parameter/u_contrast = 0.335
-shader_parameter/u_offset = 1.38
+shader_parameter/u_color_tex = ExtResource("4_pcj7n")
+shader_parameter/u_bit_depth = 30
+shader_parameter/u_contrast = 0.065
+shader_parameter/u_offset = 2.535
 shader_parameter/u_dither_size = 1
+shader_parameter/grayscale = 0.0
+shader_parameter/hue_shift = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_5pab1"]
 size = Vector3(2, 2, 2)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pcj7n"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bdg0b"]
+noise = SubResource("FastNoiseLite_pcj7n")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bdg0b"]
+shader = ExtResource("7_pcj7n")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bdg0b")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r2jwc"]
 panorama = ExtResource("2_he1sj")
@@ -47,17 +67,35 @@ fog_depth_curve = 9.849147
 fog_depth_begin = 0.0
 fog_depth_end = 20.0
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_bdg0b"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xfy2r"]
+noise = SubResource("FastNoiseLite_bdg0b")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pcj7n"]
+render_priority = 0
+shader = ExtResource("13_bdg0b")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_xfy2r")
+shader_parameter/logo = ExtResource("7_qls88")
+
+[sub_resource type="QuadMesh" id="QuadMesh_pcj7n"]
+material = SubResource("ShaderMaterial_pcj7n")
+
 [node name="StartScreen" type="Node3D" unique_id=822459782 node_paths=PackedStringArray("camera", "target", "shader_mesh")]
 script = ExtResource("1_o7i0r")
 camera = NodePath("Camera3D")
 target = NodePath("churchBaked2_0")
 shader_mesh = NodePath("Camera3D/Shader")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1238349946]
+stream = ExtResource("10_ecdxc")
+bus = &"Music"
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=267574636]
 transform = Transform3D(-0.25378582, -0.19625422, 0.9471415, -0.050794333, 0.9805531, 0.18956701, -0.9659259, -1.081633e-12, -0.25881907, 13.656771, 6.4533906, 2.1729393)
 
 [node name="Shader" type="MeshInstance3D" parent="Camera3D" unique_id=2001120792]
-transform = Transform3D(-0.25378582, -0.050794322, -0.96592575, -0.19625421, 0.98055303, -3.7252899e-09, 0.94714147, 0.18956697, -0.25881904, 5.892589, -3.647694, -13.595844)
+transform = Transform3D(-0.25378582, -0.050794315, -0.96592575, -0.19625421, 0.98055303, -3.7252899e-09, 0.94714147, 0.18956694, -0.25881904, 5.8925896, -3.6476946, -13.595843)
 material_override = SubResource("ShaderMaterial_hm208")
 mesh = SubResource("BoxMesh_5pab1")
 
@@ -108,6 +146,25 @@ size_flags_horizontal = 3
 [node name="SettingsMenu" parent="UI" unique_id=1480369154 instance=ExtResource("5_ka6nf")]
 layout_mode = 1
 
+[node name="CenterContainer" type="MarginContainer" parent="UI" unique_id=1213183391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1356.0
+offset_bottom = -886.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.686, 2)
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+
+[node name="TextureRect" type="TextureRect" parent="UI/CenterContainer" unique_id=1843962864]
+material = SubResource("ShaderMaterial_bdg0b")
+layout_mode = 2
+texture = ExtResource("7_qls88")
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1181918712]
 environment = SubResource("Environment_5pab1")
 
@@ -149,5 +206,10 @@ light_specular = 0.317
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 26.340857)
 
 [node name="Intro" parent="." unique_id=419253110 instance=ExtResource("9_ws7p0")]
+
+[node name="Hmmm" type="MeshInstance3D" parent="." unique_id=1255133279]
+transform = Transform3D(-0.08341703, 0, 0.99651474, 0, 1, 0, -0.99651474, 0, -0.08341703, 12.376624, 5.7325554, 2.0016937)
+visible = false
+mesh = SubResource("QuadMesh_pcj7n")
 
 [connection signal="pressed" from="UI/Menu/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]

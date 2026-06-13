@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "gameplay notes.md",
+                "file": "todo.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "gameplay notes"
+              "title": "todo"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "gameplay notes.md",
+                "file": "todo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for gameplay notes"
+              "title": "Backlinks for todo"
             }
           },
           {
@@ -113,12 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "gameplay notes.md",
+                "file": "todo.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from gameplay notes"
+              "title": "Outgoing links from todo"
             }
           },
           {
@@ -156,13 +156,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "gameplay notes.md",
+                "file": "todo.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of gameplay notes"
+              "title": "Outline of todo"
             }
           }
         ]
@@ -185,29 +185,29 @@
   },
   "active": "56ccad64fff75f01",
   "lastOpenFiles": [
-    "build/web/bloodnoise-web.zip",
-    "build/web/index.zip",
-    "export_presets.cfg8193301227.tmp",
+    "scenes/start_screen.tscn120633537487.tmp",
+    "scenes/start_screen.tscn120620895243.tmp",
+    "shaders/noisy.gdshader120612004751.tmp",
+    "scenes/start_screen.tscn120611986799.tmp",
+    "scenes/start_screen.tscn120609731757.tmp",
+    "shaders/noisy.gdshader120595066674.tmp",
+    "scenes/start_screen.tscn120595046902.tmp",
+    "scenes/start_screen.tscn120580981217.tmp",
+    "scenes/start_screen.tscn120570587966.tmp",
+    "scenes/start_screen.tscn120550051506.tmp",
+    "scenes/start_screen.tscn120537014125.tmp",
+    "icon.svg",
+    "gameplay notes.md",
+    "todo.md",
     "build/web/index.apple-touch-icon.png",
     "build/web/index.icon.png",
     "build/web/index.png",
-    "build/web/index.html8192974567.tmp",
-    "build/web/index.html",
-    "build/web/index.audio.position.worklet.js",
-    "build/web/index.audio.worklet.js",
-    "build/web/index.wasm",
-    "build/web/index.js",
-    "build/web/index.pck",
-    "build/web/index.pck8192248192.tmp",
     "build/web/index.512x512.png",
     "build/web/index.180x180.png",
     "build/web/index.144x144.png",
     "build/web/bloodnoise.512x512.png",
     "build/web/bloodnoise.180x180.png",
     "build/web/bloodnoise.144x144.png",
-    "build/web/bloodnoise.apple-touch-icon.png",
-    "addons/godot-mp4-player/README.md",
-    "todo.md",
-    "gameplay notes.md"
+    "addons/godot-mp4-player/README.md"
   ]
 }

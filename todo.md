@@ -9,12 +9,16 @@
 - [x] piano puzzle
 - [x] maus puzzle
 - [x] code is findable
+- [x] fix the door model
+- [ ] endings
+- [ ] fix piano puzzle
+- [ ] show maze entrance
 - [ ] ending sequence (door opening or w/e)
 - [ ] ending sequence (world blows up)
 - [ ] fix the fucking stairs
-- [ ] fix the door model
-
 # TODO (polish)
+- [ ] tooltips
+- [ ] fix timer starting for tutorial
 - [ ] music
 - [ ] sound effects
 - [ ] bell in hand model
@@ -24,6 +28,7 @@
 - [ ] fix speed bug?
 - [ ] out of bounds ending
 - [ ] fix the maze from having areas that hard lock you
+
 
 # Out of Scope
 - [ ] creature, that turns off the light, boid birds?
