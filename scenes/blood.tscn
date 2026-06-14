@@ -1014,6 +1014,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Debug" type="Control" parent="UI/PauseMenu" unique_id=626297751]
+visible = false
 layout_mode = 2
 
 [node name="Warp" type="Control" parent="UI/PauseMenu/Debug" unique_id=220914048]

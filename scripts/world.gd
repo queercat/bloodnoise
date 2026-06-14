@@ -12,6 +12,8 @@ extends Node3D
 @onready var flor = $"Flor"
 @onready var flor_intro = $"FlorStuff/FlorIntro"
 @onready var flor_song = $"FlorStuff/FlorSong"
+@onready var ambient = $"Ambient"
+@onready var songs = $"Song Manager"
 
 var uber_shader: ShaderMaterial
 var is_ending = false
@@ -44,6 +46,11 @@ func bad_end():
 	await t.finished
 
 func flor_end():
+	ambient.stop()
+	for child: AudioStreamPlayer in songs.get_children():
+		var t = get_tree().root.create_tween()
+		t.tween_property(child, "volume_linear", 0, 2)
+		
 	flor_intro.play()
 	await flor_intro.finished
 	flor_song.play()
