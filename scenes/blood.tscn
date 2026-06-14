@@ -75,6 +75,8 @@
 [ext_resource type="Script" uid="uid://bbj4mj28qoyv0" path="res://scripts/song_manager.gd" id="73_x51un"]
 [ext_resource type="AudioStream" uid="uid://cjvwkq0moe8ou" path="res://audio/ambience/ambientNoise.mp3" id="77_aue6o"]
 [ext_resource type="Shader" uid="uid://d1xgi3r6em3pe" path="res://shaders/firebawl.gdshader" id="77_kp70u"]
+[ext_resource type="AudioStream" uid="uid://cnqfnyqbteh0v" path="res://audio/flor/flor-intro.mp3" id="78_b51y4"]
+[ext_resource type="AudioStream" uid="uid://dc55u1ul70vaf" path="res://audio/flor/flor.mp3" id="79_26i3a"]
 [ext_resource type="AudioStream" uid="uid://h12imcrxaf62" path="res://audio/ambience/mainSong.mp3" id="79_kimhs"]
 [ext_resource type="Script" uid="uid://crydasgb1d3sk" path="res://scripts/look_at.gd" id="80_2e7mr"]
 
@@ -815,6 +817,9 @@ script = ExtResource("3_ouvd7")
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtcds"]
 size = Vector3(28.729645, 10.178833, 19.660934)
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_2k8rs"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
 [node name="World" type="Node3D" unique_id=1881400266 node_paths=PackedStringArray("shader_mesh", "cutscene_camera")]
 script = ExtResource("1_rlbrl")
 shader_mesh = NodePath("UI/Shader")
@@ -1009,7 +1014,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Debug" type="Control" parent="UI/PauseMenu" unique_id=626297751]
-visible = false
 layout_mode = 2
 
 [node name="Warp" type="Control" parent="UI/PauseMenu/Debug" unique_id=220914048]
@@ -1063,6 +1067,17 @@ text = "Warp Maze"
 script = ExtResource("9_38wbt")
 zone = "maze"
 
+[node name="WarpFlor" type="Button" parent="UI/PauseMenu/Debug/Warp" unique_id=645546775]
+layout_mode = 0
+offset_left = 916.0
+offset_top = 634.0
+offset_right = 1138.0
+offset_bottom = 687.0
+theme_override_font_sizes/font_size = 32
+text = "Warp Flor"
+script = ExtResource("9_38wbt")
+zone = "flor"
+
 [node name="Endings" type="Control" parent="UI/PauseMenu/Debug" unique_id=2116120400]
 anchors_preset = 0
 offset_left = -222.0
@@ -1114,7 +1129,7 @@ text = "Hampter"
 script = ExtResource("10_7accx")
 ending = "2"
 
-[node name="BackroomsEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=1347764053]
+[node name="FlorEnding" type="Button" parent="UI/PauseMenu/Debug/Endings" unique_id=1347764053]
 layout_mode = 0
 offset_left = 903.0
 offset_top = 295.0
@@ -3260,6 +3275,27 @@ collision_mask = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EndArea" unique_id=1541562896]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2552338, 4.5894165, 1.8284378)
 shape = SubResource("BoxShape3D_mtcds")
+
+[node name="FlorStuff" type="Node" parent="." unique_id=540379967]
+
+[node name="FlorIntro" type="AudioStreamPlayer" parent="FlorStuff" unique_id=1086272089]
+stream = ExtResource("78_b51y4")
+
+[node name="FlorSong" type="AudioStreamPlayer" parent="FlorStuff" unique_id=1112557377]
+stream = ExtResource("79_26i3a")
+
+[node name="Flor" type="Area3D" parent="." unique_id=1119835563]
+transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 0, -43.465816, 0)
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flor" unique_id=1814642200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05335128, 0)
+shape = SubResource("ConcavePolygonShape3D_2k8rs")
+
+[node name="FlorWarpZone" type="Node3D" parent="." unique_id=1364380778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -33.10023, 0)
+script = ExtResource("55_qy0se")
+zone = "flor"
 
 [connection signal="body_entered" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_entered"]
 [connection signal="body_exited" from="Gate Area/Gate R/ComboLock/LockArea" to="Gate Area/Gate R/ComboLock/ComboLockManager" method="_on_lock_area_body_exited"]

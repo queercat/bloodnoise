@@ -9,7 +9,6 @@ var uber_shader: ShaderMaterial
 var sphere_data = []
 var sphere_attributes_data = []
 var endings_seen = {}
-var end_screen = preload("res://scenes/end_screen.tscn")
 var start_screen = preload("res://scenes/start_screen.tscn")
 var has_seen_intro: bool = false
 var volume: float = 100

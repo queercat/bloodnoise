@@ -46,5 +46,5 @@ func _on_area_3d_area_entered(body: Node3D) -> void:
 
 func trigger_light_sequence():
 	await turn_on_light()
-	await get_tree().create_timer(light_on_duration_secs).timeout
+	await get_tree().create_timer(light_on_duration_secs, false).timeout
 	turn_off_light(fade_duration_secs)

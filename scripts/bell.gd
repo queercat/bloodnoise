@@ -12,7 +12,7 @@ func _ready() -> void:
 func do_cutscene():
 	GameManager.start_cutscene()
 	stream.play()
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(10, false).timeout
 	GameManager.stop_cutscene()
 	GameManager.world.eye.trigger()
 	

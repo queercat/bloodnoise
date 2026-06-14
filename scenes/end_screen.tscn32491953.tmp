@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://cfri8fuvh1aif"]
+
+[ext_resource type="Script" uid="uid://bkkla0prapliv" path="res://scripts/end_scene.gd" id="1_6e1uj"]
+[ext_resource type="Shader" uid="uid://blpa4m0h5tglv" path="res://shaders/end.gdshader" id="2_jc7ji"]
+[ext_resource type="Texture2D" uid="uid://6kukrwxgfteu" path="res://sprites/logo_left.png" id="3_87vmq"]
+[ext_resource type="Texture2D" uid="uid://clwmq5qmckygh" path="res://sprites/logo_right.png" id="4_g44xs"]
+[ext_resource type="AudioStream" uid="uid://cl6g7yfcs6wne" path="res://audio/end/blood.mp3" id="5_g44xs"]
+[ext_resource type="AudioStream" uid="uid://bi85au3wu7sd4" path="res://audio/end/noise.mp3" id="6_vj8vg"]
+[ext_resource type="AudioStream" uid="uid://ciex652iv22aq" path="res://audio/end/fluorescent_light_humming-_sound_effect_hd.mp3" id="7_plosh"]
+
+[sub_resource type="Gradient" id="Gradient_kq7ac"]
+offsets = PackedFloat32Array(0.38554215, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.29586652, 0.2958665, 0.2958665, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6e1uj"]
+seed = 350
+frequency = 0.0064
+fractal_gain = 1.975
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jc7ji"]
+noise = SubResource("FastNoiseLite_6e1uj")
+color_ramp = SubResource("Gradient_kq7ac")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_87vmq"]
+shader = ExtResource("2_jc7ji")
+shader_parameter/time = 0.0
+shader_parameter/glitch = 0.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_jc7ji"]
+
+[node name="EndScreen" type="Control" unique_id=303124734 node_paths=PackedStringArray("shader_texture", "background", "left_logo", "right_logo", "left_audio", "right_audio", "static_audio")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6e1uj")
+shader_texture = NodePath("Shader")
+background = NodePath("CenterContainer/Background")
+left_logo = NodePath("CenterContainer/LeftLogo")
+right_logo = NodePath("CenterContainer/RightLogo")
+left_audio = NodePath("Blood")
+right_audio = NodePath("Noise")
+static_audio = NodePath("Static")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1501341664]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="CenterContainer" unique_id=1855937983]
+layout_mode = 2
+texture = SubResource("NoiseTexture2D_jc7ji")
+
+[node name="LeftLogo" type="TextureRect" parent="CenterContainer" unique_id=125335709]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_87vmq")
+
+[node name="RightLogo" type="TextureRect" parent="CenterContainer" unique_id=1992107334]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_g44xs")
+
+[node name="Shader" type="TextureRect" parent="." unique_id=513921572]
+top_level = true
+material = SubResource("ShaderMaterial_87vmq")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_jc7ji")
+
+[node name="Blood" type="AudioStreamPlayer" parent="." unique_id=330523011]
+stream = ExtResource("5_g44xs")
+
+[node name="Noise" type="AudioStreamPlayer" parent="." unique_id=1356065761]
+stream = ExtResource("6_vj8vg")
+
+[node name="Static" type="AudioStreamPlayer" parent="." unique_id=1708520422]
+stream = ExtResource("7_plosh")

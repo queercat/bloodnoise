@@ -4,5 +4,6 @@ enum GameEnding {
 	GOOD,
 	BAD,
 	HAMPTER,
-	BACKROOMS
+	FLOR,
+	#BACKROOMS,
 }
