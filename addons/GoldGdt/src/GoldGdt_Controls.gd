@@ -52,7 +52,6 @@ func _process(delta) -> void:
 	mouse_input = Vector2.ZERO
 	
 	if gamepad_input != Vector2.ZERO:
-		print(gamepad_input)
 		View._handle_camera_input(gamepad_input)
 
 func _physics_process(delta) -> void:
@@ -61,12 +60,12 @@ func _physics_process(delta) -> void:
 	_act_on_input()
 
 func _gather_gamepad_input() -> void:
-	gamepad_input = Vector2(Input.get_joy_axis(0, 2) * GameManager.x_sensitivty, Input.get_joy_axis(0, 3) * GameManager.y_sensitivty) * .1
-	
-	if abs(gamepad_input.x) <= .01:
-		gamepad_input.x = 0
-	if abs(gamepad_input.y) <= .01:
-		gamepad_input.y = 0
+	gamepad_input = Vector2.ZERO
+
+	gamepad_input.x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	gamepad_input.y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+
+	gamepad_input *= .03
 
 func _gather_mouse_input(event: InputEventMouseMotion) -> void:
 	# Deform the mouse input to make it viewport size independent.
@@ -88,6 +87,11 @@ func _gather_input() -> void:
 	# Get input strength on the horizontal axes.
 	var ix = Input.get_action_raw_strength("pm_right") - Input.get_action_raw_strength("pm_left")
 	var iy = Input.get_action_raw_strength("pm_down") - Input.get_action_raw_strength("pm_up")
+	
+	if abs(ix) <= .2:
+		ix = 0
+	if abs(iy) <= .2:
+		iy = 0
 	
 	# Collect input.
 	movement_input = Vector2(ix, iy).normalized()
