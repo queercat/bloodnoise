@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://bnroqxvn2vlhu" path="res://addons/GoldGdt/src/GoldGdt_Move.gd" id="8_mcc26"]
 [ext_resource type="Script" uid="uid://bjvf2180jcvsb" path="res://scripts/warp_button.gd" id="9_38wbt"]
 [ext_resource type="Script" uid="uid://bweoo24e2h20g" path="res://addons/GoldGdt/src/GoldGdt_Body.gd" id="9_mdqft"]
+[ext_resource type="Script" uid="uid://bfeetce77lic3" path="res://scripts/pause_menu.gd" id="10_2e7mr"]
 [ext_resource type="Script" uid="uid://dcjbgl1lp4edu" path="res://scripts/end_button.gd" id="10_7accx"]
 [ext_resource type="Script" uid="uid://dhgvegn761f1e" path="res://addons/GoldGdt/src/GoldGdt_Camera.gd" id="10_tjbww"]
 [ext_resource type="PackedScene" uid="uid://d2urr8uwblm0n" path="res://prefabs/lock.tscn" id="11_k0bd8"]
@@ -831,138 +832,6 @@ transform = Transform3D(-4.371139e-08, -0.75937355, 0.6506549, 0, 0.6506549, 0.7
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2095310147]
 environment = SubResource("Environment_bmbh8")
 
-[node name="Debug UI" type="Control" parent="." unique_id=1349969217 node_paths=PackedStringArray("Controls", "View", "Body", "GameInfo", "ControlsInfo", "ViewInfo", "BodyInfo")]
-visible = false
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_stretch_ratio = 0.0
-mouse_filter = 2
-script = ExtResource("4_km6ap")
-Controls = NodePath("../Pawn/User Input")
-View = NodePath("../Pawn/View Control")
-Body = NodePath("../Pawn/Body")
-GameInfo = NodePath("Game/Info")
-ControlsInfo = NodePath("Controls/Info")
-ViewInfo = NodePath("View Control/Info")
-BodyInfo = NodePath("Body/Info")
-
-[node name="Game" type="Control" parent="Debug UI" unique_id=1435332169]
-anchors_preset = 0
-offset_left = 8.0
-offset_right = 48.0
-offset_bottom = 40.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Debug UI/Game" unique_id=1725057168]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-theme_override_font_sizes/font_size = 20
-text = "Game"
-
-[node name="Info" type="Label" parent="Debug UI/Game" unique_id=830928372]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 129.0
-offset_bottom = 85.0
-theme_override_font_sizes/font_size = 12
-text = "Rendering FPS: #
-Physics Tick Rate: #
-Physics Frame Time: #"
-
-[node name="Controls" type="Control" parent="Debug UI" unique_id=138899729]
-anchors_preset = 0
-offset_left = 8.0
-offset_top = 95.0
-offset_right = 48.0
-offset_bottom = 135.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Debug UI/Controls" unique_id=719866682]
-layout_mode = 0
-theme_override_font_sizes/font_size = 20
-text = "Controls"
-
-[node name="Info" type="Label" parent="Debug UI/Controls" unique_id=695028275]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 135.0
-offset_bottom = 145.0
-theme_override_font_sizes/font_size = 12
-text = "Movement Input: (#, #)
-Wish Direction: (#, #, #)
-Wish Speed: #
-Jump Pressed: ?
-Duck Pressed: ?"
-
-[node name="View Control" type="Control" parent="Debug UI" unique_id=336660957]
-anchors_preset = 0
-offset_left = 8.0
-offset_top = 232.0
-offset_right = 48.0
-offset_bottom = 272.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Debug UI/View Control" unique_id=113935992]
-layout_mode = 0
-theme_override_font_sizes/font_size = 20
-text = "View Control"
-
-[node name="Info" type="Label" parent="Debug UI/View Control" unique_id=1147552414]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 114.0
-offset_bottom = 65.0
-theme_override_font_sizes/font_size = 12
-text = "View Angles: (#, #, #)
-View Offset: #"
-
-[node name="Body" type="Control" parent="Debug UI" unique_id=466937067]
-anchors_preset = 0
-offset_left = 8.0
-offset_top = 309.0
-offset_right = 48.0
-offset_bottom = 349.0
-mouse_filter = 2
-
-[node name="Title" type="Label" parent="Debug UI/Body" unique_id=898292520]
-layout_mode = 0
-theme_override_font_sizes/font_size = 20
-text = "Body
-"
-
-[node name="Info" type="Label" parent="Debug UI/Body" unique_id=7937856]
-layout_mode = 0
-offset_top = 28.0
-offset_right = 59.0
-offset_bottom = 65.0
-theme_override_font_sizes/font_size = 12
-text = "Velocity: (#, #, #)
-Speed: # m/s (# u/s)
-Ducking: ?
-Ducked: ?"
-
-[node name="Attribution" type="RichTextLabel" parent="Debug UI" unique_id=1372029577]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = -28.0
-offset_right = 262.0
-offset_bottom = -5.0
-grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 14
-bbcode_enabled = true
-text = "GoldGdt Character Controller
-Copyright (c) 2024 ratmarrow
-"
-fit_content = true
-
 [node name="UI" type="Control" parent="." unique_id=1419727198 node_paths=PackedStringArray("interact_text", "diagetic_container", "pause_container")]
 process_mode = 3
 layout_mode = 3
@@ -1012,6 +881,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("10_2e7mr")
 
 [node name="Debug" type="Control" parent="UI/PauseMenu" unique_id=626297751]
 visible = false
@@ -1162,6 +1032,138 @@ text = "Exit"
 
 [node name="SettingsMenu" parent="UI" unique_id=1480369154 instance=ExtResource("11_yi4jm")]
 layout_mode = 1
+
+[node name="Debug UI" type="Control" parent="." unique_id=1349969217 node_paths=PackedStringArray("Controls", "View", "Body", "GameInfo", "ControlsInfo", "ViewInfo", "BodyInfo")]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_stretch_ratio = 0.0
+mouse_filter = 2
+script = ExtResource("4_km6ap")
+Controls = NodePath("../Pawn/User Input")
+View = NodePath("../Pawn/View Control")
+Body = NodePath("../Pawn/Body")
+GameInfo = NodePath("Game/Info")
+ControlsInfo = NodePath("Controls/Info")
+ViewInfo = NodePath("View Control/Info")
+BodyInfo = NodePath("Body/Info")
+
+[node name="Game" type="Control" parent="Debug UI" unique_id=1435332169]
+anchors_preset = 0
+offset_left = 8.0
+offset_right = 48.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Debug UI/Game" unique_id=1725057168]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 20
+text = "Game"
+
+[node name="Info" type="Label" parent="Debug UI/Game" unique_id=830928372]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 129.0
+offset_bottom = 85.0
+theme_override_font_sizes/font_size = 12
+text = "Rendering FPS: #
+Physics Tick Rate: #
+Physics Frame Time: #"
+
+[node name="Controls" type="Control" parent="Debug UI" unique_id=138899729]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 95.0
+offset_right = 48.0
+offset_bottom = 135.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Debug UI/Controls" unique_id=719866682]
+layout_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Controls"
+
+[node name="Info" type="Label" parent="Debug UI/Controls" unique_id=695028275]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 135.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 12
+text = "Movement Input: (#, #)
+Wish Direction: (#, #, #)
+Wish Speed: #
+Jump Pressed: ?
+Duck Pressed: ?"
+
+[node name="View Control" type="Control" parent="Debug UI" unique_id=336660957]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 232.0
+offset_right = 48.0
+offset_bottom = 272.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Debug UI/View Control" unique_id=113935992]
+layout_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "View Control"
+
+[node name="Info" type="Label" parent="Debug UI/View Control" unique_id=1147552414]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 114.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 12
+text = "View Angles: (#, #, #)
+View Offset: #"
+
+[node name="Body" type="Control" parent="Debug UI" unique_id=466937067]
+anchors_preset = 0
+offset_left = 8.0
+offset_top = 309.0
+offset_right = 48.0
+offset_bottom = 349.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Debug UI/Body" unique_id=898292520]
+layout_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Body
+"
+
+[node name="Info" type="Label" parent="Debug UI/Body" unique_id=7937856]
+layout_mode = 0
+offset_top = 28.0
+offset_right = 59.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 12
+text = "Velocity: (#, #, #)
+Speed: # m/s (# u/s)
+Ducking: ?
+Ducked: ?"
+
+[node name="Attribution" type="RichTextLabel" parent="Debug UI" unique_id=1372029577]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -28.0
+offset_right = 262.0
+offset_bottom = -5.0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 14
+bbcode_enabled = true
+text = "GoldGdt Character Controller
+Copyright (c) 2024 ratmarrow
+"
+fit_content = true
 
 [node name="Pawn" type="Node3D" parent="." unique_id=1211940215 node_paths=PackedStringArray("View", "Camera")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 119.50621, -15.477346, 112.57591)

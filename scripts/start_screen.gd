@@ -11,6 +11,7 @@ var blood = preload("res://scenes/blood.tscn")
 @onready var quit_button = $"UI/Menu/HBoxContainer/VBoxContainer/Exit"
 @onready var background_music = $"BackgroundMusic"
 @onready var endings_label = $"UI/MarginContainer/EndingsLabel"
+@onready var start_button = $"UI/Menu/HBoxContainer/VBoxContainer/Start"
 
 var shader_material: ShaderMaterial
 var time = 0
@@ -29,6 +30,7 @@ func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	quit_button.pressed.connect(GameManager.handle_quit)
 	endings_label.text = "[wave]%d / %d Endings[/wave]" % [GameManager.endings_seen.size(), Types.GameEnding.values().size()]
+	start_button.grab_focus.call_deferred()
 
 func map_mod(value: float, from_min: float, from_max: float, to_min: float, to_max: float):
 	var ratio = (value - from_min) / (from_max - from_min)

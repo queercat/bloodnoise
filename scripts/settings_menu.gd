@@ -7,10 +7,16 @@ var last_thing
 func switch_from(from):
 	from.hide()
 	self.show()
+	volume_slider.grab_focus()
 	last_thing = from
 
 func switch_back():
 	last_thing.show()
+	if last_thing.has_method("focus_me"):
+		last_thing.focus_me()
+	else:
+		if last_thing.get_parent().has_method("focus_me"):
+			last_thing.focus_me()
 	self.hide()
 	last_thing = null
 

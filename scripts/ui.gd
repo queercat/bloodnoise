@@ -45,6 +45,7 @@ func hide_interact_text():
 
 func handle_pause():
 	get_tree().paused = true
+	$"PauseMenu/PauseMenu/Continue".grab_focus()
 	pause_container.show()
 	diagetic_container.hide()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

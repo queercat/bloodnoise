@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dl77favi04yj8" path="res://models/Entity2.blend" id="7_o30b1"]
 [ext_resource type="Shader" uid="uid://c28imv7d856vq" path="res://shaders/noisy.gdshader" id="7_pcj7n"]
 [ext_resource type="Texture2D" uid="uid://bwtlejqri0mcw" path="res://sprites/logo_full.png" id="7_qls88"]
+[ext_resource type="Script" uid="uid://cfv0jodisbt1l" path="res://scripts/start_menu.gd" id="8_lt4el"]
 [ext_resource type="PackedScene" uid="uid://c6hr5lr5yy6bg" path="res://scenes/intro.tscn" id="9_ws7p0"]
 [ext_resource type="AudioStream" uid="uid://deg8h1s2xof0k" path="res://audio/noise/plumbawumba.wav" id="10_ecdxc"]
 [ext_resource type="Script" uid="uid://bxyi3gc6g1sbw" path="res://scripts/look_at_mouse.gd" id="12_xfy2r"]
@@ -30,13 +31,6 @@ shader_parameter/hue_shift = 0.0
 [sub_resource type="BoxMesh" id="BoxMesh_5pab1"]
 size = Vector3(2, 2, 2)
 
-[sub_resource type="Gradient" id="Gradient_xfy2r"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(0, 0.8965139, 0.51795954, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lt4el"]
-gradient = SubResource("Gradient_xfy2r")
-
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_pcj7n"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bdg0b"]
@@ -50,6 +44,13 @@ shader_parameter/shake_rate = 0.2
 shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="Gradient" id="Gradient_xfy2r"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0, 0.8965139, 0.51795954, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lt4el"]
+gradient = SubResource("Gradient_xfy2r")
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_r2jwc"]
 panorama = ExtResource("2_he1sj")
@@ -115,55 +116,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Menu" type="MarginContainer" parent="UI" unique_id=628412270]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Menu" unique_id=816609901]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/HBoxContainer" unique_id=950081320]
-layout_mode = 2
-size_flags_horizontal = 3
-alignment = 2
-
-[node name="Start" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=40733938]
-layout_mode = 2
-text = "New Game"
-
-[node name="Settings" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=1967527201]
-layout_mode = 2
-text = "Settings"
-
-[node name="Exit" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=839189219]
-layout_mode = 2
-text = "Quit"
-
-[node name="BoxContainer" type="BoxContainer" parent="UI/Menu/HBoxContainer" unique_id=2140990432]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SettingsMenu" parent="UI" unique_id=1480369154 instance=ExtResource("5_ka6nf")]
-layout_mode = 1
-
-[node name="Greenscreen" type="TextureRect" parent="UI" unique_id=383768380]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_lt4el")
-
 [node name="CenterContainer" type="MarginContainer" parent="UI" unique_id=1213183391]
 layout_mode = 1
 anchors_preset = 15
@@ -182,6 +134,68 @@ theme_override_constants/margin_top = 32
 material = SubResource("ShaderMaterial_bdg0b")
 layout_mode = 2
 texture = ExtResource("7_qls88")
+
+[node name="Menu" type="MarginContainer" parent="UI" unique_id=628412270]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+script = ExtResource("8_lt4el")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Menu" unique_id=816609901]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Menu/HBoxContainer" unique_id=950081320]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="Start" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=40733938]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Exit")
+focus_neighbor_top = NodePath("../Exit")
+focus_neighbor_right = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Settings")
+text = "New Game"
+
+[node name="Settings" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=1967527201]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Start")
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_right = NodePath("../Exit")
+focus_neighbor_bottom = NodePath("../Exit")
+text = "Settings"
+
+[node name="Exit" type="Button" parent="UI/Menu/HBoxContainer/VBoxContainer" unique_id=839189219]
+layout_mode = 2
+focus_neighbor_left = NodePath("../Settings")
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_right = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Start")
+text = "Quit"
+
+[node name="BoxContainer" type="BoxContainer" parent="UI/Menu/HBoxContainer" unique_id=2140990432]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SettingsMenu" parent="UI" unique_id=1480369154 instance=ExtResource("5_ka6nf")]
+layout_mode = 1
+
+[node name="Greenscreen" type="TextureRect" parent="UI" unique_id=383768380]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_lt4el")
 
 [node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1935965482]
 layout_mode = 1
